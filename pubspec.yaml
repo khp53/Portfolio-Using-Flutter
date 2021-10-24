@@ -1,0 +1,26 @@
+name: portfolio
+description: A personal portfolio of Karimul Hasan made using Flutter!.
+publish_to: 'none' 
+version: 1.0.0+1
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+dependencies:
+  cupertino_icons: ^1.0.2
+  flutter:
+    sdk: flutter
+  flutter_svg: ^0.23.0+1
+  get: ^4.3.8
+  provider: ^6.0.1
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/svg/
+  fonts:
+    - family: Courier New
+      fonts:
+        - asset: assets/fonts/CourierNewBold.ttf
+        - asset: assets/fonts/CourierNew.ttf
