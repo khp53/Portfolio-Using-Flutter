@@ -3,56 +3,123 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 // ignore: must_be_immutable, use_key_in_widget_constructors
-class CustomDrawer extends StatelessWidget {
+class CustomDrawer extends StatefulWidget {
   final viewmodel;
+  final context;
 
+  CustomDrawer({Key? key, this.viewmodel, this.context}) : super(key: key);
+
+  @override
+  State<CustomDrawer> createState() => _CustomDrawerState();
+}
+
+class _CustomDrawerState extends State<CustomDrawer> {
   bool isCollapsed = true;
-
-  CustomDrawer({Key? key, this.viewmodel}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-      child: Column(
-        children: [
-          DrawerHeader(
-            child: isCollapsed
-                ? Column(
-                    children: const [
-                      CircleAvatar(
-                        backgroundColor: Colors.white,
-                        child: Icon(Icons.person),
-                      ),
-                      Text("Karimul"),
-                      Text("Software Engineering"),
-                    ],
-                  )
-                : Row(
-                    children: [
-                      CircleAvatar(
-                        backgroundColor: Colors.white,
-                        child: Icon(Icons.person),
-                      ),
-                      Column(
+    var _theme = Theme.of(context);
+    return SizedBox(
+      width: isCollapsed == true ? 150 : 300,
+      child: Drawer(
+        elevation: isCollapsed == true ? 0 : 12,
+        child: Container(
+          color: _theme.colorScheme.surface,
+          child: Column(
+            children: [
+              DrawerHeader(
+                decoration: BoxDecoration(color: Colors.black),
+                child: isCollapsed
+                    ? Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Text("Karimul"),
-                          Text("Software Engineering"),
+                          Expanded(
+                            flex: 2,
+                            child: CircleAvatar(
+                              backgroundColor: Colors.white,
+                              child: Icon(Icons.person),
+                            ),
+                          ),
+                          Expanded(
+                            child: Text(
+                              "Karimul",
+                              style: TextStyle(
+                                  fontSize: 25, fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Expanded(
+                            child: Text(
+                              "Software Engineering",
+                              style: TextStyle(
+                                  color: _theme.colorScheme.onBackground,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.normal),
+                            ),
+                          ),
                         ],
                       )
-                    ],
-                  ),
+                    : Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          CircleAvatar(
+                            radius: 40,
+                            backgroundColor: Colors.white,
+                            child: Icon(Icons.person),
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Karimul",
+                                style: TextStyle(
+                                    fontSize: 25, fontWeight: FontWeight.bold),
+                              ),
+                              Text(
+                                "Software Engineering",
+                                style: TextStyle(
+                                    color: _theme.colorScheme.onBackground,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.normal),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+              ),
+              _buildListTile(
+                context,
+                text: 'About',
+                svgLocation: "assets/svg/aboutme.svg",
+                onTap: () {
+                  widget.viewmodel.selectedIndex = 0;
+                  Get.toNamed("/about");
+                },
+                isSelected: widget.viewmodel.selectedIndex == 0,
+                theme: _theme,
+              ),
+              ListTile(
+                contentPadding: EdgeInsets.only(left: 35),
+                leading: isCollapsed == true
+                    ? Icon(
+                        Icons.keyboard_arrow_right,
+                        color: _theme.colorScheme.primary,
+                        size: 70,
+                      )
+                    : Icon(
+                        Icons.keyboard_arrow_left,
+                        color: _theme.colorScheme.primary,
+                        size: 70,
+                      ),
+                onTap: () {
+                  setState(() {
+                    isCollapsed = !isCollapsed;
+                  });
+                },
+              ),
+            ],
           ),
-          _buildListTile(
-            context,
-            text: 'About',
-            svgLocation: "assets/ui_elements/payments.svg",
-            onTap: () {
-              viewmodel.selectedIndex = 0;
-              Get.toNamed("/about");
-            },
-            isSelected: viewmodel.selectedIndex == 0,
-          ),
-        ],
+        ),
       ),
     );
   }
@@ -62,41 +129,47 @@ class CustomDrawer extends StatelessWidget {
       String? svgLocation,
       GestureTapCallback? onTap,
       h,
-      bool? isSelected}) {
+      bool? isSelected,
+      theme}) {
     return isCollapsed == false
-        ? Ink(
-            color: isSelected!
-                ? Theme.of(context).colorScheme.primary.withOpacity(0.3)
-                : Colors.transparent,
-            child: ListTile(
-              selected: true,
-              title: Text(
+        ? ListTile(
+            contentPadding: EdgeInsets.only(left: 60),
+            selected: true,
+            title: Container(
+              padding: EdgeInsets.only(left: 15),
+              child: Text(
                 text!,
                 style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 15,
+                  color: isSelected!
+                      ? theme.colorScheme.primary
+                      : theme.colorScheme.onBackground,
+                  fontSize: 22,
                   fontWeight: FontWeight.normal,
                 ),
               ),
-              onTap: onTap,
-              leading: SvgPicture.asset(
-                svgLocation!,
-                height: h,
-                width: 20,
-              ),
+            ),
+            onTap: onTap,
+            leading: SvgPicture.asset(
+              svgLocation!,
+              height: h,
+              width: 40,
+              color: isSelected
+                  ? theme.colorScheme.primary
+                  : theme.colorScheme.onBackground,
             ),
           )
-        : Ink(
-            color: isSelected!
-                ? Theme.of(context).colorScheme.primary.withOpacity(0.3)
-                : Colors.transparent,
-            child: ListTile(
-              selected: true,
-              onTap: onTap,
-              leading: SvgPicture.asset(
+        : ListTile(
+            selected: true,
+            onTap: onTap,
+            leading: Container(
+              padding: EdgeInsets.only(left: 35),
+              child: SvgPicture.asset(
                 svgLocation!,
                 height: h,
-                width: 20,
+                width: 42,
+                color: isSelected!
+                    ? theme.colorScheme.primary
+                    : theme.colorScheme.onBackground,
               ),
             ),
           );
