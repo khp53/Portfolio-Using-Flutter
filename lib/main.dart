@@ -55,8 +55,9 @@ class MyApp extends StatelessWidget {
             color: Theme.of(context).colorScheme.secondary,
           ),
           subtitle1: TextStyle(
-            fontSize: 17,
-            color: Theme.of(context).colorScheme.onBackground,
+            fontFamily: 'Courier New',
+            fontSize: 15,
+            color: Theme.of(context).colorScheme.onBackground.withOpacity(0.5),
           ),
           subtitle2: TextStyle(
             fontSize: 18,
