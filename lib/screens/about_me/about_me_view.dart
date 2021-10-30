@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/commons/custom_appbar.dart';
 import 'package:portfolio/commons/custom_drawer.dart';
-import 'package:portfolio/screens/about/about_viewmodel.dart';
-import 'package:portfolio/screens/about/widgets/about_body.dart';
+import 'package:portfolio/screens/about_me/about_me_viewmodel.dart';
+import 'package:portfolio/screens/about_me/widgets/about_me.dart';
 import 'package:portfolio/screens/view.dart';
 
-class AboutView extends StatelessWidget {
-  AboutView({Key? key}) : super(key: key);
+class AboutMeView extends StatelessWidget {
+  AboutMeView({Key? key}) : super(key: key);
 
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
@@ -18,7 +18,7 @@ class AboutView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return View(
-      viewmodel: AboutViewmodel(),
+      viewmodel: AboutMeViewmodel(),
       builder: (context, aViewmdoel, __) {
         return Scaffold(
           key: _scaffoldKey,
@@ -42,7 +42,7 @@ class AboutView extends StatelessWidget {
                     ),
                     Expanded(
                       flex: 5,
-                      child: AboutBody(
+                      child: AboutMe(
                         scaffoldKey: _scaffoldKey,
                         viewmodel: aViewmdoel,
                       ),
@@ -50,7 +50,7 @@ class AboutView extends StatelessWidget {
                   ],
                 );
               } else {
-                return AboutBody(
+                return AboutMe(
                   scaffoldKey: _scaffoldKey,
                   viewmodel: aViewmdoel,
                 );

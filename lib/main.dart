@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/screens/about/about_view.dart';
+import 'package:get/get.dart';
+import 'package:portfolio/screens/about_me/about_me_view.dart';
+import 'package:portfolio/screens/about_home/about_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,7 +11,7 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Karimul Hasan',
       theme: ThemeData(
         colorScheme: ColorScheme(
@@ -42,17 +44,19 @@ class MyApp extends StatelessWidget {
           ),
           headline1: TextStyle(
             fontSize: 65,
-            color: Theme.of(context).colorScheme.primary,
+            color: Color(0xff18EBFC),
+            fontWeight: FontWeight.bold,
           ),
           headline2: TextStyle(
             fontFamily: 'Courier New',
             fontSize: 25,
-            color: Theme.of(context).colorScheme.primaryVariant,
+            color: Color(0xffE5DC0A),
+            fontWeight: FontWeight.bold,
           ),
           headline3: TextStyle(
             fontFamily: 'Courier New',
             fontSize: 25,
-            color: Theme.of(context).colorScheme.secondary,
+            color: Color(0xff00EDBF),
           ),
           subtitle1: TextStyle(
             fontFamily: 'Courier New',
@@ -65,7 +69,11 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: AboutView(),
+      initialRoute: "/",
+      getPages: [
+        GetPage(name: "/", page: () => AboutView()),
+        GetPage(name: "/about", page: () => AboutMeView()),
+      ],
     );
   }
 }

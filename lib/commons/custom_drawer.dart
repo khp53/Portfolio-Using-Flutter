@@ -93,13 +93,24 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 ),
                 _buildListTile(
                   context,
+                  text: 'Home',
+                  svgLocation: "assets/svg/home.svg",
+                  onTap: () {
+                    widget.viewmodel.selectedIndex = 0;
+                    Get.toNamed("/");
+                  },
+                  isSelected: widget.viewmodel.selectedIndex == 0,
+                  theme: _theme,
+                ),
+                _buildListTile(
+                  context,
                   text: 'About',
                   svgLocation: "assets/svg/aboutme.svg",
                   onTap: () {
-                    widget.viewmodel.selectedIndex = 0;
+                    widget.viewmodel.selectedIndex = 1;
                     Get.toNamed("/about");
                   },
-                  isSelected: widget.viewmodel.selectedIndex == 0,
+                  isSelected: widget.viewmodel.selectedIndex == 1,
                   theme: _theme,
                 ),
                 ListTile(
@@ -149,6 +160,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       ? theme.colorScheme.primary
                       : theme.colorScheme.onBackground,
                   fontSize: 22,
+                  fontFamily: '',
                   fontWeight: FontWeight.normal,
                 ),
               ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/commons/custom_button.dart';
-import 'package:portfolio/screens/about/about_viewmodel.dart';
+import 'package:portfolio/screens/about_home/about_viewmodel.dart';
 
 class AboutBody extends StatelessWidget {
   final AboutViewmodel viewmodel;
@@ -120,6 +120,9 @@ class AboutBody extends StatelessWidget {
                 "\n\n}",
                 style: _theme.textTheme.subtitle1,
               ),
+            ),
+            SizedBox(
+              height: 50,
             ),
           ],
         ),
