@@ -113,8 +113,41 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   isSelected: widget.viewmodel.selectedIndex == 1,
                   theme: _theme,
                 ),
+                _buildListTile(
+                  context,
+                  text: 'Portfolio',
+                  svgLocation: "assets/svg/portfolio.svg",
+                  onTap: () {
+                    widget.viewmodel.selectedIndex = 2;
+                    Get.toNamed("/portfolio");
+                  },
+                  isSelected: widget.viewmodel.selectedIndex == 2,
+                  theme: _theme,
+                ),
+                _buildListTile(
+                  context,
+                  text: 'Skills',
+                  svgLocation: "assets/svg/skills.svg",
+                  onTap: () {
+                    widget.viewmodel.selectedIndex = 3;
+                    Get.toNamed("/skills");
+                  },
+                  isSelected: widget.viewmodel.selectedIndex == 3,
+                  theme: _theme,
+                ),
+                _buildListTile(
+                  context,
+                  text: 'Contact Me',
+                  svgLocation: "assets/svg/contact.svg",
+                  onTap: () {
+                    widget.viewmodel.selectedIndex = 3;
+                    Get.toNamed("/contactme");
+                  },
+                  isSelected: widget.viewmodel.selectedIndex == 3,
+                  theme: _theme,
+                ),
                 ListTile(
-                  contentPadding: EdgeInsets.only(left: 35),
+                  contentPadding: EdgeInsets.only(left: 35, top: 20),
                   leading: isCollapsed == true
                       ? Icon(
                           Icons.keyboard_arrow_right,
@@ -149,7 +182,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
       theme}) {
     return isCollapsed == false
         ? ListTile(
-            contentPadding: EdgeInsets.only(left: 60),
+            contentPadding: EdgeInsets.only(left: 60, top: 20),
             selected: true,
             title: Container(
               padding: EdgeInsets.only(left: 15),
@@ -169,17 +202,17 @@ class _CustomDrawerState extends State<CustomDrawer> {
             leading: SvgPicture.asset(
               svgLocation!,
               height: h,
-              width: 40,
+              width: 42,
               color: isSelected
                   ? theme.colorScheme.primary
                   : theme.colorScheme.onBackground,
             ),
           )
         : ListTile(
+            contentPadding: EdgeInsets.only(left: 50, top: 20),
             selected: true,
             onTap: onTap,
             leading: Container(
-              padding: EdgeInsets.only(left: 35),
               child: SvgPicture.asset(
                 svgLocation!,
                 height: h,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/screens/about_me/about_me_view.dart';
 import 'package:portfolio/screens/about_home/about_view.dart';
+import 'package:portfolio/screens/portfolio/portfolio_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -49,14 +50,15 @@ class MyApp extends StatelessWidget {
           ),
           headline2: TextStyle(
             fontFamily: 'Courier New',
-            fontSize: 25,
+            fontSize: 20,
             color: Color(0xffE5DC0A),
             fontWeight: FontWeight.bold,
           ),
           headline3: TextStyle(
             fontFamily: 'Courier New',
-            fontSize: 25,
+            fontSize: 20,
             color: Color(0xff00EDBF),
+            fontWeight: FontWeight.bold,
           ),
           subtitle1: TextStyle(
             fontFamily: 'Courier New',
@@ -73,6 +75,7 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(name: "/", page: () => AboutView()),
         GetPage(name: "/about", page: () => AboutMeView()),
+        GetPage(name: "/portfolio", page: () => PortfolioView()),
       ],
     );
   }
