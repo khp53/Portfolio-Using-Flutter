@@ -8,17 +8,16 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/screens/portfolio/portfolio_viewmodel.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class PortfolioCard extends StatelessWidget {
+class MotionPortfolioCard extends StatelessWidget {
   final String title;
   final Color color1;
   final Color color2;
   final icon1;
   final icon2;
-  final gitLink;
-  final webLink;
+  final behanceLink;
   final index;
   final PortfolioViewmodel viewmodel;
-  PortfolioCard(
+  MotionPortfolioCard(
       {Key? key,
       required this.title,
       required this.color1,
@@ -26,23 +25,18 @@ class PortfolioCard extends StatelessWidget {
       this.icon1,
       this.icon2,
       required this.viewmodel,
-      this.webLink,
-      this.gitLink,
+      this.behanceLink,
       this.index})
       : super(key: key);
 
   void _mouseEnter(bool hover) {
-    viewmodel.hovering = hover;
-    viewmodel.index = index;
+    viewmodel.motionHovering = hover;
+    viewmodel.motionIndex = index;
   }
 
-  void _launchURL() async => await canLaunch(webLink)
-      ? await launch(webLink)
-      : throw 'Could not launch $webLink';
-
-  void _launchGitURL() async => await canLaunch(webLink)
-      ? await launch(gitLink)
-      : throw 'Could not launch $gitLink';
+  void _launchURL() async => await canLaunch(behanceLink)
+      ? await launch(behanceLink)
+      : throw 'Could not launch $behanceLink';
 
   final nonHoverTransform = Matrix4.identity()..translate(0, 0, 0);
   final hoverTransform = Matrix4.identity()..translate(0, -5, 0);
@@ -53,11 +47,11 @@ class PortfolioCard extends StatelessWidget {
       onEnter: (e) => _mouseEnter(true),
       onExit: (e) => _mouseEnter(false),
       child: AnimatedContainer(
-        transform: viewmodel.hovering && viewmodel.index == index
+        transform: viewmodel.motionHovering && viewmodel.motionIndex == index
             ? hoverTransform
             : nonHoverTransform,
         duration: const Duration(milliseconds: 200),
-        child: viewmodel.hovering && viewmodel.index == index
+        child: viewmodel.motionHovering && viewmodel.motionIndex == index
             ? _buildHoverWidget()
             : _buildNonHoverWidget(),
       ),
@@ -78,14 +72,14 @@ class PortfolioCard extends StatelessWidget {
               children: [
                 SvgPicture.asset(
                   icon1,
-                  height: 20,
+                  height: 22,
                 ),
                 SizedBox(
                   width: 10,
                 ),
                 SvgPicture.asset(
                   icon2,
-                  height: 20,
+                  height: 22,
                 ),
               ],
             ),
@@ -130,28 +124,13 @@ class PortfolioCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                gitLink != null && gitLink != ""
+                behanceLink != null && behanceLink != ""
                     ? InkWell(
                         onTap: () => kIsWeb
-                            ? html.window.open(gitLink, "GitHub Link")
-                            : _launchGitURL,
-                        child: FaIcon(
-                          FontAwesomeIcons.github,
-                          color: Colors.white,
-                          size: 20,
-                        ),
-                      )
-                    : Container(),
-                SizedBox(
-                  width: 10,
-                ),
-                webLink != null && webLink != ""
-                    ? InkWell(
-                        onTap: () => kIsWeb
-                            ? html.window.open(webLink, "Website Link")
+                            ? html.window.open(behanceLink, "Website Link")
                             : _launchURL,
-                        child: Icon(
-                          Icons.launch,
+                        child: FaIcon(
+                          FontAwesomeIcons.behance,
                           color: Colors.white,
                           size: 22,
                         ),

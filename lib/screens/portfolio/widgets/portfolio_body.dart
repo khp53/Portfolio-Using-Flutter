@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/screens/portfolio/portfolio_viewmodel.dart';
+import 'package:portfolio/screens/portfolio/widgets/motion_portfolio_card.dart';
 import 'package:portfolio/screens/portfolio/widgets/portfolio_card.dart';
 
 class PortfolioBody extends StatelessWidget {
@@ -82,7 +83,6 @@ class PortfolioBody extends StatelessWidget {
       'color2': Color(0xff00EDBF),
       'webLink': "https://utm-covid19-contact-tracing.web.app",
       'gitLink': "https://github.com/khp53/UTM-COVID19-Contact-Tracing-System",
-      'index': 0,
     },
     {
       'title': "Shopper, An E-Commerce App",
@@ -90,7 +90,6 @@ class PortfolioBody extends StatelessWidget {
       'color2': Color(0xffE50AAA),
       'webLink': "",
       'gitLink': "https://github.com/khp53/Shopper-E-Commerce-App",
-      'index': 1,
     },
   ];
   final List motionData = [
@@ -99,16 +98,12 @@ class PortfolioBody extends StatelessWidget {
       'color1': Color(0xff18EBFC),
       'color2': Color(0xffE50AAA),
       'webLink': "https://utm-covid19-contact-tracing.web.app",
-      'gitLink': "https://github.com/khp53/UTM-COVID19-Contact-Tracing-System",
-      'index': 2,
     },
     {
       'title': "Digital Jobs Albania",
       'color1': Color(0xff3D71D4),
       'color2': Color(0xff18EBFC),
       'webLink': "",
-      'gitLink': "https://github.com/khp53/Shopper-E-Commerce-App",
-      'index': 3,
     }
   ];
 
@@ -177,16 +172,15 @@ class PortfolioBody extends StatelessWidget {
                 itemBuilder: (BuildContext context, index) {
                   return Container(
                     padding: EdgeInsets.only(right: 50, top: 10),
-                    child: PortfolioCard(
+                    child: MotionPortfolioCard(
                       title: motionData[index]['title'],
                       color1: motionData[index]['color1'],
                       color2: motionData[index]['color2'],
-                      icon1: "assets/svg/flutter.svg",
-                      icon2: "assets/svg/firebase.svg",
+                      icon1: "assets/svg/adobeaftereffects.svg",
+                      icon2: "assets/svg/adobeillustrator.svg",
                       index: index,
                       viewmodel: viewmodel,
-                      webLink: portfolioData[index]['webLink'],
-                      gitLink: portfolioData[index]['gitLink'],
+                      behanceLink: portfolioData[index]['webLink'],
                     ),
                   );
                 },

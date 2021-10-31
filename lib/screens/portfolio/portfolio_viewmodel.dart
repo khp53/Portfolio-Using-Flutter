@@ -4,7 +4,9 @@ class PortfolioViewmodel extends Viewmodel {
   bool _isLoading = false;
   int _selectedIndex = 2;
   int _index = 0;
+  int _motionIndex = 0;
   bool _hovering = false;
+  bool _motionHovering = false;
 
   get selectedIndex => _selectedIndex;
   set selectedIndex(value) {
@@ -20,6 +22,13 @@ class PortfolioViewmodel extends Viewmodel {
     turnIdle();
   }
 
+  get motionIndex => _motionIndex;
+  set motionIndex(value) {
+    turnBusy();
+    _motionIndex = value;
+    turnIdle();
+  }
+
   get isLoading => _isLoading;
   set isLoading(value) {
     turnBusy();
@@ -31,6 +40,13 @@ class PortfolioViewmodel extends Viewmodel {
   set hovering(value) {
     turnBusy();
     _hovering = value;
+    turnIdle();
+  }
+
+  get motionHovering => _motionHovering;
+  set motionHovering(value) {
+    turnBusy();
+    _motionHovering = value;
     turnIdle();
   }
 }
