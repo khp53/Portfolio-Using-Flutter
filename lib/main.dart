@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:portfolio/screens/about_me/about_me_view.dart';
 import 'package:portfolio/screens/about_home/about_view.dart';
 import 'package:portfolio/screens/portfolio/portfolio_view.dart';
+import 'package:portfolio/screens/skills/skills_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -76,6 +77,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: "/", page: () => AboutView()),
         GetPage(name: "/about", page: () => AboutMeView()),
         GetPage(name: "/portfolio", page: () => PortfolioView()),
+        GetPage(name: "/skills", page: () => SkillsView()),
       ],
     );
   }
