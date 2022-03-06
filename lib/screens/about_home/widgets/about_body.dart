@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/commons/custom_button.dart';
 import 'package:portfolio/screens/about_home/about_viewmodel.dart';
@@ -18,9 +19,15 @@ class AboutBody extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "import ‘package:flutter/material.dart’;\n\nclass NotificationView extends StatelessWidget {\n\n    @override\n    Widget build(BuildContext context) {\n        return Container(\n            child: CustomAbout(\n                '",
-              style: _theme.textTheme.subtitle1,
+            DefaultTextStyle(
+              style: _theme.textTheme.subtitle1!,
+              child: AnimatedTextKit(
+                totalRepeatCount: 1,
+                animatedTexts: [
+                  TypewriterAnimatedText(
+                      "import ‘package:flutter/material.dart’;\n\nclass NotificationView extends StatelessWidget {\n\n    @override\n    Widget build(BuildContext context) {\n        return Container(\n            child: CustomAbout(\n                '")
+                ],
+              ),
             ),
             Container(
               padding: EdgeInsets.only(left: _size.width / 9),
@@ -66,9 +73,15 @@ class AboutBody extends StatelessWidget {
             ),
             Container(
               padding: EdgeInsets.only(left: _size.width / 12),
-              child: Text(
-                "'\nhireMe:\n",
-                style: _theme.textTheme.subtitle1,
+              child: DefaultTextStyle(
+                style: _theme.textTheme.subtitle1!,
+                child: AnimatedTextKit(
+                  animatedTexts: [
+                    TypewriterAnimatedText(
+                      "'\nhireMe:\n",
+                    ),
+                  ],
+                ),
               ),
             ),
             Container(
@@ -95,30 +108,54 @@ class AboutBody extends StatelessWidget {
             ),
             Container(
               padding: EdgeInsets.only(left: _size.width / 12),
-              child: Text(
-                "\n),",
-                style: _theme.textTheme.subtitle1,
+              child: DefaultTextStyle(
+                style: _theme.textTheme.subtitle1!,
+                child: AnimatedTextKit(
+                  animatedTexts: [
+                    TypewriterAnimatedText(
+                      "\n),",
+                    ),
+                  ],
+                ),
               ),
             ),
             Container(
               padding: EdgeInsets.only(left: _size.width / 17),
-              child: Text(
-                "\n\n);",
-                style: _theme.textTheme.subtitle1,
+              child: DefaultTextStyle(
+                style: _theme.textTheme.subtitle1!,
+                child: AnimatedTextKit(
+                  animatedTexts: [
+                    TypewriterAnimatedText(
+                      "\n\n);",
+                    ),
+                  ],
+                ),
               ),
             ),
             Container(
               padding: EdgeInsets.only(left: _size.width / 28),
-              child: Text(
-                "\n\n},",
-                style: _theme.textTheme.subtitle1,
+              child: DefaultTextStyle(
+                style: _theme.textTheme.subtitle1!,
+                child: AnimatedTextKit(
+                  animatedTexts: [
+                    TypewriterAnimatedText(
+                      "\n\n},",
+                    ),
+                  ],
+                ),
               ),
             ),
             Container(
               padding: EdgeInsets.only(left: _size.width / 50),
-              child: Text(
-                "\n\n}",
-                style: _theme.textTheme.subtitle1,
+              child: DefaultTextStyle(
+                style: _theme.textTheme.subtitle1!,
+                child: AnimatedTextKit(
+                  animatedTexts: [
+                    TypewriterAnimatedText(
+                      "\n\n}",
+                    ),
+                  ],
+                ),
               ),
             ),
             SizedBox(

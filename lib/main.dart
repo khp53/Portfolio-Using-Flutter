@@ -14,6 +14,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      defaultTransition: Transition.fadeIn,
       title: 'Karimul Hasan',
       theme: ThemeData(
         colorScheme: ColorScheme(

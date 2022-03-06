@@ -105,7 +105,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 _buildListTile(
                   context,
                   text: 'About',
-                  svgLocation: "assets/svg/aboutme.svg",
+                  svgLocation: "assets/svg/info-circle.svg",
                   onTap: () {
                     widget.viewmodel.selectedIndex = 1;
                     Get.toNamed("/about");
@@ -116,7 +116,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 _buildListTile(
                   context,
                   text: 'Portfolio',
-                  svgLocation: "assets/svg/portfolio.svg",
+                  svgLocation: "assets/svg/bag.svg",
                   onTap: () {
                     widget.viewmodel.selectedIndex = 2;
                     Get.toNamed("/portfolio");
@@ -127,7 +127,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 _buildListTile(
                   context,
                   text: 'Skills',
-                  svgLocation: "assets/svg/skills.svg",
+                  svgLocation: "assets/svg/arrow.svg",
                   onTap: () {
                     widget.viewmodel.selectedIndex = 3;
                     Get.toNamed("/skills");
@@ -138,7 +138,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 _buildListTile(
                   context,
                   text: 'Contact Me',
-                  svgLocation: "assets/svg/contact.svg",
+                  svgLocation: "assets/svg/at.svg",
                   onTap: () {
                     widget.viewmodel.selectedIndex = 3;
                     Get.toNamed("/contactme");
@@ -149,15 +149,15 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 ListTile(
                   contentPadding: EdgeInsets.only(left: 35, top: 20),
                   leading: isCollapsed == true
-                      ? Icon(
-                          Icons.keyboard_arrow_right,
+                      ? SvgPicture.asset(
+                          'assets/svg/angle-right.svg',
                           color: _theme.colorScheme.primary,
-                          size: 70,
+                          height: 70,
                         )
-                      : Icon(
-                          Icons.keyboard_arrow_left,
+                      : SvgPicture.asset(
+                          'assets/svg/angle-left.svg',
                           color: _theme.colorScheme.primary,
-                          size: 70,
+                          height: 70,
                         ),
                   onTap: () {
                     setState(() {
