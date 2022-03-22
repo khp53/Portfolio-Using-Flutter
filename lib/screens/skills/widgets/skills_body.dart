@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 import 'package:portfolio/screens/skills/skills_viewmodel.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
@@ -17,12 +18,15 @@ class SkillsBody extends StatelessWidget {
     {
       'title': 'Learnio ApS',
       'designation': 'Video Editor, Motion Designer & Mentor',
-      'time': 'Nov 2020 - Present'
+      'time': 'Nov 2020 - Present',
+      'description':
+          '- Designing and editing videos for Learnio ApS\n- Creating Software Engineering and App Development Course\n- Created After Effects and Premiere Pro Course',
     },
     {
       'title': 'Robust Research & Development Ltd.',
       'designation': 'Software Engineer',
-      'time': 'Aug 2021 - Present'
+      'time': 'Aug 2021 - Present',
+      'description': '- '
     },
     {
       'title': 'AIESEC In Malaysia, Johor Bahru',
@@ -430,15 +434,11 @@ class SkillsBody extends StatelessWidget {
         Container(
           height: 8,
           width: MediaQuery.of(context).size.width,
-          child: AnimatedContainer(
-            duration: Duration(milliseconds: 200),
-            child: LinearProgressIndicator(
-              backgroundColor: _theme.colorScheme.onBackground.withOpacity(0.6),
-              valueColor: AlwaysStoppedAnimation<Color>(
-                color,
-              ),
-              value: value,
-            ),
+          child: FAProgressBar(
+            currentValue: (value! * 100).round(),
+            animatedDuration: const Duration(milliseconds: 500),
+            progressColor: color,
+            backgroundColor: Colors.grey.withOpacity(0.3),
           ),
         ),
       ],

@@ -181,7 +181,7 @@ class PortfolioCard extends StatelessWidget {
             child: Align(
               alignment: Alignment.bottomLeft,
               child: Text(
-                title,
+                "Click me to see details!",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 35,

@@ -18,9 +18,10 @@ class MyApp extends StatelessWidget {
       defaultTransition: Transition.fadeIn,
       title: 'Karimul Hasan',
       theme: ThemeData(
+        scaffoldBackgroundColor: Colors.black,
         colorScheme: ColorScheme(
           //whole bg of app
-          background: Color(0xff2C2C2C),
+          background: Color(0xff242424),
           brightness: Brightness.dark,
           error: Color(0xffFA204A),
           onBackground: Color(0xffACACAC),
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
           // for gradient
           onSecondary: Color(0xff3D71D4),
           // for gradient
-          onSurface: Color(0xffFE582D),
+          onSurface: Color(0xff18EBFC),
           primary: Color(0xff18EBFC),
           primaryVariant: Color(0xffE5DC0A),
           secondary: Color(0xff00EDBF),

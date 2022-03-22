@@ -31,7 +31,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             child: Column(
               children: [
                 DrawerHeader(
-                  decoration: BoxDecoration(color: Colors.black),
+                  decoration: BoxDecoration(color: Color(0xff242424)),
                   child: isCollapsed
                       ? Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -40,7 +40,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
                               flex: 2,
                               child: CircleAvatar(
                                 backgroundColor: Colors.white,
-                                child: Icon(Icons.person),
+                                backgroundImage:
+                                    AssetImage('assets/images/IMG_1959.png'),
                               ),
                             ),
                             Expanded(
