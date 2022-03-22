@@ -24,6 +24,12 @@ class AboutMeView extends StatelessWidget {
           key: _scaffoldKey,
           appBar: isMobile(context)
               ? CustomAppbar(
+                  title: Text(
+                    "About Me",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
                   openDrawer: () {
                     _scaffoldKey.currentState!.openDrawer();
                   },
