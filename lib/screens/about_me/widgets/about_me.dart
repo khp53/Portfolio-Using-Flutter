@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:portfolio/commons/is_mobileCall.dart';
 import 'package:portfolio/screens/about_me/about_me_viewmodel.dart';
 
@@ -56,12 +57,9 @@ class AboutMe extends StatelessWidget {
         Expanded(
           child: Container(
             height: MediaQuery.of(context).size.height,
-            decoration: BoxDecoration(
-              //color: Colors.black,
-              image: DecorationImage(
-                image: AssetImage('assets/images/me.png'),
-                fit: BoxFit.contain,
-              ),
+            child: Lottie.asset(
+              'assets/animation/about_me.json',
+              fit: BoxFit.contain,
             ),
           ),
         ),
@@ -75,12 +73,9 @@ class AboutMe extends StatelessWidget {
       children: [
         Container(
           height: MediaQuery.of(context).size.height / 2,
-          decoration: BoxDecoration(
-            //color: Colors.black,
-            image: DecorationImage(
-              image: AssetImage('assets/images/me.png'),
-              fit: BoxFit.contain,
-            ),
+          child: Lottie.asset(
+            'assets/animation/about_me.json',
+            fit: BoxFit.contain,
           ),
         ),
         Container(
