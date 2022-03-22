@@ -15,6 +15,9 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      centerTitle: true,
+      elevation: 0,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       title: title,
       leading: IconButton(
         onPressed: openDrawer,

@@ -1,6 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/commons/custom_button.dart';
+import 'package:portfolio/commons/is_mobileCall.dart';
 import 'package:portfolio/screens/about_home/about_viewmodel.dart';
 
 class AboutBody extends StatelessWidget {
@@ -16,92 +17,82 @@ class AboutBody extends StatelessWidget {
     return SingleChildScrollView(
       child: Container(
         margin: EdgeInsets.all(50),
+        width: _size.width,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            DefaultTextStyle(
+            Text(
+              "import ‘package:flutter/material.dart’;\n\nclass NotificationView extends StatelessWidget {\n\n    @override\n    Widget build(BuildContext context) {\n        return Container(\n            child: CustomAbout(\n                '",
               style: _theme.textTheme.subtitle1!,
-              child: AnimatedTextKit(
-                totalRepeatCount: 1,
-                animatedTexts: [
-                  TypewriterAnimatedText(
-                      "import ‘package:flutter/material.dart’;\n\nclass NotificationView extends StatelessWidget {\n\n    @override\n    Widget build(BuildContext context) {\n        return Container(\n            child: CustomAbout(\n                '")
-                ],
-              ),
             ),
             Container(
               padding: EdgeInsets.only(left: _size.width / 9),
-              child: RichText(
-                text: TextSpan(
-                  text: "Hi!\nI'm ",
-                  style: TextStyle(
-                    fontSize: 75,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  children: [
-                    TextSpan(
-                      text: "MD Karimul Hasan",
-                      style: TextStyle(
-                        fontSize: 75,
-                        color: _theme.colorScheme.primary,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    TextSpan(
-                      text: "\nSoftware Engineer!",
-                      style: TextStyle(
-                        fontSize: 75,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    TextSpan(
-                      text: "\nFlutter Developer + Motion Designer!",
-                      style: TextStyle(
-                        letterSpacing: 2,
-                        height: 5,
-                        fontSize: 20,
-                        fontFamily: 'Courier New',
-                        fontWeight: FontWeight.bold,
-                        color: _theme.colorScheme.secondary,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.only(left: _size.width / 12),
-              child: DefaultTextStyle(
-                style: _theme.textTheme.subtitle1!,
-                child: AnimatedTextKit(
-                  animatedTexts: [
-                    TypewriterAnimatedText(
-                      "'\nhireMe:\n",
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.only(left: _size.width / 9),
-              child: Row(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CustomButtom(
-                    onPressed: () {},
-                    text: "Hire Me!",
-                    color: _theme.colorScheme.primary,
-                    tColor: _theme.colorScheme.primary,
+                  Text(
+                    "Hi!",
+                    style: TextStyle(
+                      fontSize: isMobile(context) ? 55 : 75,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                  SizedBox(
-                    width: 35,
+                  Wrap(
+                    children: [
+                      Text(
+                        "I am ",
+                        style: TextStyle(
+                          fontSize: isMobile(context) ? 55 : 75,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      DefaultTextStyle(
+                        style: TextStyle(
+                          fontSize: isMobile(context) ? 55 : 75,
+                          color: viewmodel.changeColor == false
+                              ? _theme.colorScheme.primary
+                              : _theme.colorScheme.secondary,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        child: AnimatedTextKit(
+                          isRepeatingAnimation: false,
+                          onTap: () {
+                            viewmodel.changeColor = !viewmodel.changeColor;
+                          },
+                          animatedTexts: [
+                            TypewriterAnimatedText(
+                              'MD Karimul Hasan',
+                              speed: const Duration(milliseconds: 120),
+                              cursor: '|',
+                              curve: Curves.easeInCubic,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                  CustomButtom(
-                    onPressed: () {},
-                    text: "Download Resume",
-                    color: _theme.colorScheme.secondary,
-                    tColor: _theme.colorScheme.secondary,
+                  Text(
+                    "Software Engineer!",
+                    style: TextStyle(
+                      fontSize: isMobile(context) ? 55 : 75,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    "Flutter Developer + Motion Designer!",
+                    style: TextStyle(
+                      letterSpacing: 2,
+                      height: !isMobile(context) ? 3 : 2,
+                      fontSize: 20,
+                      fontFamily: 'Courier New',
+                      fontWeight: FontWeight.bold,
+                      color: viewmodel.changeColor == false
+                          ? _theme.colorScheme.secondary
+                          : _theme.colorScheme.primary,
+                    ),
                   ),
                 ],
               ),
@@ -110,56 +101,81 @@ class AboutBody extends StatelessWidget {
               padding: EdgeInsets.only(left: _size.width / 12),
               child: DefaultTextStyle(
                 style: _theme.textTheme.subtitle1!,
-                child: AnimatedTextKit(
-                  animatedTexts: [
-                    TypewriterAnimatedText(
-                      "\n),",
+                child: Text("'\nhireMe:\n"),
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.only(left: _size.width / 9),
+              child: !isMobile(context)
+                  ? Row(
+                      children: [
+                        CustomButtom(
+                          onPressed: () {},
+                          text: "Hire Me!",
+                          color: _theme.colorScheme.primary,
+                          tColor: _theme.colorScheme.primary,
+                        ),
+                        SizedBox(
+                          width: 35,
+                        ),
+                        CustomButtom(
+                          onPressed: () {},
+                          text: "Download Resume",
+                          color: _theme.colorScheme.secondary,
+                          tColor: _theme.colorScheme.secondary,
+                        ),
+                      ],
+                    )
+                  : Column(
+                      children: [
+                        CustomButtom(
+                          onPressed: () {},
+                          text: "Hire Me!",
+                          color: _theme.colorScheme.primary,
+                          tColor: _theme.colorScheme.primary,
+                        ),
+                        SizedBox(
+                          height: 35,
+                        ),
+                        CustomButtom(
+                          onPressed: () {},
+                          text: "Download Resume",
+                          color: _theme.colorScheme.secondary,
+                          tColor: _theme.colorScheme.secondary,
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+            ),
+            Container(
+              padding: EdgeInsets.only(left: _size.width / 12),
+              child: DefaultTextStyle(
+                style: _theme.textTheme.subtitle1!,
+                child: Text("\n),"),
               ),
             ),
             Container(
               padding: EdgeInsets.only(left: _size.width / 17),
               child: DefaultTextStyle(
                 style: _theme.textTheme.subtitle1!,
-                child: AnimatedTextKit(
-                  animatedTexts: [
-                    TypewriterAnimatedText(
-                      "\n\n);",
-                    ),
-                  ],
-                ),
+                child: Text("\n\n);"),
               ),
             ),
             Container(
               padding: EdgeInsets.only(left: _size.width / 28),
               child: DefaultTextStyle(
                 style: _theme.textTheme.subtitle1!,
-                child: AnimatedTextKit(
-                  animatedTexts: [
-                    TypewriterAnimatedText(
-                      "\n\n},",
-                    ),
-                  ],
-                ),
+                child: Text("\n\n},"),
               ),
             ),
             Container(
               padding: EdgeInsets.only(left: _size.width / 50),
               child: DefaultTextStyle(
                 style: _theme.textTheme.subtitle1!,
-                child: AnimatedTextKit(
-                  animatedTexts: [
-                    TypewriterAnimatedText(
-                      "\n\n}",
-                    ),
-                  ],
-                ),
+                child: Text("\n\n}"),
               ),
             ),
             SizedBox(
-              height: 50,
+              height: 10,
             ),
           ],
         ),

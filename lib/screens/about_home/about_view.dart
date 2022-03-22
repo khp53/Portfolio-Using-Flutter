@@ -13,7 +13,7 @@ class AboutView extends StatelessWidget {
   // this is just to check if the web window size is less then or equal to
   // 600, then will show mobile appbar or else will show web app bar
   static bool isMobile(BuildContext context) =>
-      MediaQuery.of(context).size.width <= 1100;
+      MediaQuery.of(context).size.width <= 1000;
 
   @override
   Widget build(BuildContext context) {
@@ -27,12 +27,18 @@ class AboutView extends StatelessWidget {
                   openDrawer: () {
                     _scaffoldKey.currentState!.openDrawer();
                   },
+                  title: Text(
+                    "Home",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
                 )
               : null,
           drawer: CustomDrawer(context: context, viewmodel: aViewmdoel),
           body: LayoutBuilder(
             builder: (context, constrains) {
-              if (constrains.maxWidth > 1100) {
+              if (constrains.maxWidth > 1000) {
                 return Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
