@@ -50,7 +50,7 @@ class PortfolioCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return isMobile(context)
+    return !kIsWeb
         ? GestureDetector(
             onTap: () {
               viewmodel.hovering = !viewmodel.hovering;

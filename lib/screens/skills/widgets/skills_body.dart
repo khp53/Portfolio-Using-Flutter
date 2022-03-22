@@ -15,19 +15,19 @@ class SkillsBody extends StatelessWidget {
 
   final List experienceData = [
     {
-      'title': 'AIESEC In Malaysia, Johor Bahru',
-      'designation': 'Senior Executive',
-      'time': 'Feb 2020 - Feb 2021'
-    },
-    {
-      'title': 'Coderstrust Global',
-      'designation': 'Video Editor & Motion Designer',
+      'title': 'Learnio ApS',
+      'designation': 'Video Editor, Motion Designer & Mentor',
       'time': 'Nov 2020 - Present'
     },
     {
-      'title': 'Robust Research & Development',
-      'designation': 'Software Engineer & Flutter Developer',
+      'title': 'Robust Research & Development Ltd.',
+      'designation': 'Software Engineer',
       'time': 'Aug 2021 - Present'
+    },
+    {
+      'title': 'AIESEC In Malaysia, Johor Bahru',
+      'designation': 'Senior Marketing Executive',
+      'time': 'Feb 2020 - Feb 2021'
     },
   ];
 
@@ -63,9 +63,19 @@ class SkillsBody extends StatelessWidget {
       'color': Color(0xffE5DC0A),
     },
     {
-      'title': 'Backend',
+      'title': 'MySQL',
+      'value': 0.6,
+      'color': Color(0xffE50AAA),
+    },
+    {
+      'title': 'Parse Server',
+      'value': 0.8,
+      'color': Color(0xff3D71D4),
+    },
+    {
+      'title': 'Firebase',
       'value': 0.7,
-      'color': Color(0xffFE582D),
+      'color': Color(0xffE5DC0A),
     },
   ];
 
@@ -74,6 +84,11 @@ class SkillsBody extends StatelessWidget {
       'title': 'Adobe After Effects',
       'value': 0.7,
       'color': Color(0xff18EBFC),
+    },
+    {
+      'title': 'Adobe Premiere Pro',
+      'value': 0.7,
+      'color': Color(0xffE5DC0A),
     },
     {
       'title': 'Adobe Illustrator',
@@ -85,6 +100,11 @@ class SkillsBody extends StatelessWidget {
       'value': 0.9,
       'color': Color(0xff18EBFC),
     },
+    {
+      'title': 'Adobe Photoshop',
+      'value': 0.9,
+      'color': Color(0xff3D71D4),
+    },
   ];
 
   @override
@@ -92,8 +112,8 @@ class SkillsBody extends StatelessWidget {
     var _theme = Theme.of(context);
     return SingleChildScrollView(
       child: Container(
-        margin: EdgeInsets.all(40),
-        padding: EdgeInsets.all(40),
+        margin: isMobile(context) ? EdgeInsets.all(15) : EdgeInsets.all(40),
+        padding: isMobile(context) ? EdgeInsets.all(15) : EdgeInsets.all(40),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -252,6 +272,7 @@ class SkillsBody extends StatelessWidget {
 
   Row _rowLayout(ThemeData _theme, BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Expanded(
           child: Column(
