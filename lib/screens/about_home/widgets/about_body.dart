@@ -16,7 +16,7 @@ class AboutBody extends StatelessWidget {
     var _size = MediaQuery.of(context).size;
     return SingleChildScrollView(
       child: Container(
-        margin: EdgeInsets.all(50),
+        margin: isMobile(context) ? EdgeInsets.all(20) : EdgeInsets.all(40),
         width: _size.width,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

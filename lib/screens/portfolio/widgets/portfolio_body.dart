@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/commons/is_mobileCall.dart';
 import 'package:portfolio/screens/portfolio/portfolio_viewmodel.dart';
 import 'package:portfolio/screens/portfolio/widgets/motion_portfolio_card.dart';
 import 'package:portfolio/screens/portfolio/widgets/portfolio_card.dart';
@@ -112,8 +113,8 @@ class PortfolioBody extends StatelessWidget {
     var _theme = Theme.of(context);
     return SingleChildScrollView(
       child: Container(
-        margin: EdgeInsets.all(40),
-        padding: EdgeInsets.all(40),
+        margin: !isMobile(context) ? EdgeInsets.all(40) : EdgeInsets.all(10),
+        padding: !isMobile(context) ? EdgeInsets.all(40) : EdgeInsets.all(10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

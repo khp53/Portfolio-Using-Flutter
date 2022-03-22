@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfolio/commons/is_mobileCall.dart';
 import 'package:portfolio/screens/portfolio/portfolio_viewmodel.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -49,19 +50,35 @@ class PortfolioCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MouseRegion(
-      onEnter: (e) => _mouseEnter(true),
-      onExit: (e) => _mouseEnter(false),
-      child: AnimatedContainer(
-        transform: viewmodel.hovering && viewmodel.index == index
-            ? hoverTransform
-            : nonHoverTransform,
-        duration: const Duration(milliseconds: 200),
-        child: viewmodel.hovering && viewmodel.index == index
-            ? _buildHoverWidget()
-            : _buildNonHoverWidget(),
-      ),
-    );
+    return isMobile(context)
+        ? GestureDetector(
+            onTap: () {
+              viewmodel.hovering = !viewmodel.hovering;
+              viewmodel.index = index;
+            },
+            child: AnimatedContainer(
+              transform: viewmodel.hovering && viewmodel.index == index
+                  ? hoverTransform
+                  : nonHoverTransform,
+              duration: const Duration(milliseconds: 200),
+              child: viewmodel.hovering && viewmodel.index == index
+                  ? _buildHoverWidget()
+                  : _buildNonHoverWidget(),
+            ),
+          )
+        : MouseRegion(
+            onEnter: (e) => _mouseEnter(true),
+            onExit: (e) => _mouseEnter(false),
+            child: AnimatedContainer(
+              transform: viewmodel.hovering && viewmodel.index == index
+                  ? hoverTransform
+                  : nonHoverTransform,
+              duration: const Duration(milliseconds: 200),
+              child: viewmodel.hovering && viewmodel.index == index
+                  ? _buildHoverWidget()
+                  : _buildNonHoverWidget(),
+            ),
+          );
   }
 
   Container _buildNonHoverWidget() {

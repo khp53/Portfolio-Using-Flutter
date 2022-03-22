@@ -84,8 +84,8 @@ class AboutMe extends StatelessWidget {
           ),
         ),
         Container(
-          margin: EdgeInsets.all(40),
-          padding: EdgeInsets.all(40),
+          margin: EdgeInsets.all(15),
+          padding: EdgeInsets.all(15),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
