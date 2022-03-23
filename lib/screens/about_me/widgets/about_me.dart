@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
 import 'package:portfolio/commons/is_mobileCall.dart';
+import 'package:portfolio/screens/about_home/about_view.dart';
 import 'package:portfolio/screens/about_me/about_me_viewmodel.dart';
+import 'package:rive/rive.dart';
 
-class AboutMe extends StatelessWidget {
+class AboutMe extends StatefulWidget {
   final AboutMeViewmodel? viewmodel;
   final scaffoldKey;
   const AboutMe({Key? key, this.viewmodel, this.scaffoldKey}) : super(key: key);
 
+  @override
+  State<AboutMe> createState() => _AboutMeState();
+}
+
+class _AboutMeState extends State<AboutMe> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     var _theme = Theme.of(context);
@@ -57,10 +65,8 @@ class AboutMe extends StatelessWidget {
         Expanded(
           child: Container(
             height: MediaQuery.of(context).size.height,
-            child: Lottie.asset(
-              'assets/animation/about_me.json',
-              fit: BoxFit.contain,
-            ),
+            child:
+                RiveAnimation.asset('assets/animation/about_me_animation.riv'),
           ),
         ),
       ],
@@ -73,10 +79,7 @@ class AboutMe extends StatelessWidget {
       children: [
         Container(
           height: MediaQuery.of(context).size.height / 2,
-          child: Lottie.asset(
-            'assets/animation/about_me.json',
-            fit: BoxFit.contain,
-          ),
+          child: RiveAnimation.asset('assets/animation/about_me_animation.riv'),
         ),
         Container(
           margin: EdgeInsets.all(15),

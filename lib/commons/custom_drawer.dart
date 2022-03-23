@@ -39,9 +39,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
                             Expanded(
                               flex: 2,
                               child: CircleAvatar(
+                                radius: 25,
                                 backgroundColor: Colors.white,
                                 backgroundImage:
-                                    AssetImage('assets/images/IMG_1959.png'),
+                                    AssetImage('assets/images/IMG_1959.jpg'),
                               ),
                             ),
                             Expanded(
@@ -68,7 +69,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
                             CircleAvatar(
                               radius: 40,
                               backgroundColor: Colors.white,
-                              child: Icon(Icons.person),
+                              backgroundImage:
+                                  AssetImage('assets/images/IMG_1959.jpg'),
                             ),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.center,

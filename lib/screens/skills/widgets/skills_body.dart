@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 import 'package:portfolio/screens/skills/skills_viewmodel.dart';
@@ -172,13 +173,22 @@ class SkillsBody extends StatelessWidget {
                       endChild: Container(
                         margin: EdgeInsets.only(bottom: 45, top: 35),
                         child: ListTile(
-                          title: Text(experienceData[i]['title'],
-                              style: TextStyle(
-                                fontSize: 25,
-                                fontWeight: FontWeight.w300,
-                                fontFamily: '',
-                                color: Colors.white,
-                              )),
+                          title: DefaultTextStyle(
+                            style: TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.w300,
+                              fontFamily: '',
+                              color: Colors.white,
+                            ),
+                            child: AnimatedTextKit(
+                              isRepeatingAnimation: false,
+                              animatedTexts: [
+                                TyperAnimatedText(
+                                  experienceData[i]['title'],
+                                )
+                              ],
+                            ),
+                          ),
                           subtitle: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -307,13 +317,24 @@ class SkillsBody extends StatelessWidget {
                       endChild: Container(
                         margin: EdgeInsets.only(bottom: 45, top: 35),
                         child: ListTile(
-                          title: Text(experienceData[i]['title'],
-                              style: TextStyle(
-                                fontSize: 25,
-                                fontWeight: FontWeight.w300,
-                                fontFamily: '',
-                                color: Colors.white,
-                              )),
+                          title: DefaultTextStyle(
+                            style: TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.w300,
+                              fontFamily: '',
+                              color: Colors.white,
+                            ),
+                            child: AnimatedTextKit(
+                              isRepeatingAnimation: false,
+                              animatedTexts: [
+                                TyperAnimatedText(
+                                  experienceData[i]['title'],
+                                  curve: Curves.easeInCubic,
+                                  speed: Duration(milliseconds: 60),
+                                ),
+                              ],
+                            ),
+                          ),
                           subtitle: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
