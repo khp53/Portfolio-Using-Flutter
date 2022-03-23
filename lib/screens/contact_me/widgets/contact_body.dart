@@ -12,22 +12,23 @@ class ContactBody extends StatelessWidget {
     var _theme = Theme.of(context);
     return SingleChildScrollView(
       child: Container(
-        margin: isMobile(context) ? EdgeInsets.all(15) : EdgeInsets.all(40),
-        padding: isMobile(context) ? EdgeInsets.all(15) : EdgeInsets.all(40),
+        margin: isMobile(context)
+            ? EdgeInsets.all(15)
+            : EdgeInsets.only(
+                left: 40,
+                top: 40,
+                bottom: 40,
+              ),
+        padding: isMobile(context)
+            ? EdgeInsets.all(15)
+            : EdgeInsets.only(
+                left: 40,
+                top: 40,
+                bottom: 40,
+              ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "Contact Me 📬",
-              style: _theme.textTheme.headline2,
-            ),
-            Text(
-              "Send a Message",
-              style: _theme.textTheme.headline1,
-            ),
-            SizedBox(
-              height: 35,
-            ),
             isMobile(context)
                 ? _columnLayout(_theme, context)
                 : _rowLayout(_theme, context),
@@ -44,23 +45,109 @@ class ContactBody extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Text(
+                "Contact Me 📬",
+                style: _theme.textTheme.headline2,
+              ),
+              Text(
+                "Send a Message",
+                style: _theme.textTheme.headline1,
+              ),
+              SizedBox(height: 10),
+              Text(
+                "Interested in working together? " +
+                    "Feel free to contact me.\n\n" +
+                    "House 15, Block B, Road 1,\n" +
+                    "Keraniganj Model Town,\n" +
+                    "Dhaka 1310, Bangladesh\n" +
+                    "karimulhasan1998@gmail.com",
+                style: _theme.textTheme.bodyText1!
+                    .copyWith(fontSize: 20, height: 1.5),
+              ),
+              SizedBox(
+                height: 35,
+              ),
               Container(
-                // height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
-                child: TextFormField(
-                  onChanged: (value) {
-                    viewmodel.email = value;
+                child: customField(
+                  _theme,
+                  "Name",
+                  (value) {
+                    viewmodel.name = value;
                   },
-                  decoration: InputDecoration(
-                    hintText: "Email",
-                    hintStyle: _theme.textTheme.bodyText1,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
+                  1,
+                  //TextInputAction.next,
                 ),
               ),
+              SizedBox(
+                height: 25,
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                child: customField(
+                  _theme,
+                  "Email",
+                  (value) {
+                    viewmodel.email = value;
+                  },
+                  1,
+                  //TextInputAction.next,
+                ),
+              ),
+              SizedBox(
+                height: 25,
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                child: customField(
+                  _theme,
+                  "Subject",
+                  (value) {
+                    viewmodel.subject = value;
+                  },
+                  1,
+                  //TextInputAction.next,
+                ),
+              ),
+              SizedBox(
+                height: 25,
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                child: customField(
+                  _theme,
+                  "Message",
+                  (value) {
+                    viewmodel.message = value;
+                  },
+                  5,
+                  //TextInputAction.done,
+                ),
+              ),
+              SizedBox(
+                height: 25,
+              ),
+              CustomButtom(
+                onPressed: () {},
+                text: "Send Message!",
+                color: _theme.colorScheme.secondary,
+                tColor: _theme.colorScheme.secondary,
+              ),
             ],
+          ),
+
+          //-----
+          SizedBox(
+            height: 40,
+          ),
+          Container(
+            //height: 1000,
+            width: double.infinity,
+            child: Image(
+              height: 800,
+              image: AssetImage('assets/images/location.jpg'),
+              fit: BoxFit.cover,
+            ),
           ),
         ],
       ),
@@ -75,6 +162,28 @@ class ContactBody extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Text(
+                "Contact Me 📬",
+                style: _theme.textTheme.headline2,
+              ),
+              Text(
+                "Send a Message",
+                style: _theme.textTheme.headline1,
+              ),
+              SizedBox(height: 10),
+              Text(
+                "Interested in working together? " +
+                    "Feel free to contact me.\n\n" +
+                    "House 15, Block B, Road 1,\n" +
+                    "Keraniganj Model Town,\n" +
+                    "Dhaka 1310, Bangladesh\n" +
+                    "karimulhasan1998@gmail.com",
+                style: _theme.textTheme.bodyText1!
+                    .copyWith(fontSize: 20, height: 1.5),
+              ),
+              SizedBox(
+                height: 35,
+              ),
               Container(
                 width: MediaQuery.of(context).size.width,
                 child: customField(
@@ -146,6 +255,20 @@ class ContactBody extends StatelessWidget {
         ),
 
         //-----
+        SizedBox(
+          width: 30,
+        ),
+        Expanded(
+          child: Container(
+            //height: 1000,
+            width: double.infinity,
+            child: Image(
+              height: 800,
+              image: AssetImage('assets/images/location.jpg'),
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
       ],
     );
   }
