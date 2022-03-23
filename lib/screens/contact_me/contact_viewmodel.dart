@@ -1,6 +1,9 @@
+import 'package:portfolio/dependencies/dependencies.dart';
 import 'package:portfolio/screens/viewmodel.dart';
+import 'package:portfolio/services/contact_service.dart';
 
 class ContactMeViewmodel extends Viewmodel {
+  ContactService get _service => dependency();
   bool _isLoading = false;
   int _selectedIndex = 4;
   String _email = "";
@@ -48,5 +51,10 @@ class ContactMeViewmodel extends Viewmodel {
     turnBusy();
     _message = value;
     turnIdle();
+  }
+
+  sendMessage() {
+    var res = _service.addMessage(name, email, subject, message);
+    return res;
   }
 }

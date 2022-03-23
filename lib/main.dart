@@ -1,12 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:portfolio/screens/about_me/about_me_view.dart';
 import 'package:portfolio/screens/about_home/about_view.dart';
 import 'package:portfolio/screens/contact_me/contact_view.dart';
 import 'package:portfolio/screens/portfolio/portfolio_view.dart';
 import 'package:portfolio/screens/skills/skills_view.dart';
+import 'package:portfolio/dependencies/dependencies.dart' as di;
+import 'package:url_strategy/url_strategy.dart';
 
-void main() {
+void main() async {
+  di.init();
+  WidgetsFlutterBinding.ensureInitialized();
+  final keyApplicationId = 'FCpIjDyKR2yX8YxIxWYNhDK1GuigyZN3MlnGcTTt';
+  final keyClientKey = 'eyCAidUJUHqNFoVHEjeV2SKKX8ItQF4wAmLfDWyl';
+  final keyParseServerUrl = 'https://parseapi.back4app.com';
+
+  await Parse().initialize(
+    keyApplicationId,
+    keyParseServerUrl,
+    clientKey: keyClientKey,
+    debug: false,
+    autoSendSessionId: true,
+    liveQueryUrl: keyParseServerUrl,
+  );
+  setPathUrlStrategy();
   runApp(const MyApp());
 }
 

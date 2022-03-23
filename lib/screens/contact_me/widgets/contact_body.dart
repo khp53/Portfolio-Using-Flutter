@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/commons/custom_button.dart';
 import 'package:portfolio/commons/is_mobileCall.dart';
@@ -156,7 +157,7 @@ class ContactBody extends StatelessWidget {
 
   Row _rowLayout(ThemeData _theme, BuildContext context) {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Expanded(
           child: Column(
@@ -244,12 +245,59 @@ class ContactBody extends StatelessWidget {
               SizedBox(
                 height: 25,
               ),
-              CustomButtom(
-                onPressed: () {},
-                text: "Send Message!",
-                color: _theme.colorScheme.secondary,
-                tColor: _theme.colorScheme.secondary,
-              ),
+              viewmodel.isLoading == false
+                  ? CustomButtom(
+                      onPressed: () async {
+                        if (viewmodel.name.isEmpty ||
+                            viewmodel.email.isEmpty ||
+                            viewmodel.subject.isEmpty ||
+                            viewmodel.message.isEmpty) {
+                          viewmodel.isLoading = false;
+                          showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                              title: Text("Error!"),
+                              content: Text("Please fill all the fields!"),
+                              actions: [
+                                CustomButtom(
+                                  onPressed: () => Navigator.pop(context),
+                                  text: "Ok",
+                                  color: _theme.colorScheme.primary,
+                                  tColor: _theme.colorScheme.primary,
+                                ),
+                              ],
+                            ),
+                          );
+                        } else {
+                          viewmodel.isLoading = true;
+                          var res = await viewmodel.sendMessage();
+                          if (res.success) {
+                            viewmodel.isLoading = false;
+                            showDialog(
+                              context: context,
+                              builder: (context) => AlertDialog(
+                                title: Text("Success!"),
+                                content: Text("Message sent successfully!"),
+                                actions: [
+                                  CustomButtom(
+                                    onPressed: () => Navigator.pop(context),
+                                    text: "Ok",
+                                    color: _theme.colorScheme.primary,
+                                    tColor: _theme.colorScheme.primary,
+                                  ),
+                                ],
+                              ),
+                            );
+                          }
+                        }
+                      },
+                      text: "Send Message!",
+                      color: _theme.colorScheme.secondary,
+                      tColor: _theme.colorScheme.secondary,
+                    )
+                  : Center(
+                      child: CircularProgressIndicator(),
+                    ),
             ],
           ),
         ),

@@ -30,7 +30,7 @@ class _AboutMeState extends State<AboutMe> with TickerProviderStateMixin {
 
   Row rowLayout(ThemeData _theme, BuildContext context) {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Expanded(
           child: Container(
