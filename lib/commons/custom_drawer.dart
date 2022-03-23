@@ -143,10 +143,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   text: 'Contact Me',
                   svgLocation: "assets/svg/at.svg",
                   onTap: () {
-                    widget.viewmodel.selectedIndex = 3;
+                    widget.viewmodel.selectedIndex = 4;
                     Get.toNamed("/contactme");
                   },
-                  isSelected: widget.viewmodel.selectedIndex == 3,
+                  isSelected: widget.viewmodel.selectedIndex == 4,
                   theme: _theme,
                 ),
                 ListTile(

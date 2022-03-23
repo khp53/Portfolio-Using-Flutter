@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class CustomButtom extends StatelessWidget {
+class CustomButtom extends StatefulWidget {
   final onPressed;
   final String text;
   final color;
   final tColor;
-  const CustomButtom(
+  CustomButtom(
       {Key? key,
       required this.onPressed,
       required this.text,
@@ -14,18 +14,35 @@ class CustomButtom extends StatelessWidget {
       : super(key: key);
 
   @override
+  State<CustomButtom> createState() => _CustomButtomState();
+}
+
+class _CustomButtomState extends State<CustomButtom> {
+  Color? colors;
+  bool _motionHovering = false;
+
+  @override
   Widget build(BuildContext context) {
-    return OutlinedButton(
-      style: OutlinedButton.styleFrom(
-        fixedSize: Size(300, 80),
-        side: BorderSide(width: 3.5, color: color),
-      ),
-      onPressed: onPressed,
-      child: Text(
-        text,
-        style: TextStyle(
-          color: tColor,
-          fontSize: 25,
+    return Container(
+      height: 70,
+      child: OutlinedButton(
+        onHover: (value) {
+          _motionHovering = !_motionHovering;
+          colors = widget.color;
+          setState(() {});
+        },
+        style: OutlinedButton.styleFrom(
+          fixedSize: Size(300, 80),
+          side: BorderSide(width: 3.5, color: widget.color),
+          backgroundColor: _motionHovering ? colors : Colors.transparent,
+        ),
+        onPressed: widget.onPressed,
+        child: Text(
+          widget.text,
+          style: TextStyle(
+            color: _motionHovering ? Colors.black : widget.tColor,
+            fontSize: 25,
+          ),
         ),
       ),
     );

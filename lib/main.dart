@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/screens/about_me/about_me_view.dart';
 import 'package:portfolio/screens/about_home/about_view.dart';
+import 'package:portfolio/screens/contact_me/contact_view.dart';
 import 'package:portfolio/screens/portfolio/portfolio_view.dart';
 import 'package:portfolio/screens/skills/skills_view.dart';
 
@@ -81,6 +82,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: "/about", page: () => AboutMeView()),
         GetPage(name: "/portfolio", page: () => PortfolioView()),
         GetPage(name: "/skills", page: () => SkillsView()),
+        GetPage(name: "/contactme", page: () => ContactMeView()),
       ],
     );
   }
