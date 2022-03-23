@@ -330,7 +330,7 @@ class SkillsBody extends StatelessWidget {
                                 TyperAnimatedText(
                                   experienceData[i]['title'],
                                   curve: Curves.easeInCubic,
-                                  speed: Duration(milliseconds: 60),
+                                  speed: Duration(milliseconds: 40),
                                 ),
                               ],
                             ),

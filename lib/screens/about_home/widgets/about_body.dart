@@ -33,7 +33,7 @@ class AboutBody extends StatelessWidget {
                   Text(
                     "Hi!",
                     style: TextStyle(
-                      fontSize: isMobile(context) ? 55 : 75,
+                      fontSize: isMobile(context) ? 45 : 75,
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
@@ -43,55 +43,51 @@ class AboutBody extends StatelessWidget {
                       Text(
                         "I am ",
                         style: TextStyle(
-                          fontSize: isMobile(context) ? 55 : 75,
+                          fontSize: isMobile(context) ? 45 : 75,
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       DefaultTextStyle(
                         style: TextStyle(
-                          fontSize: isMobile(context) ? 55 : 75,
+                          fontSize: isMobile(context) ? 45 : 75,
                           color: viewmodel.changeColor == false
                               ? _theme.colorScheme.primary
                               : _theme.colorScheme.secondary,
                           fontWeight: FontWeight.bold,
                         ),
-                        child: AnimatedTextKit(
-                          isRepeatingAnimation: false,
-                          onTap: () {
-                            viewmodel.changeColor = !viewmodel.changeColor;
-                          },
-                          animatedTexts: [
-                            TypewriterAnimatedText(
-                              'MD Karimul Hasan',
-                              speed: const Duration(milliseconds: 120),
-                              cursor: '|',
-                              curve: Curves.easeInCubic,
-                            ),
-                          ],
+                        child: Text(
+                          'MD Karimul Hasan',
                         ),
                       ),
                     ],
                   ),
-                  Text(
-                    "Software Engineer!",
-                    style: TextStyle(
-                      fontSize: isMobile(context) ? 55 : 75,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    "Flutter Developer + Motion Designer!",
-                    style: TextStyle(
-                      letterSpacing: 2,
-                      height: !isMobile(context) ? 3 : 2,
-                      fontSize: 20,
-                      fontFamily: 'Courier New',
-                      fontWeight: FontWeight.bold,
-                      color: viewmodel.changeColor == false
-                          ? _theme.colorScheme.secondary
-                          : _theme.colorScheme.primary,
+                  SizedBox(
+                    height: 100,
+                    child: DefaultTextStyle(
+                      style: TextStyle(
+                        fontSize: isMobile(context) ? 45 : 75,
+                        color: _theme.colorScheme.secondary,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      child: AnimatedTextKit(
+                        isRepeatingAnimation: true,
+                        repeatForever: true,
+                        animatedTexts: [
+                          RotateAnimatedText(
+                            "Software Engineer",
+                            alignment: Alignment.centerLeft,
+                          ),
+                          RotateAnimatedText(
+                            "Flutter Developer",
+                            alignment: Alignment.centerLeft,
+                          ),
+                          RotateAnimatedText(
+                            "Motion Designer",
+                            alignment: Alignment.centerLeft,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
