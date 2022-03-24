@@ -2,38 +2,49 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/commons/custom_button.dart';
 import 'package:portfolio/commons/is_mobileCall.dart';
+import 'package:portfolio/models/about.dart';
 import 'package:portfolio/screens/contact_me/contact_viewmodel.dart';
+import 'package:portfolio/screens/stateful_wrapper.dart';
 
 class ContactBody extends StatelessWidget {
   final ContactMeViewmodel viewmodel;
   const ContactBody({Key? key, required this.viewmodel}) : super(key: key);
 
+  Future<About?> getAboutStuff() {
+    return viewmodel.getAboutStuff();
+  }
+
   @override
   Widget build(BuildContext context) {
     var _theme = Theme.of(context);
-    return SingleChildScrollView(
-      child: Container(
-        margin: isMobile(context)
-            ? EdgeInsets.all(15)
-            : EdgeInsets.only(
-                left: 40,
-                top: 40,
-                bottom: 40,
-              ),
-        padding: isMobile(context)
-            ? EdgeInsets.all(15)
-            : EdgeInsets.only(
-                left: 40,
-                top: 40,
-                bottom: 40,
-              ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            isMobile(context)
-                ? _columnLayout(_theme, context)
-                : _rowLayout(_theme, context),
-          ],
+    return StatefulWrapper(
+      onInit: () {
+        getAboutStuff().then((value) => viewmodel.about = value);
+      },
+      child: SingleChildScrollView(
+        child: Container(
+          margin: isMobile(context)
+              ? EdgeInsets.all(15)
+              : EdgeInsets.only(
+                  left: 40,
+                  top: 40,
+                  bottom: 40,
+                ),
+          padding: isMobile(context)
+              ? EdgeInsets.all(15)
+              : EdgeInsets.only(
+                  left: 40,
+                  top: 40,
+                  bottom: 40,
+                ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              isMobile(context)
+                  ? _columnLayout(_theme, context)
+                  : _rowLayout(_theme, context),
+            ],
+          ),
         ),
       ),
     );
@@ -128,12 +139,59 @@ class ContactBody extends StatelessWidget {
               SizedBox(
                 height: 25,
               ),
-              CustomButtom(
-                onPressed: () {},
-                text: "Send Message!",
-                color: _theme.colorScheme.secondary,
-                tColor: _theme.colorScheme.secondary,
-              ),
+              viewmodel.isLoading == false
+                  ? CustomButtom(
+                      onPressed: () async {
+                        if (viewmodel.name.isEmpty ||
+                            viewmodel.email.isEmpty ||
+                            viewmodel.subject.isEmpty ||
+                            viewmodel.message.isEmpty) {
+                          viewmodel.isLoading = false;
+                          showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                              title: Text("Error!"),
+                              content: Text("Please fill all the fields!"),
+                              actions: [
+                                CustomButtom(
+                                  onPressed: () => Navigator.pop(context),
+                                  text: "Ok",
+                                  color: _theme.colorScheme.primary,
+                                  tColor: _theme.colorScheme.primary,
+                                ),
+                              ],
+                            ),
+                          );
+                        } else {
+                          viewmodel.isLoading = true;
+                          var res = await viewmodel.sendMessage();
+                          if (res.success) {
+                            viewmodel.isLoading = false;
+                            showDialog(
+                              context: context,
+                              builder: (context) => AlertDialog(
+                                title: Text("Success!"),
+                                content: Text("Message sent successfully!"),
+                                actions: [
+                                  CustomButtom(
+                                    onPressed: () => Navigator.pop(context),
+                                    text: "Ok",
+                                    color: _theme.colorScheme.primary,
+                                    tColor: _theme.colorScheme.primary,
+                                  ),
+                                ],
+                              ),
+                            );
+                          }
+                        }
+                      },
+                      text: "Send Message!",
+                      color: _theme.colorScheme.secondary,
+                      tColor: _theme.colorScheme.secondary,
+                    )
+                  : Center(
+                      child: CircularProgressIndicator(),
+                    ),
             ],
           ),
 
@@ -144,11 +202,26 @@ class ContactBody extends StatelessWidget {
           Container(
             //height: 1000,
             width: double.infinity,
-            child: Image(
-              height: 800,
-              image: AssetImage('assets/images/location.jpg'),
-              fit: BoxFit.cover,
-            ),
+            child: viewmodel.about != null
+                ? Image(
+                    height: 800,
+                    image: NetworkImage(viewmodel.about!.location.url!),
+                    fit: BoxFit.cover,
+                  )
+                : Center(
+                    child: Column(
+                      children: [
+                        CircularProgressIndicator(),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "Please wait...",
+                          style: _theme.textTheme.bodyText1,
+                        ),
+                      ],
+                    ),
+                  ),
           ),
         ],
       ),
@@ -310,11 +383,26 @@ class ContactBody extends StatelessWidget {
           child: Container(
             //height: 1000,
             width: double.infinity,
-            child: Image(
-              height: 800,
-              image: AssetImage('assets/images/location.jpg'),
-              fit: BoxFit.cover,
-            ),
+            child: viewmodel.about != null
+                ? Image(
+                    height: 800,
+                    image: NetworkImage(viewmodel.about!.location.url!),
+                    fit: BoxFit.cover,
+                  )
+                : Center(
+                    child: Column(
+                      children: [
+                        CircularProgressIndicator(),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "Please wait...",
+                          style: _theme.textTheme.bodyText1,
+                        ),
+                      ],
+                    ),
+                  ),
           ),
         ),
       ],

@@ -1,15 +1,21 @@
 import 'package:portfolio/dependencies/dependencies.dart';
+import 'package:portfolio/models/about.dart';
 import 'package:portfolio/screens/viewmodel.dart';
+import 'package:portfolio/services/about_service.dart';
 import 'package:portfolio/services/contact_service.dart';
 
 class ContactMeViewmodel extends Viewmodel {
   ContactService get _service => dependency();
+  AboutService get _aboutService => AboutService();
+
   bool _isLoading = false;
   int _selectedIndex = 4;
   String _email = "";
   String _name = "";
   String _subject = "";
   String _message = "";
+
+  About? _about;
 
   get selectedIndex => _selectedIndex;
   set selectedIndex(value) {
@@ -53,8 +59,19 @@ class ContactMeViewmodel extends Viewmodel {
     turnIdle();
   }
 
+  About? get about => _about;
+  set about(About? value) {
+    turnBusy();
+    _about = value;
+    turnIdle();
+  }
+
   sendMessage() {
     var res = _service.addMessage(name, email, subject, message);
     return res;
+  }
+
+  Future<About?> getAboutStuff() async {
+    return await _aboutService.getAboutStuff();
   }
 }

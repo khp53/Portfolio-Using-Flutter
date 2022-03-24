@@ -13,7 +13,7 @@ class SkillsBody extends StatelessWidget {
   // this is just to check if the web window size is less then or equal to
   // 600, then will show mobile appbar or else will show web app bar
   static bool isMobile(BuildContext context) =>
-      MediaQuery.of(context).size.width <= 1100;
+      MediaQuery.of(context).size.width <= 1000;
 
   final List experienceData = [
     {

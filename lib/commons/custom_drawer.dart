@@ -42,7 +42,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                                 radius: 25,
                                 backgroundColor: Colors.white,
                                 backgroundImage:
-                                    AssetImage('assets/images/IMG_1959.jpg'),
+                                    AssetImage('images/IMG_1959.jpg'),
                               ),
                             ),
                             Expanded(
@@ -70,7 +70,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                               radius: 40,
                               backgroundColor: Colors.white,
                               backgroundImage:
-                                  AssetImage('assets/images/IMG_1959.jpg'),
+                                  AssetImage('images/IMG_1959.jpg'),
                             ),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -97,7 +97,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 _buildListTile(
                   context,
                   text: 'Home',
-                  svgLocation: "assets/svg/home.svg",
+                  svgLocation: "svg/home.svg",
                   onTap: () {
                     widget.viewmodel.selectedIndex = 0;
                     Get.toNamed("/");
@@ -108,7 +108,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 _buildListTile(
                   context,
                   text: 'About',
-                  svgLocation: "assets/svg/info-circle.svg",
+                  svgLocation: "svg/info-circle.svg",
                   onTap: () {
                     widget.viewmodel.selectedIndex = 1;
                     Get.toNamed("/about");
@@ -119,7 +119,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 _buildListTile(
                   context,
                   text: 'Portfolio',
-                  svgLocation: "assets/svg/bag.svg",
+                  svgLocation: "svg/bag.svg",
                   onTap: () {
                     widget.viewmodel.selectedIndex = 2;
                     Get.toNamed("/portfolio");
@@ -130,7 +130,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 _buildListTile(
                   context,
                   text: 'Skills',
-                  svgLocation: "assets/svg/arrow.svg",
+                  svgLocation: "svg/arrow.svg",
                   onTap: () {
                     widget.viewmodel.selectedIndex = 3;
                     Get.toNamed("/skills");
@@ -141,7 +141,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 _buildListTile(
                   context,
                   text: 'Contact Me',
-                  svgLocation: "assets/svg/at.svg",
+                  svgLocation: "svg/at.svg",
                   onTap: () {
                     widget.viewmodel.selectedIndex = 4;
                     Get.toNamed("/contactme");
@@ -153,12 +153,12 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   contentPadding: EdgeInsets.only(left: 35, top: 20),
                   leading: isCollapsed == true
                       ? SvgPicture.asset(
-                          'assets/svg/angle-right.svg',
+                          'svg/angle-right.svg',
                           color: _theme.colorScheme.primary,
                           height: 70,
                         )
                       : SvgPicture.asset(
-                          'assets/svg/angle-left.svg',
+                          'svg/angle-left.svg',
                           color: _theme.colorScheme.primary,
                           height: 70,
                         ),

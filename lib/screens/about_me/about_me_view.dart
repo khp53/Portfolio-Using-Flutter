@@ -9,7 +9,7 @@ class AboutMeView extends StatefulWidget {
   AboutMeView({Key? key}) : super(key: key);
 
   static bool isMobile(BuildContext context) =>
-      MediaQuery.of(context).size.width <= 1100;
+      MediaQuery.of(context).size.width <= 1000;
 
   @override
   State<AboutMeView> createState() => _AboutMeViewState();
@@ -42,7 +42,7 @@ class _AboutMeViewState extends State<AboutMeView> {
             body: //_isLoading == false
                 LayoutBuilder(
               builder: (context, constrains) {
-                if (constrains.maxWidth > 1100) {
+                if (constrains.maxWidth > 1000) {
                   return Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

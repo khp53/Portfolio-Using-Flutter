@@ -64,7 +64,7 @@ class AboutBody extends StatelessWidget {
                       Text(
                         "Hi!",
                         style: TextStyle(
-                          fontSize: isMobile(context) ? 45 : 75,
+                          fontSize: isMobile(context) ? 35 : 75,
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                         ),
@@ -74,14 +74,14 @@ class AboutBody extends StatelessWidget {
                           Text(
                             "I am ",
                             style: TextStyle(
-                              fontSize: isMobile(context) ? 45 : 75,
+                              fontSize: isMobile(context) ? 35 : 75,
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                           DefaultTextStyle(
                             style: TextStyle(
-                              fontSize: isMobile(context) ? 45 : 75,
+                              fontSize: isMobile(context) ? 35 : 75,
                               color: viewmodel.changeColor == false
                                   ? _theme.colorScheme.primary
                                   : _theme.colorScheme.secondary,
@@ -94,10 +94,10 @@ class AboutBody extends StatelessWidget {
                         ],
                       ),
                       SizedBox(
-                        height: 100,
+                        height: isMobile(context) ? 60 : 100,
                         child: DefaultTextStyle(
                           style: TextStyle(
-                            fontSize: isMobile(context) ? 45 : 75,
+                            fontSize: isMobile(context) ? 35 : 75,
                             color: _theme.colorScheme.secondary,
                             fontWeight: FontWeight.bold,
                           ),
@@ -108,14 +108,17 @@ class AboutBody extends StatelessWidget {
                               RotateAnimatedText(
                                 "Software Engineer",
                                 alignment: Alignment.centerLeft,
+                                duration: const Duration(milliseconds: 1000),
                               ),
                               RotateAnimatedText(
                                 "Flutter Developer",
                                 alignment: Alignment.centerLeft,
+                                duration: const Duration(milliseconds: 1000),
                               ),
                               RotateAnimatedText(
                                 "Motion Designer",
                                 alignment: Alignment.centerLeft,
+                                duration: const Duration(milliseconds: 1000),
                               ),
                             ],
                           ),

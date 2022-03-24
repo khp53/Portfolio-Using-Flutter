@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:lottie/lottie.dart';
 import 'package:portfolio/commons/is_mobileCall.dart';
-import 'package:portfolio/screens/about_home/about_view.dart';
+import 'package:portfolio/models/about.dart';
 import 'package:portfolio/screens/about_me/about_me_viewmodel.dart';
+import 'package:portfolio/screens/stateful_wrapper.dart';
 import 'package:rive/rive.dart';
 
 class AboutMe extends StatefulWidget {
@@ -16,14 +15,23 @@ class AboutMe extends StatefulWidget {
 }
 
 class _AboutMeState extends State<AboutMe> with TickerProviderStateMixin {
+  Future<About?> getAboutStuff() {
+    return widget.viewmodel!.getAboutStuff();
+  }
+
   @override
   Widget build(BuildContext context) {
     var _theme = Theme.of(context);
-    return SingleChildScrollView(
-      child: Container(
-        child: isMobile(context)
-            ? columnLayout(_theme, context)
-            : rowLayout(_theme, context),
+    return StatefulWrapper(
+      onInit: () {
+        getAboutStuff().then((value) => widget.viewmodel!.about = value);
+      },
+      child: SingleChildScrollView(
+        child: Container(
+          child: isMobile(context)
+              ? columnLayout(_theme, context)
+              : rowLayout(_theme, context),
+        ),
       ),
     );
   }
@@ -65,8 +73,30 @@ class _AboutMeState extends State<AboutMe> with TickerProviderStateMixin {
         Expanded(
           child: Container(
             height: MediaQuery.of(context).size.height,
-            child:
-                RiveAnimation.asset('assets/animation/about_me_animation.riv'),
+            child: widget.viewmodel!.about != null
+                ? RiveAnimation.network(
+                    widget.viewmodel!.about!.riveAnimation.url!,
+                    placeHolder: Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                  )
+                : Center(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        CircularProgressIndicator(),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "Please wait...",
+                          style: _theme.textTheme.bodyText1!
+                              .copyWith(fontSize: 20),
+                        ),
+                      ],
+                    ),
+                  ),
           ),
         ),
       ],
@@ -79,7 +109,30 @@ class _AboutMeState extends State<AboutMe> with TickerProviderStateMixin {
       children: [
         Container(
           height: MediaQuery.of(context).size.height / 2,
-          child: RiveAnimation.asset('assets/animation/about_me_animation.riv'),
+          child: widget.viewmodel!.about != null
+              ? RiveAnimation.network(
+                  widget.viewmodel!.about!.riveAnimation.url!,
+                  placeHolder: Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                )
+              : Center(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CircularProgressIndicator(),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        "Please wait...",
+                        style:
+                            _theme.textTheme.bodyText1!.copyWith(fontSize: 20),
+                      ),
+                    ],
+                  ),
+                ),
         ),
         Container(
           margin: EdgeInsets.all(15),
