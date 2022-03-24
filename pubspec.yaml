@@ -29,7 +29,6 @@ flutter:
   assets:
     - images/
     - svg/
-    - animation/
   fonts:
     - family: Courier New
       fonts:
