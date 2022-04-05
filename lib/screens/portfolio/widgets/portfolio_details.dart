@@ -1,17 +1,82 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:portfolio/commons/custom_appbar.dart';
+import 'package:portfolio/commons/custom_drawer.dart';
 import 'package:portfolio/commons/is_mobileCall.dart';
 import 'package:portfolio/screens/portfolio/portfolio_viewmodel.dart';
-import 'package:portfolio/screens/portfolio/widgets/motion_portfolio_card.dart';
-import 'package:portfolio/screens/portfolio/widgets/portfolio_card.dart';
+import 'package:portfolio/screens/view.dart';
 
-class PortfolioBody extends StatelessWidget {
-  final PortfolioViewmodel viewmodel;
-  final scaffoldKey;
-  PortfolioBody({Key? key, required this.viewmodel, this.scaffoldKey})
-      : super(key: key);
+class PortfolioDetails extends StatefulWidget {
+  PortfolioDetails({Key? key}) : super(key: key);
 
-  final nonHoverTransform = Matrix4.identity()..translate(0, 0, 0);
-  final hoverTransform = Matrix4.identity()..translate(0, -5, 0);
+  @override
+  State<PortfolioDetails> createState() => _PortfolioDetailsState();
+}
+
+class _PortfolioDetailsState extends State<PortfolioDetails> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
+  String? index = Get.parameters['id'];
+
+  // ScrollController _controller = ScrollController();
+  // bool _listAppended = false;
+
+  // /// [_pd2] holds duplicate data and is used to append to [portfolioData].
+  // List<String> _pd2 = [];
+
+  // @override
+  // void initState() {
+  //   _pd2.addAll(portfolioData[int.parse(index!)]['images']);
+
+  //   /// To auto-start the animation when the screen loads.
+  //   WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+  //     _startScroll();
+  //   });
+
+  //   /// The [_controller] will notify [_list] to be appended when the animation is near completion.
+  //   _controller.addListener(
+  //     () {
+  //       if (_controller.position.pixels >
+  //           _controller.position.maxScrollExtent) {
+  //         if (_listAppended == false) {
+  //           portfolioData[int.parse(index!)]['images'].addAll(_pd2);
+  //           _listAppended = true;
+  //         }
+  //       }
+
+  //       /// The [_controller] will listen for when the animation cycle completes,
+  //       /// so this can immediately re-start from the completed position.
+  //       if (_controller.position.pixels ==
+  //           _controller.position.maxScrollExtent * 0.92) {
+  //         _listAppended = false;
+  //         setState(() {});
+  //         WidgetsBinding.instance!.addPostFrameCallback(
+  //           (timeStamp) {
+  //             _startScroll();
+  //           },
+  //         );
+  //       }
+  //     },
+  //   );
+  //   super.initState();
+  // }
+
+  // @override
+  // void didChangeDependencies() {
+  //   super.didChangeDependencies();
+  // }
+
+  // void _startScroll() {
+  //   _controller.animateTo(_controller.position.maxScrollExtent,
+  //       duration: Duration(milliseconds: 8000), curve: Curves.linear);
+  // }
+
+  // @override
+  // void dispose() {
+  //   _controller.dispose();
+  //   super.dispose();
+  // }
 
   final List portfolioData = [
     {
@@ -63,6 +128,14 @@ class PortfolioBody extends StatelessWidget {
       'index': 4,
       'details':
           'A web and mobile application built for middle income people of Bangladesh, to provide telemedical services to the people. The app is built using Flutter, FCM and Parse server.',
+      'images': [
+        'images/surecare/1.png',
+        'images/surecare/2.png',
+        'images/surecare/3.png',
+        'images/surecare/4.png',
+        'images/surecare/5.png',
+        'images/surecare/6.png',
+      ],
     },
     {
       'title': "Sure Care Admin",
@@ -169,6 +242,52 @@ class PortfolioBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return View(
+      viewmodel: PortfolioViewmodel(),
+      builder: (context, pViewmdoel, __) {
+        return Scaffold(
+          key: _scaffoldKey,
+          appBar: isMobile(context)
+              ? CustomAppbar(
+                  openDrawer: () {
+                    _scaffoldKey.currentState!.openDrawer();
+                  },
+                  title: Text(
+                    "Projects",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                )
+              : null,
+          drawer: CustomDrawer(context: context, viewmodel: pViewmdoel),
+          body: LayoutBuilder(
+            builder: (context, constrains) {
+              if (constrains.maxWidth > 1000) {
+                return Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CustomDrawer(
+                      context: context,
+                      viewmodel: pViewmdoel,
+                    ),
+                    Expanded(
+                      flex: 5,
+                      child: body(context),
+                    ),
+                  ],
+                );
+              } else {
+                return body(context);
+              }
+            },
+          ),
+        );
+      },
+    );
+  }
+
+  Widget body(BuildContext context) {
     var _theme = Theme.of(context);
     return SingleChildScrollView(
       child: Container(
@@ -178,75 +297,44 @@ class PortfolioBody extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Portfolio 📂",
-              style: _theme.textTheme.headline2,
+              portfolioData[int.parse(index!)]['title'],
+              style: _theme.textTheme.headline1,
+            ),
+            SizedBox(
+              height: 25,
             ),
             Text(
-              "My Projects",
-              style: _theme.textTheme.headline1,
+              portfolioData[int.parse(index!)]['details'],
+              style: _theme.textTheme.bodyText1,
             ),
             SizedBox(
               height: 45,
             ),
-            Text(
-              "Development Projects",
-              style: _theme.textTheme.headline3,
-            ),
-            Container(
-              height: 317,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                shrinkWrap: true,
-                itemCount: portfolioData.length,
-                itemBuilder: (BuildContext context, index) {
+            CarouselSlider.builder(
+                itemCount: portfolioData[int.parse(index!)]['images'].length,
+                itemBuilder: (BuildContext context, int i, int pi) {
                   return Container(
-                    padding: EdgeInsets.only(right: 50, top: 10),
-                    child: PortfolioCard(
-                      title: portfolioData[index]['title'],
-                      color1: portfolioData[index]['color1'],
-                      color2: portfolioData[index]['color2'],
-                      icon1: "svg/flutter.svg",
-                      icon2: "svg/firebase.svg",
-                      index: index,
-                      viewmodel: viewmodel,
-                      webLink: portfolioData[index]['webLink'],
-                      gitLink: portfolioData[index]['gitLink'],
-                      details: portfolioData[index]['details'],
-                    ),
+                    //padding: EdgeInsets.only(right: 45),
+                    child: Image(
+                        image: AssetImage(
+                            portfolioData[int.parse(index!)]['images'][i])),
                   );
                 },
-              ),
-            ),
-            SizedBox(
-              height: 35,
-            ),
-            Text(
-              "Motion Designs",
-              style: _theme.textTheme.headline3,
-            ),
-            Container(
-              height: 317,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                shrinkWrap: true,
-                itemCount: motionData.length,
-                itemBuilder: (BuildContext context, index) {
-                  return Container(
-                    padding: EdgeInsets.only(right: 50, top: 10),
-                    child: MotionPortfolioCard(
-                      title: motionData[index]['title'],
-                      color1: motionData[index]['color1'],
-                      color2: motionData[index]['color2'],
-                      icon1: "svg/adobeaftereffects.svg",
-                      icon2: "svg/adobeillustrator.svg",
-                      index: index,
-                      viewmodel: viewmodel,
-                      behanceLink: portfolioData[index]['webLink'],
-                    ),
-                  );
-                },
-              ),
-            ),
+                options: CarouselOptions(
+                  height: MediaQuery.of(context).size.height / 1.85,
+                  aspectRatio: 16 / 9,
+                  viewportFraction: 0.2,
+                  initialPage: 2,
+                  enableInfiniteScroll: true,
+                  reverse: false,
+                  autoPlay: true,
+                  autoPlayInterval: Duration(milliseconds: 2000),
+                  autoPlayAnimationDuration: Duration(milliseconds: 800),
+                  autoPlayCurve: Curves.fastOutSlowIn,
+                  enlargeCenterPage: false,
+                  scrollDirection: Axis.horizontal,
+                  pageSnapping: false,
+                ))
           ],
         ),
       ),

@@ -5,6 +5,7 @@ import 'package:portfolio/screens/about_me/about_me_view.dart';
 import 'package:portfolio/screens/about_home/about_view.dart';
 import 'package:portfolio/screens/contact_me/contact_view.dart';
 import 'package:portfolio/screens/portfolio/portfolio_view.dart';
+import 'package:portfolio/screens/portfolio/widgets/portfolio_details.dart';
 import 'package:portfolio/screens/skills/skills_view.dart';
 import 'package:portfolio/dependencies/dependencies.dart' as di;
 import 'package:url_strategy/url_strategy.dart';
@@ -99,6 +100,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: "/", page: () => AboutView()),
         GetPage(name: "/about", page: () => AboutMeView()),
         GetPage(name: "/portfolio", page: () => PortfolioView()),
+        GetPage(name: "/portfolio/details/", page: () => PortfolioDetails()),
         GetPage(name: "/skills", page: () => SkillsView()),
         GetPage(name: "/contactme", page: () => ContactMeView()),
       ],

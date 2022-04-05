@@ -77,7 +77,21 @@ class _AboutMeState extends State<AboutMe> with TickerProviderStateMixin {
                 ? RiveAnimation.network(
                     widget.viewmodel!.about!.riveAnimation.url!,
                     placeHolder: Center(
-                      child: CircularProgressIndicator(),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CircularProgressIndicator(),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "Loading animation...",
+                            style: _theme.textTheme.bodyText1!
+                                .copyWith(fontSize: 20),
+                          ),
+                        ],
+                      ),
                     ),
                   )
                 : Center(

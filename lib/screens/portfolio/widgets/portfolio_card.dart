@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 import 'package:portfolio/commons/is_mobileCall.dart';
 import 'package:portfolio/screens/portfolio/portfolio_viewmodel.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -18,19 +19,21 @@ class PortfolioCard extends StatelessWidget {
   final gitLink;
   final webLink;
   final index;
+  final details;
   final PortfolioViewmodel viewmodel;
-  PortfolioCard(
-      {Key? key,
-      required this.title,
-      required this.color1,
-      required this.color2,
-      this.icon1,
-      this.icon2,
-      required this.viewmodel,
-      this.webLink,
-      this.gitLink,
-      this.index})
-      : super(key: key);
+  PortfolioCard({
+    Key? key,
+    required this.title,
+    required this.color1,
+    required this.color2,
+    this.icon1,
+    this.icon2,
+    required this.viewmodel,
+    this.webLink,
+    this.gitLink,
+    this.index,
+    this.details,
+  }) : super(key: key);
 
   void _mouseEnter(bool hover) {
     viewmodel.hovering = hover;
@@ -147,6 +150,32 @@ class PortfolioCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                TextButton(
+                  child: Row(
+                    children: [
+                      Text(
+                        "Details",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Icon(
+                        Icons.arrow_forward_ios_rounded,
+                        color: Colors.white,
+                        size: 18,
+                      ),
+                    ],
+                  ),
+                  onPressed: () => Get.toNamed(
+                    "/portfolio/details/",
+                    parameters: {
+                      'id': index.toString(),
+                    },
+                  ),
+                ),
+                Spacer(),
                 gitLink != null && gitLink != ""
                     ? InkWell(
                         onTap: () => kIsWeb
@@ -181,10 +210,10 @@ class PortfolioCard extends StatelessWidget {
             child: Align(
               alignment: Alignment.bottomLeft,
               child: Text(
-                "Click me to see details!",
+                details.toString(),
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 35,
+                  fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
               ),
