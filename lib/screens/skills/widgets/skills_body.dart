@@ -1,6 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
+import 'package:flutter_emoji/flutter_emoji.dart';
 import 'package:portfolio/screens/skills/skills_viewmodel.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
@@ -114,6 +115,7 @@ class SkillsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var parser = EmojiParser();
     var _theme = Theme.of(context);
     return SingleChildScrollView(
       child: Container(
@@ -123,7 +125,7 @@ class SkillsBody extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Skills 🎯",
+              parser.emojify("Skills :toolbox:"),
               style: _theme.textTheme.headline2,
             ),
             Text(

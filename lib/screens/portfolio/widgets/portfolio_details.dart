@@ -19,65 +19,6 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
 
   String? index = Get.parameters['id'];
 
-  // ScrollController _controller = ScrollController();
-  // bool _listAppended = false;
-
-  // /// [_pd2] holds duplicate data and is used to append to [portfolioData].
-  // List<String> _pd2 = [];
-
-  // @override
-  // void initState() {
-  //   _pd2.addAll(portfolioData[int.parse(index!)]['images']);
-
-  //   /// To auto-start the animation when the screen loads.
-  //   WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
-  //     _startScroll();
-  //   });
-
-  //   /// The [_controller] will notify [_list] to be appended when the animation is near completion.
-  //   _controller.addListener(
-  //     () {
-  //       if (_controller.position.pixels >
-  //           _controller.position.maxScrollExtent) {
-  //         if (_listAppended == false) {
-  //           portfolioData[int.parse(index!)]['images'].addAll(_pd2);
-  //           _listAppended = true;
-  //         }
-  //       }
-
-  //       /// The [_controller] will listen for when the animation cycle completes,
-  //       /// so this can immediately re-start from the completed position.
-  //       if (_controller.position.pixels ==
-  //           _controller.position.maxScrollExtent * 0.92) {
-  //         _listAppended = false;
-  //         setState(() {});
-  //         WidgetsBinding.instance!.addPostFrameCallback(
-  //           (timeStamp) {
-  //             _startScroll();
-  //           },
-  //         );
-  //       }
-  //     },
-  //   );
-  //   super.initState();
-  // }
-
-  // @override
-  // void didChangeDependencies() {
-  //   super.didChangeDependencies();
-  // }
-
-  // void _startScroll() {
-  //   _controller.animateTo(_controller.position.maxScrollExtent,
-  //       duration: Duration(milliseconds: 8000), curve: Curves.linear);
-  // }
-
-  // @override
-  // void dispose() {
-  //   _controller.dispose();
-  //   super.dispose();
-  // }
-
   final List portfolioData = [
     {
       'title': "UTM COVID-19 Contact Tracing Application",
@@ -88,6 +29,29 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
       'index': 0,
       'details':
           'A web and mobile application that allows users to track their contacts with COVID-19 patients. The application is built using Flutter, Firebase and Google Nearby API.',
+      'images': [
+        'images/utmccta/1.png',
+        'images/utmccta/2.png',
+        'images/utmccta/3.png',
+        'images/utmccta/4.png',
+        'images/utmccta/5.png',
+        'images/utmccta/6.png',
+        'images/utmccta/7.png',
+        'images/utmccta/8.png',
+        'images/utmccta/9.png',
+        'images/utmccta/10.png',
+      ],
+      'images2': [
+        'images/utmccta/1web.png',
+        'images/utmccta/2web.png',
+        'images/utmccta/3web.png',
+        'images/utmccta/4web.png',
+        'images/utmccta/5web.png',
+        'images/utmccta/6web.png',
+        'images/utmccta/7web.png',
+        'images/utmccta/8web.png',
+        'images/utmccta/9web.png',
+      ],
     },
     {
       'title': "Shopper, An E-Commerce App",
@@ -98,6 +62,19 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
       'index': 1,
       'details':
           'An E-Commerce app that allows users to buy and sell products. The app is built using Flutter and Firebase.',
+      'images': [
+        'images/shopper/ss10.png',
+        'images/shopper/ss11.png',
+        'images/shopper/ss1.png',
+        'images/shopper/ss2.png',
+        'images/shopper/ss4.png',
+        'images/shopper/ss9.png',
+        'images/shopper/ss3.png',
+        'images/shopper/ss6.png',
+        'images/shopper/ss7.png',
+        'images/shopper/ss8.png',
+        'images/shopper/ss5.png',
+      ],
     },
     {
       'title': "Chatty! A Chat App",
@@ -108,6 +85,18 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
       'index': 2,
       'details':
           'A chat app that allows users to chat with each other. The app is built using Flutter and Firebase.',
+      'images': [
+        'images/chatty/1.png',
+        'images/chatty/2.png',
+        'images/chatty/3.png',
+        'images/chatty/4.png',
+        'images/chatty/5.png',
+        'images/chatty/6.png',
+        'images/chatty/7.png',
+        'images/chatty/8.png',
+        'images/chatty/9.png',
+        'images/chatty/10.png',
+      ],
     },
     {
       'title': "COVID Detector App",
@@ -118,6 +107,17 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
       'index': 3,
       'details':
           'A COVID-19 detector app that allows different premises to detect mask on face and check tempreture using a temp sensor and arduino. The app is built using Flutter and Firebase.',
+      'images': [
+        'images/coviddetector/1.png',
+        'images/coviddetector/2.png',
+        'images/coviddetector/3.png',
+        'images/coviddetector/4.png',
+        'images/coviddetector/5.png',
+        'images/coviddetector/6.png',
+        'images/coviddetector/7.png',
+        'images/coviddetector/8.png',
+        'images/coviddetector/9.png',
+      ],
     },
     {
       'title': "Sure Care Services",
@@ -216,6 +216,11 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
       'index': 12,
       'details':
           'A todo list app that allows users to add, edit, delete and mark tasks. The app is built using Flutter.',
+      'images': [
+        'images/todos/1.png',
+        'images/todos/2.png',
+        'images/todos/3.png',
+      ],
     },
   ];
 
@@ -311,30 +316,76 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
               height: 45,
             ),
             CarouselSlider.builder(
-                itemCount: portfolioData[int.parse(index!)]['images'].length,
-                itemBuilder: (BuildContext context, int i, int pi) {
-                  return Container(
-                    //padding: EdgeInsets.only(right: 45),
-                    child: Image(
-                        image: AssetImage(
-                            portfolioData[int.parse(index!)]['images'][i])),
-                  );
-                },
-                options: CarouselOptions(
-                  height: MediaQuery.of(context).size.height / 1.85,
-                  aspectRatio: 16 / 9,
-                  viewportFraction: 0.2,
-                  initialPage: 2,
-                  enableInfiniteScroll: true,
-                  reverse: false,
-                  autoPlay: true,
-                  autoPlayInterval: Duration(milliseconds: 2000),
-                  autoPlayAnimationDuration: Duration(milliseconds: 800),
-                  autoPlayCurve: Curves.fastOutSlowIn,
-                  enlargeCenterPage: false,
-                  scrollDirection: Axis.horizontal,
-                  pageSnapping: false,
-                ))
+              itemCount: portfolioData[int.parse(index!)]['images'].length,
+              itemBuilder: (BuildContext context, int i, int pi) {
+                return Container(
+                  //padding: EdgeInsets.only(right: 45),
+                  child: Image(
+                    image: AssetImage(
+                      portfolioData[int.parse(index!)]['images'][i],
+                    ),
+                  ),
+                );
+              },
+              options: CarouselOptions(
+                height: isMobile(context)
+                    ? MediaQuery.of(context).size.height / 1.4
+                    : MediaQuery.of(context).size.height / 1.85,
+                aspectRatio: 1 / 2,
+                viewportFraction: isMobile(context) ? 0.8 : 0.2,
+                initialPage: 2,
+                enableInfiniteScroll: true,
+                reverse: false,
+                autoPlay: true,
+                autoPlayInterval: Duration(milliseconds: 2000),
+                autoPlayAnimationDuration: Duration(milliseconds: 800),
+                autoPlayCurve: Curves.fastOutSlowIn,
+                enlargeCenterPage: false,
+                scrollDirection: Axis.horizontal,
+                pageSnapping: false,
+              ),
+            ),
+            portfolioData[int.parse(index!)]['images2'] != null
+                ? Column(
+                    children: [
+                      SizedBox(
+                        height: 65,
+                      ),
+                      CarouselSlider.builder(
+                        itemCount:
+                            portfolioData[int.parse(index!)]['images2'].length,
+                        itemBuilder: (BuildContext context, int i, int pi) {
+                          return Container(
+                            //padding: EdgeInsets.only(right: 45),
+                            child: Image(
+                              image: AssetImage(
+                                portfolioData[int.parse(index!)]['images2'][i],
+                              ),
+                            ),
+                          );
+                        },
+                        options: CarouselOptions(
+                          height: isMobile(context)
+                              ? MediaQuery.of(context).size.height / 1.4
+                              : MediaQuery.of(context).size.height / 1.85,
+                          aspectRatio: 9 / 16,
+                          viewportFraction: isMobile(context) ? 1 : 0.8,
+                          initialPage: 2,
+                          enableInfiniteScroll: true,
+                          reverse: false,
+                          autoPlay: true,
+                          autoPlayInterval: Duration(milliseconds: 2000),
+                          autoPlayAnimationDuration:
+                              Duration(milliseconds: 800),
+                          autoPlayCurve: Curves.fastOutSlowIn,
+                          enlargeCenterPage: false,
+                          scrollDirection: Axis.horizontal,
+                          pageSnapping: false,
+                        ),
+                      )
+                    ],
+                  )
+                : Container(),
           ],
         ),
       ),

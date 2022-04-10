@@ -1,5 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_emoji/flutter_emoji.dart';
 import 'package:portfolio/commons/custom_button.dart';
 import 'package:portfolio/commons/is_mobileCall.dart';
 import 'package:portfolio/models/about.dart';
@@ -16,6 +17,7 @@ class ContactBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var parser = EmojiParser();
     var _theme = Theme.of(context);
     return StatefulWrapper(
       onInit: () {
@@ -41,8 +43,8 @@ class ContactBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               isMobile(context)
-                  ? _columnLayout(_theme, context)
-                  : _rowLayout(_theme, context),
+                  ? _columnLayout(_theme, context, parser)
+                  : _rowLayout(_theme, context, parser),
             ],
           ),
         ),
@@ -50,7 +52,7 @@ class ContactBody extends StatelessWidget {
     );
   }
 
-  Widget _columnLayout(ThemeData _theme, context) {
+  Widget _columnLayout(ThemeData _theme, context, parser) {
     return Container(
       child: Column(
         children: [
@@ -58,7 +60,7 @@ class ContactBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Contact Me 📬",
+                parser.emojify("Contact Me :mailbox_with_mail:"),
                 style: _theme.textTheme.headline2,
               ),
               Text(
@@ -228,7 +230,7 @@ class ContactBody extends StatelessWidget {
     );
   }
 
-  Row _rowLayout(ThemeData _theme, BuildContext context) {
+  Row _rowLayout(ThemeData _theme, BuildContext context, parser) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -237,7 +239,7 @@ class ContactBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Contact Me 📬",
+                parser.emojify("Contact Me :mailbox_with_mail:"),
                 style: _theme.textTheme.headline2,
               ),
               Text(

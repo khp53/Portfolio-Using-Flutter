@@ -18,6 +18,8 @@ class PortfolioCard extends StatelessWidget {
   final icon2;
   final gitLink;
   final webLink;
+  final appStore;
+  final playStore;
   final index;
   final details;
   final PortfolioViewmodel viewmodel;
@@ -33,6 +35,8 @@ class PortfolioCard extends StatelessWidget {
     this.gitLink,
     this.index,
     this.details,
+    this.appStore,
+    this.playStore,
   }) : super(key: key);
 
   void _mouseEnter(bool hover) {
@@ -47,6 +51,14 @@ class PortfolioCard extends StatelessWidget {
   void _launchGitURL() async => await canLaunch(webLink)
       ? await launch(gitLink)
       : throw 'Could not launch $gitLink';
+
+  void _launchAppStoreURL() async => await canLaunch(appStore)
+      ? await launch(appStore)
+      : throw 'Could not launch $appStore';
+
+  void _launchPlayStoreURL() async => await canLaunch(playStore)
+      ? await launch(playStore)
+      : throw 'Could not launch $playStore';
 
   final nonHoverTransform = Matrix4.identity()..translate(0, 0, 0);
   final hoverTransform = Matrix4.identity()..translate(0, -5, 0);
@@ -66,7 +78,7 @@ class PortfolioCard extends StatelessWidget {
               duration: const Duration(milliseconds: 200),
               child: viewmodel.hovering && viewmodel.index == index
                   ? _buildHoverWidget()
-                  : _buildNonHoverWidget(),
+                  : _buildNonHoverWidget(context),
             ),
           )
         : MouseRegion(
@@ -79,12 +91,12 @@ class PortfolioCard extends StatelessWidget {
               duration: const Duration(milliseconds: 200),
               child: viewmodel.hovering && viewmodel.index == index
                   ? _buildHoverWidget()
-                  : _buildNonHoverWidget(),
+                  : _buildNonHoverWidget(context),
             ),
           );
   }
 
-  Container _buildNonHoverWidget() {
+  Container _buildNonHoverWidget(context) {
     return Container(
       width: 317,
       height: 317,
@@ -106,6 +118,7 @@ class PortfolioCard extends StatelessWidget {
                 SvgPicture.asset(
                   icon2,
                   height: 20,
+                  color: Theme.of(context).colorScheme.background,
                 ),
               ],
             ),
@@ -200,6 +213,36 @@ class PortfolioCard extends StatelessWidget {
                           Icons.launch,
                           color: Colors.white,
                           size: 22,
+                        ),
+                      )
+                    : Container(),
+                SizedBox(
+                  width: 10,
+                ),
+                appStore != null && appStore != ""
+                    ? InkWell(
+                        onTap: () => kIsWeb
+                            ? html.window.open(appStore, "Appstore Link")
+                            : _launchAppStoreURL(),
+                        child: FaIcon(
+                          FontAwesomeIcons.appStoreIos,
+                          color: Colors.white,
+                          size: 20,
+                        ),
+                      )
+                    : Container(),
+                SizedBox(
+                  width: 10,
+                ),
+                playStore != null && playStore != ""
+                    ? InkWell(
+                        onTap: () => kIsWeb
+                            ? html.window.open(playStore, "Playstore Link")
+                            : _launchPlayStoreURL(),
+                        child: FaIcon(
+                          FontAwesomeIcons.googlePlay,
+                          color: Colors.white,
+                          size: 20,
                         ),
                       )
                     : Container(),

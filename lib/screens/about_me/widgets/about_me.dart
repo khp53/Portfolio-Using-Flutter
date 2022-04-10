@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_emoji/flutter_emoji.dart';
 import 'package:portfolio/commons/is_mobileCall.dart';
 import 'package:portfolio/models/about.dart';
 import 'package:portfolio/screens/about_me/about_me_viewmodel.dart';
@@ -21,6 +22,7 @@ class _AboutMeState extends State<AboutMe> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    var parser = EmojiParser();
     var _theme = Theme.of(context);
     return StatefulWrapper(
       onInit: () {
@@ -29,14 +31,14 @@ class _AboutMeState extends State<AboutMe> with TickerProviderStateMixin {
       child: SingleChildScrollView(
         child: Container(
           child: isMobile(context)
-              ? columnLayout(_theme, context)
-              : rowLayout(_theme, context),
+              ? columnLayout(_theme, context, parser)
+              : rowLayout(_theme, context, parser),
         ),
       ),
     );
   }
 
-  Row rowLayout(ThemeData _theme, BuildContext context) {
+  Row rowLayout(ThemeData _theme, BuildContext context, parser) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -49,7 +51,7 @@ class _AboutMeState extends State<AboutMe> with TickerProviderStateMixin {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "About MySelf 👨🏻‍💻",
+                  parser.emojify('About Me :technologist:'),
                   style: _theme.textTheme.headline2,
                 ),
                 Text(
@@ -117,7 +119,7 @@ class _AboutMeState extends State<AboutMe> with TickerProviderStateMixin {
     );
   }
 
-  Column columnLayout(ThemeData _theme, BuildContext context) {
+  Column columnLayout(ThemeData _theme, BuildContext context, parser) {
     return Column(
       //crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -170,7 +172,7 @@ class _AboutMeState extends State<AboutMe> with TickerProviderStateMixin {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "About MySelf 👨🏻‍💻",
+                parser.emojify('About Me :technologist:'),
                 style: _theme.textTheme.headline2,
               ),
               Text(

@@ -11,6 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_animation_progress_bar: ^2.0.1
+  flutter_emoji: ^2.4.0
   flutter_svg: ^0.23.0+1
   font_awesome_flutter: ^9.2.0
   get: ^4.3.8
@@ -30,6 +31,11 @@ flutter:
   assets:
     - images/
     - images/surecare/
+    - images/utmccta/
+    - images/shopper/
+    - images/chatty/
+    - images/todos/
+    - images/coviddetector/
     - svg/
   fonts:
     - family: Courier New
