@@ -180,7 +180,7 @@ class SkillsBody extends StatelessWidget {
                 height: 10,
               ),
               Container(
-                //height: MediaQuery.of(context).size.height,
+                height: MediaQuery.of(context).size.height / 1.3,
                 width: MediaQuery.of(context).size.width,
                 child: ListView.builder(
                   shrinkWrap: true,
@@ -244,7 +244,7 @@ class SkillsBody extends StatelessWidget {
           ),
 
           SizedBox(
-            height: 40,
+            height: 45,
           ),
 
           //-----
@@ -327,7 +327,7 @@ class SkillsBody extends StatelessWidget {
                 height: 10,
               ),
               Container(
-                height: 500,
+                height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
                 child: ListView.builder(
                   shrinkWrap: true,

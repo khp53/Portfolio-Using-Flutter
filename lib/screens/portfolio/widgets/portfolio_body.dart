@@ -5,6 +5,7 @@ import 'package:portfolio/screens/portfolio/portfolio_viewmodel.dart';
 import 'package:portfolio/screens/portfolio/widgets/motion_portfolio_card.dart';
 import 'package:portfolio/screens/portfolio/widgets/portfolio_card.dart';
 
+// ignore: must_be_immutable
 class PortfolioBody extends StatelessWidget {
   final PortfolioViewmodel viewmodel;
   final scaffoldKey;
@@ -13,6 +14,9 @@ class PortfolioBody extends StatelessWidget {
 
   final nonHoverTransform = Matrix4.identity()..translate(0, 0, 0);
   final hoverTransform = Matrix4.identity()..translate(0, -5, 0);
+
+  ScrollController _controller = ScrollController();
+  ScrollController _controller1 = ScrollController();
 
   final List portfolioData = [
     {
@@ -232,31 +236,37 @@ class PortfolioBody extends StatelessWidget {
               "Development Projects",
               style: _theme.textTheme.headline3,
             ),
-            Container(
-              height: 317,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                shrinkWrap: true,
-                itemCount: portfolioData.length,
-                itemBuilder: (BuildContext context, index) {
-                  return Container(
-                    padding: EdgeInsets.only(right: 50, top: 10),
-                    child: PortfolioCard(
-                      title: portfolioData[index]['title'],
-                      color1: portfolioData[index]['color1'],
-                      color2: portfolioData[index]['color2'],
-                      icon1: portfolioData[index]['icon1'],
-                      icon2: portfolioData[index]['icon2'],
-                      index: index,
-                      viewmodel: viewmodel,
-                      webLink: portfolioData[index]['webLink'],
-                      gitLink: portfolioData[index]['gitLink'],
-                      appStore: portfolioData[index]['appStore'],
-                      playStore: portfolioData[index]['playStore'],
-                      details: portfolioData[index]['details'],
-                    ),
-                  );
-                },
+            Scrollbar(
+              controller: _controller,
+              isAlwaysShown: true,
+              child: Container(
+                height: 317,
+                margin: EdgeInsets.only(bottom: 20),
+                child: ListView.builder(
+                  controller: _controller,
+                  scrollDirection: Axis.horizontal,
+                  shrinkWrap: true,
+                  itemCount: portfolioData.length,
+                  itemBuilder: (BuildContext context, index) {
+                    return Container(
+                      padding: EdgeInsets.only(right: 50, top: 10),
+                      child: PortfolioCard(
+                        title: portfolioData[index]['title'],
+                        color1: portfolioData[index]['color1'],
+                        color2: portfolioData[index]['color2'],
+                        icon1: portfolioData[index]['icon1'],
+                        icon2: portfolioData[index]['icon2'],
+                        index: index,
+                        viewmodel: viewmodel,
+                        webLink: portfolioData[index]['webLink'],
+                        gitLink: portfolioData[index]['gitLink'],
+                        appStore: portfolioData[index]['appStore'],
+                        playStore: portfolioData[index]['playStore'],
+                        details: portfolioData[index]['details'],
+                      ),
+                    );
+                  },
+                ),
               ),
             ),
             SizedBox(
@@ -266,27 +276,33 @@ class PortfolioBody extends StatelessWidget {
               "Motion Designs",
               style: _theme.textTheme.headline3,
             ),
-            Container(
-              height: 317,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                shrinkWrap: true,
-                itemCount: motionData.length,
-                itemBuilder: (BuildContext context, index) {
-                  return Container(
-                    padding: EdgeInsets.only(right: 50, top: 10),
-                    child: MotionPortfolioCard(
-                      title: motionData[index]['title'],
-                      color1: motionData[index]['color1'],
-                      color2: motionData[index]['color2'],
-                      icon1: "svg/adobeaftereffects.svg",
-                      icon2: "svg/adobeillustrator.svg",
-                      index: index,
-                      viewmodel: viewmodel,
-                      behanceLink: portfolioData[index]['webLink'],
-                    ),
-                  );
-                },
+            Scrollbar(
+              controller: _controller1,
+              isAlwaysShown: true,
+              child: Container(
+                margin: EdgeInsets.only(bottom: 20),
+                height: 317,
+                child: ListView.builder(
+                  controller: _controller1,
+                  scrollDirection: Axis.horizontal,
+                  shrinkWrap: true,
+                  itemCount: motionData.length,
+                  itemBuilder: (BuildContext context, index) {
+                    return Container(
+                      padding: EdgeInsets.only(right: 50, top: 10),
+                      child: MotionPortfolioCard(
+                        title: motionData[index]['title'],
+                        color1: motionData[index]['color1'],
+                        color2: motionData[index]['color2'],
+                        icon1: "svg/adobeaftereffects.svg",
+                        icon2: "svg/adobeillustrator.svg",
+                        index: index,
+                        viewmodel: viewmodel,
+                        behanceLink: portfolioData[index]['webLink'],
+                      ),
+                    );
+                  },
+                ),
               ),
             ),
           ],

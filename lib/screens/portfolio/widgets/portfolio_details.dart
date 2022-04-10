@@ -1,5 +1,7 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_emoji/flutter_emoji.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/commons/custom_appbar.dart';
 import 'package:portfolio/commons/custom_drawer.dart';
@@ -293,6 +295,7 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
   }
 
   Widget body(BuildContext context) {
+    var parser = EmojiParser();
     var _theme = Theme.of(context);
     return SingleChildScrollView(
       child: Container(
@@ -345,11 +348,36 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
                 pageSnapping: false,
               ),
             ),
+            SizedBox(
+              height: 35,
+            ),
+            Center(
+              child: SizedBox(
+                width: 250.0,
+                height: 25,
+                child: DefaultTextStyle(
+                  style: const TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                  child: AnimatedTextKit(
+                    repeatForever: true,
+                    pause: const Duration(milliseconds: 600),
+                    animatedTexts: [
+                      FadeAnimatedText(
+                        parser.emojify(":point_up_2: Tap & Hold to pause!"),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
             portfolioData[int.parse(index!)]['images2'] != null
                 ? Column(
                     children: [
                       SizedBox(
-                        height: 65,
+                        height: 35,
                       ),
                       CarouselSlider.builder(
                         itemCount:
