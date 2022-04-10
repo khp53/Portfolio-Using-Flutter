@@ -20,20 +20,41 @@ class SkillsBody extends StatelessWidget {
     {
       'title': 'Learnio ApS',
       'designation': 'Video Editor, Motion Designer & Mentor',
-      'time': 'Nov 2020 - Present',
+      'time': 'October 2020 - Present / Copenhagen V., Denmark',
       'description':
           '- Designing and editing videos for Learnio ApS\n- Creating Software Engineering and App Development Course\n- Created After Effects and Premiere Pro Course',
     },
     {
       'title': 'Robust Research & Development Ltd.',
       'designation': 'Software Engineer',
-      'time': 'Aug 2021 - Present',
-      'description': '- '
+      'time': 'August 2021 - Present / Dhaka, Bangladesh',
+      'description':
+          '- Worked on a cross-platform project called Sure Care.\n' +
+              '- Worked on an ERP solution from the ground up.\n' +
+              '- Amar Bangabandhu app deployed it to App Store.\n' +
+              '- Worked on the architecture of a password manager app.'
+    },
+    {
+      'title': 'Department of OSHE, Universiti Teknologi Malaysia',
+      'designation': 'Software Engineer',
+      'time': 'November 2020 - September 2021 / Johor, Malaysia',
+      'description': '- Developed UTM COVID-19 Contact Tracing Application\n' +
+          '  (UTM CCTA), a contact tracing application as part of my\n' +
+          '  final year project.\n' +
+          '- Architected and Completed system documentation\n' +
+          '  including SRS, SDD, STD, UI design.\n' +
+          '- Technologies Used: Flutter, Firestore, FCM, Cloud Functions,\n' +
+          '  BLE, Nearby API, Layered Architecture, RUP Methodology.',
     },
     {
       'title': 'AIESEC In Malaysia, Johor Bahru',
       'designation': 'Senior Marketing Executive',
-      'time': 'Feb 2020 - Feb 2021'
+      'time': 'Feb 2020 - Feb 2021 / Johor, Malaysia',
+      'description': '- Motion design.\n' +
+          '- Poster design.\n' +
+          '- Cinemagraph.\n' +
+          '- Content creation.\n' +
+          '- Event management.',
     },
   ];
 
@@ -159,7 +180,7 @@ class SkillsBody extends StatelessWidget {
                 height: 10,
               ),
               Container(
-                // height: MediaQuery.of(context).size.height,
+                //height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
                 child: ListView.builder(
                   shrinkWrap: true,
@@ -199,7 +220,10 @@ class SkillsBody extends StatelessWidget {
                               ),
                               Text(
                                 experienceData[i]['designation'],
-                                style: _theme.textTheme.subtitle1,
+                                style: _theme.textTheme.subtitle1!.copyWith(
+                                  fontSize: 14,
+                                  color: Colors.white.withOpacity(0.7),
+                                ),
                               ),
                               SizedBox(
                                 height: 5,
@@ -345,7 +369,10 @@ class SkillsBody extends StatelessWidget {
                               ),
                               Text(
                                 experienceData[i]['designation'],
-                                style: _theme.textTheme.subtitle1,
+                                style: _theme.textTheme.subtitle1!.copyWith(
+                                  fontSize: 18,
+                                  color: Colors.white.withOpacity(0.9),
+                                ),
                               ),
                               SizedBox(
                                 height: 5,
