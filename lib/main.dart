@@ -9,14 +9,16 @@ import 'package:portfolio/screens/portfolio/widgets/portfolio_details.dart';
 import 'package:portfolio/screens/skills/skills_view.dart';
 import 'package:portfolio/dependencies/dependencies.dart' as di;
 import 'package:url_strategy/url_strategy.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
   di.init();
   WidgetsFlutterBinding.ensureInitialized();
-  final keyApplicationId = 'FCpIjDyKR2yX8YxIxWYNhDK1GuigyZN3MlnGcTTt';
-  final keyClientKey = 'eyCAidUJUHqNFoVHEjeV2SKKX8ItQF4wAmLfDWyl';
-  final keyParseServerUrl = 'https://parseapi.back4app.com';
-
+  await dotenv.load(fileName: ".env");
+  String keyParseServerUrl =
+      dotenv.get('SERVER_URL', fallback: 'keyParseServerUrl');
+  String keyClientKey = dotenv.get('CLIENT_KEY', fallback: 'keyClientKey');
+  String keyApplicationId = dotenv.get('APP_ID', fallback: 'keyApplicationId');
   await Parse().initialize(
     keyApplicationId,
     keyParseServerUrl,
