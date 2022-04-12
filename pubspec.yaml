@@ -36,6 +36,13 @@ flutter:
     - images/chatty/
     - images/todos/
     - images/coviddetector/
+    - images/armario/
+    - images/erp_mobile/
+    - images/fingertips/
+    - images/passgen/
+    - images/surecareadmin/
+    - images/surecarereviewer/
+    - images/erp_web/
     - svg/
   fonts:
     - family: Courier New

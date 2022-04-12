@@ -148,8 +148,8 @@ class MotionPortfolioCard extends StatelessWidget {
                         onTap: () => kIsWeb
                             ? html.window.open(behanceLink, "Website Link")
                             : _launchURL,
-                        child: FaIcon(
-                          FontAwesomeIcons.behance,
+                        child: Icon(
+                          Icons.launch,
                           color: Colors.white,
                           size: 22,
                         ),

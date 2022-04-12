@@ -194,20 +194,35 @@ class PortfolioBody extends StatelessWidget {
       'title': "Who Are We - Coderdtrust",
       'color1': Color(0xff18EBFC),
       'color2': Color(0xffE50AAA),
-      'webLink': "https://",
+      'webLink': "",
     },
     {
       'title': "Digital Jobs Albania",
       'color1': Color(0xff3D71D4),
       'color2': Color(0xff18EBFC),
-      'webLink': "https://",
+      'webLink': "https://youtu.be/foopOQUgLuw",
     },
     {
       'title': "Surving Video Series",
       'color1': Color(0xff3D71D4),
       'color2': Color(0xff18EBFC),
-      'webLink': "https://",
-    }
+      'webLink':
+          "https://youtube.com/playlist?list=PLlRx14nDbMR_-M6wq_ol9i-x0Tku2LDA2",
+    },
+    {
+      'title': "Daily Wins - Alexa Skills",
+      'color1': Color(0xff3D71D4),
+      'color2': Color(0xff18EBFC),
+      'webLink':
+          "https://www.behance.net/gallery/104721059/Daily-Wins-Alexa-Skills-Explainer-Video",
+    },
+    {
+      'title': "Ion Thrusters Podcast Advertisement",
+      'color1': Color(0xff3D71D4),
+      'color2': Color(0xff18EBFC),
+      'webLink':
+          "https://www.behance.net/gallery/101250769/Advertisement-For-Podcast-Ion-Thrusters",
+    },
   ];
 
   @override
@@ -298,7 +313,7 @@ class PortfolioBody extends StatelessWidget {
                         icon2: "svg/adobeillustrator.svg",
                         index: index,
                         viewmodel: viewmodel,
-                        behanceLink: portfolioData[index]['webLink'],
+                        behanceLink: motionData[index]['webLink'],
                       ),
                     );
                   },

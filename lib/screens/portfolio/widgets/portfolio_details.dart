@@ -148,6 +148,17 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
       'index': 5,
       'details':
           'A web and mobile application built for admins of Sure Care Services, to manage the telemedical services. The app is built using Flutter, FCM and Parse server.',
+      'images2': [
+        'images/surecareadmin/1.png',
+        'images/surecareadmin/2.png',
+        'images/surecareadmin/3.png',
+        'images/surecareadmin/4.png',
+        'images/surecareadmin/5.png',
+        'images/surecareadmin/6.png',
+        'images/surecareadmin/7.png',
+        'images/surecareadmin/8.png',
+        'images/surecareadmin/9.png',
+      ],
     },
     {
       'title': "Sure Care Reviewer",
@@ -158,6 +169,14 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
       'index': 6,
       'details':
           'A web and mobile application built for reviewers or doctors of Sure Care Services, to review the telemedical requests. The app is built using Flutter, FCM and Parse server.',
+      'images2': [
+        'images/surecarereviewer/1.png',
+        'images/surecarereviewer/2.png',
+        'images/surecarereviewer/3.png',
+        'images/surecarereviewer/4.png',
+        'images/surecarereviewer/5.png',
+        'images/surecarereviewer/6.png',
+      ],
     },
     {
       'title': "RRAD Password Manager",
@@ -168,6 +187,15 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
       'index': 7,
       'details':
           'A password manager app that allows users to store their passwords securely. The app is built using Flutter, Parse Server and Google Drive API.',
+      'images': [
+        'images/passgen/1.png',
+        'images/passgen/2.png',
+        'images/passgen/3.png',
+        'images/passgen/4.png',
+        'images/passgen/5.png',
+        'images/passgen/6.png',
+        'images/passgen/7.png',
+      ],
     },
     {
       'title': "RRAD ERP Management System",
@@ -178,6 +206,41 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
       'index': 8,
       'details':
           'A web application for company admins that allows admins to manage their Employees, resourses, projects, sells, calculates balance sheets and many more. The app is built using Flutter, Parse Server and few other APIs.',
+      'images2': [
+        'images/erp_web/1.png',
+        'images/erp_web/2.png',
+        'images/erp_web/3.png',
+        'images/erp_web/4.png',
+        'images/erp_web/5.png',
+        'images/erp_web/6.png',
+        'images/erp_web/7.png',
+        'images/erp_web/8.png',
+        'images/erp_web/9.png',
+        'images/erp_web/10.png',
+        'images/erp_web/11.png',
+        'images/erp_web/12.png',
+        'images/erp_web/13.png',
+        'images/erp_web/14.png',
+        'images/erp_web/15.png',
+        'images/erp_web/16.png',
+        'images/erp_web/17.png',
+        'images/erp_web/18.png',
+        'images/erp_web/19.png',
+        'images/erp_web/20.png',
+        'images/erp_web/21.png',
+        'images/erp_web/22.png',
+        'images/erp_web/23.png',
+        'images/erp_web/24.png',
+        'images/erp_web/25.png',
+        'images/erp_web/26.png',
+        'images/erp_web/27.png',
+        'images/erp_web/28.png',
+        'images/erp_web/29.png',
+        'images/erp_web/30.png',
+        'images/erp_web/31.png',
+        'images/erp_web/32.png',
+        'images/erp_web/33.png',
+      ],
     },
     {
       'title': "RRAD ERP Mobile App",
@@ -188,6 +251,24 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
       'index': 9,
       'details':
           'A mobile application for company employees that allows admins to give attendance, apply for leave and edit their informations. The app is built using Flutter, Parse Server and few other APIs.',
+      'images': [
+        'images/erp_mobile/1.png',
+        'images/erp_mobile/2.png',
+        'images/erp_mobile/3.png',
+        'images/erp_mobile/4.png',
+        'images/erp_mobile/5.png',
+        'images/erp_mobile/6.png',
+        'images/erp_mobile/7.png',
+        'images/erp_mobile/8.png',
+        'images/erp_mobile/9.png',
+        'images/erp_mobile/10.png',
+        'images/erp_mobile/11.png',
+        'images/erp_mobile/12.png',
+        'images/erp_mobile/13.png',
+        'images/erp_mobile/14.png',
+        'images/erp_mobile/15.png',
+        'images/erp_mobile/16.png',
+      ],
     },
     {
       'title': "Armario, E-Commerce App",
@@ -197,7 +278,19 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
       'gitLink': "https://github.com/khp53/armario-e-commerce-app",
       'index': 10,
       'details':
-          'An E-Commerce app that allows users to buy and sell products. The app is built using Flutter and Shared Preferences.',
+          'An E-Commerce app that allows users to buy and sell products. The app is built using Flutter for Learnio app development course!',
+      'images': [
+        'images/armario/1.png',
+        'images/armario/2.png',
+        'images/armario/3.png',
+        'images/armario/4.png',
+        'images/armario/5.png',
+        'images/armario/6.png',
+        'images/armario/7.png',
+        'images/armario/8.png',
+        'images/armario/9.png',
+        'images/armario/10.png',
+      ],
     },
     {
       'title': "Fingertips",
@@ -208,6 +301,14 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
       'index': 11,
       'details':
           'A mobile application that allows users to give donations to their prefered organizations. The app is built using Flutter, Firebase Rest',
+      'images': [
+        'images/fingertips/1.png',
+        'images/fingertips/2.png',
+        'images/fingertips/3.png',
+        'images/fingertips/4.png',
+        'images/fingertips/5.png',
+        'images/fingertips/6.png',
+      ],
     },
     {
       'title': "TODOs, A Todo List App",
@@ -224,27 +325,6 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
         'images/todos/3.png',
       ],
     },
-  ];
-
-  final List motionData = [
-    {
-      'title': "Who Are We - Coderdtrust",
-      'color1': Color(0xff18EBFC),
-      'color2': Color(0xffE50AAA),
-      'webLink': "https://",
-    },
-    {
-      'title': "Digital Jobs Albania",
-      'color1': Color(0xff3D71D4),
-      'color2': Color(0xff18EBFC),
-      'webLink': "https://",
-    },
-    {
-      'title': "Surving Video Series",
-      'color1': Color(0xff3D71D4),
-      'color2': Color(0xff18EBFC),
-      'webLink': "https://",
-    }
   ];
 
   @override
@@ -318,36 +398,39 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
             SizedBox(
               height: 45,
             ),
-            CarouselSlider.builder(
-              itemCount: portfolioData[int.parse(index!)]['images'].length,
-              itemBuilder: (BuildContext context, int i, int pi) {
-                return Container(
-                  //padding: EdgeInsets.only(right: 45),
-                  child: Image(
-                    image: AssetImage(
-                      portfolioData[int.parse(index!)]['images'][i],
+            portfolioData[int.parse(index!)]['images'] != null
+                ? CarouselSlider.builder(
+                    itemCount:
+                        portfolioData[int.parse(index!)]['images'].length,
+                    itemBuilder: (BuildContext context, int i, int pi) {
+                      return Container(
+                        //padding: EdgeInsets.only(right: 45),
+                        child: Image(
+                          image: AssetImage(
+                            portfolioData[int.parse(index!)]['images'][i],
+                          ),
+                        ),
+                      );
+                    },
+                    options: CarouselOptions(
+                      height: isMobile(context)
+                          ? MediaQuery.of(context).size.height / 1.4
+                          : MediaQuery.of(context).size.height / 1.85,
+                      aspectRatio: 1 / 2,
+                      viewportFraction: isMobile(context) ? 0.8 : 0.2,
+                      initialPage: 2,
+                      enableInfiniteScroll: true,
+                      reverse: false,
+                      autoPlay: true,
+                      autoPlayInterval: Duration(milliseconds: 2000),
+                      autoPlayAnimationDuration: Duration(milliseconds: 800),
+                      autoPlayCurve: Curves.fastOutSlowIn,
+                      enlargeCenterPage: false,
+                      scrollDirection: Axis.horizontal,
+                      pageSnapping: false,
                     ),
-                  ),
-                );
-              },
-              options: CarouselOptions(
-                height: isMobile(context)
-                    ? MediaQuery.of(context).size.height / 1.4
-                    : MediaQuery.of(context).size.height / 1.85,
-                aspectRatio: 1 / 2,
-                viewportFraction: isMobile(context) ? 0.8 : 0.2,
-                initialPage: 2,
-                enableInfiniteScroll: true,
-                reverse: false,
-                autoPlay: true,
-                autoPlayInterval: Duration(milliseconds: 2000),
-                autoPlayAnimationDuration: Duration(milliseconds: 800),
-                autoPlayCurve: Curves.fastOutSlowIn,
-                enlargeCenterPage: false,
-                scrollDirection: Axis.horizontal,
-                pageSnapping: false,
-              ),
-            ),
+                  )
+                : Container(),
             SizedBox(
               height: 35,
             ),
@@ -397,7 +480,7 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
                               ? MediaQuery.of(context).size.height / 1.4
                               : MediaQuery.of(context).size.height / 1.85,
                           aspectRatio: 9 / 16,
-                          viewportFraction: isMobile(context) ? 1 : 0.8,
+                          viewportFraction: isMobile(context) ? 1 : 0.7,
                           initialPage: 2,
                           enableInfiniteScroll: true,
                           reverse: false,
