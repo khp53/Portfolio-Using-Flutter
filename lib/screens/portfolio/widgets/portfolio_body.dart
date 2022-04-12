@@ -45,8 +45,8 @@ class PortfolioBody extends StatelessWidget {
     },
     {
       'title': "Chatty! A Chat App",
-      'color1': Color(0xff18EBFC),
-      'color2': Color(0xff00EDBF),
+      'color1': Color(0xff005aa7),
+      'color2': Color(0xfffffde4),
       'webLink': "",
       'gitLink': "https://github.com/khp53/Chatty-A-chat-App",
       'icon1': "svg/flutter.svg",
@@ -57,8 +57,8 @@ class PortfolioBody extends StatelessWidget {
     },
     {
       'title': "COVID Detector App",
-      'color1': Color(0xffFE582D),
-      'color2': Color(0xffE50AAA),
+      'color1': Color(0xffe94057),
+      'color2': Color(0xfff27121),
       'webLink': "",
       'gitLink': "https://github.com/khp53/COVID-Detector",
       'icon1': "svg/flutter.svg",
@@ -69,8 +69,8 @@ class PortfolioBody extends StatelessWidget {
     },
     {
       'title': "Sure Care Services",
-      'color1': Color(0xff18EBFC),
-      'color2': Color(0xff00EDBF),
+      'color1': Color(0xff00b4db),
+      'color2': Color(0xff0083b0),
       'webLink': "",
       'gitLink': "",
       'appStore':
@@ -117,8 +117,8 @@ class PortfolioBody extends StatelessWidget {
     },
     {
       'title': "RRAD Password Manager",
-      'color1': Color(0xffFE582D),
-      'color2': Color(0xffE50AAA),
+      'color1': Color(0xffe1eec3),
+      'color2': Color(0xfff05053),
       'webLink': "",
       'gitLink': "",
       'icon1': "svg/flutter.svg",
@@ -129,8 +129,8 @@ class PortfolioBody extends StatelessWidget {
     },
     {
       'title': "RRAD ERP Management System",
-      'color1': Color(0xff18EBFC),
-      'color2': Color(0xff00EDBF),
+      'color1': Color.fromARGB(255, 22, 77, 80),
+      'color2': Color(0xff34e89e),
       'webLink': "https://rrad-erp.web.app",
       'gitLink': "",
       'icon1': "svg/flutter.svg",
@@ -141,8 +141,8 @@ class PortfolioBody extends StatelessWidget {
     },
     {
       'title': "RRAD ERP Mobile App",
-      'color1': Color(0xffFE582D),
-      'color2': Color(0xffE50AAA),
+      'color1': Color(0xff3494e6),
+      'color2': Color(0xffec6ead),
       'webLink': "https://rrad-erp-mobile.web.app",
       'gitLink': "",
       'icon1': "svg/flutter.svg",
@@ -165,8 +165,8 @@ class PortfolioBody extends StatelessWidget {
     },
     {
       'title': "Fingertips",
-      'color1': Color(0xffFE582D),
-      'color2': Color(0xffE50AAA),
+      'color1': Color(0xffff7e5f),
+      'color2': Color(0xfffeb47b),
       'webLink': "",
       'gitLink': "https://github.com/khp53/fingertips",
       'icon1': "svg/flutter.svg",
@@ -177,8 +177,8 @@ class PortfolioBody extends StatelessWidget {
     },
     {
       'title': "TODOs, A Todo List App",
-      'color1': Color(0xffFE582D),
-      'color2': Color(0xffE50AAA),
+      'color1': Color(0xff4ca1af),
+      'color2': Color(0xffc4e0e5),
       'webLink': "",
       'gitLink': "https://github.com/khp53/TODOs-A-to-do-list-app",
       'icon1': "svg/flutter.svg",
@@ -204,22 +204,22 @@ class PortfolioBody extends StatelessWidget {
     },
     {
       'title': "Surving Video Series",
-      'color1': Color(0xff3D71D4),
-      'color2': Color(0xff18EBFC),
+      'color1': Color(0xff007991),
+      'color2': Color(0xff78ffd6),
       'webLink':
           "https://youtube.com/playlist?list=PLlRx14nDbMR_-M6wq_ol9i-x0Tku2LDA2",
     },
     {
       'title': "Daily Wins - Alexa Skills",
-      'color1': Color(0xff3D71D4),
-      'color2': Color(0xff18EBFC),
+      'color1': Color(0xff8e2de2),
+      'color2': Color(0xff4a00e0),
       'webLink':
           "https://www.behance.net/gallery/104721059/Daily-Wins-Alexa-Skills-Explainer-Video",
     },
     {
       'title': "Ion Thrusters Podcast Advertisement",
-      'color1': Color(0xff3D71D4),
-      'color2': Color(0xff18EBFC),
+      'color1': Color(0xff659999),
+      'color2': Color(0xfff4791f),
       'webLink':
           "https://www.behance.net/gallery/101250769/Advertisement-For-Podcast-Ion-Thrusters",
     },
