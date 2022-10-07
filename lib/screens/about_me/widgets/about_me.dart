@@ -59,6 +59,15 @@ class _AboutMeState extends State<AboutMe> with TickerProviderStateMixin {
                   style: _theme.textTheme.headline1,
                 ),
                 SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  "Bachelor of Computer Science (Software Engineering)\nUniversiti Teknologi Malaysia\nJohor, Malaysia",
+                  style: _theme.textTheme.headline2!.copyWith(
+                    color: Colors.grey,
+                  ),
+                ),
+                SizedBox(
                   height: 35,
                 ),
                 Container(
@@ -178,6 +187,15 @@ class _AboutMeState extends State<AboutMe> with TickerProviderStateMixin {
               Text(
                 "MD Karimul Hasan",
                 style: _theme.textTheme.headline1,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                "Bachelor of Computer Science (Software Engineering)\nUniversiti Teknologi Malaysia\nJohor, Malaysia",
+                style: _theme.textTheme.headline2!.copyWith(
+                  color: Colors.grey,
+                ),
               ),
               SizedBox(
                 height: 35,

@@ -43,12 +43,13 @@ class _CustomDrawerState extends State<CustomDrawer> {
   Widget build(BuildContext context) {
     var _theme = Theme.of(context);
     return SizedBox(
+      height: MediaQuery.of(context).size.height,
       width: isCollapsed == true ? 150 : 300,
       child: Drawer(
         elevation: isCollapsed == true ? 0 : 12,
         child: Container(
           color: _theme.colorScheme.surface,
-          child: Column(
+          child: ListView(
             children: [
               DrawerHeader(
                 decoration: BoxDecoration(color: Color(0xff242424)),
@@ -74,7 +75,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                           ),
                           Expanded(
                             child: Text(
-                              "Software Engineering",
+                              "Software Engineer",
                               style: TextStyle(
                                   color: _theme.colorScheme.onBackground,
                                   fontSize: 12,
@@ -186,7 +187,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   });
                 },
               ),
-              Spacer(),
+              SizedBox(
+                height: 30,
+              ),
               // facebook
               MouseRegion(
                 onEnter: (event) => setState(() {

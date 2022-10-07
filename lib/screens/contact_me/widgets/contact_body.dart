@@ -1,4 +1,5 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_emoji/flutter_emoji.dart';
 import 'package:portfolio/commons/custom_button.dart';
@@ -207,7 +208,8 @@ class ContactBody extends StatelessWidget {
             child: viewmodel.about != null
                 ? Image(
                     height: 800,
-                    image: NetworkImage(viewmodel.about!.location.url!),
+                    image: CachedNetworkImageProvider(
+                        viewmodel.about!.location.url!),
                     fit: BoxFit.cover,
                   )
                 : Center(
@@ -399,7 +401,8 @@ class ContactBody extends StatelessWidget {
                 child: viewmodel.about != null
                     ? Image(
                         height: 800,
-                        image: NetworkImage(viewmodel.about!.location.url!),
+                        image: CachedNetworkImageProvider(
+                            viewmodel.about!.location.url!),
                         fit: BoxFit.cover,
                       )
                     : Center(

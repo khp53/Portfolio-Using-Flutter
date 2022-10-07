@@ -115,11 +115,20 @@ class PortfolioCard extends StatelessWidget {
                 SizedBox(
                   width: 10,
                 ),
-                SvgPicture.asset(
-                  icon2,
-                  height: 20,
-                  color: Theme.of(context).colorScheme.background,
-                ),
+                icon2.isNotEmpty
+                    ? SvgPicture.asset(
+                        icon2,
+                        height: 20,
+                        color: Theme.of(context).colorScheme.background,
+                      )
+                    : Text(
+                        "REST",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
+                      ),
               ],
             ),
           ),

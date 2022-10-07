@@ -18,16 +18,23 @@ class SkillsBody extends StatelessWidget {
 
   final List experienceData = [
     {
+      'title': 'Turtle Venture',
+      'designation': 'Lead Software Engineer',
+      'time': 'July 2022 - Present / Dhaka, Bangladesh',
+      'description':
+          '- Designing and editing videos for Learnio ApS\n- Creating Software Engineering and App Development Course\n- Created After Effects and Premiere Pro Course',
+    },
+    {
       'title': 'Learnio ApS',
-      'designation': 'Video Editor, Motion Designer & Mentor',
-      'time': 'October 2020 - Present / Copenhagen V., Denmark',
+      'designation': 'Software Engineering Mentor & Motion Designer',
+      'time': 'Oct 2020 - Present / Copenhagen V., Denmark / Remote',
       'description':
           '- Designing and editing videos for Learnio ApS\n- Creating Software Engineering and App Development Course\n- Created After Effects and Premiere Pro Course',
     },
     {
       'title': 'Robust Research & Development Ltd.',
-      'designation': 'Software Engineer',
-      'time': 'August 2021 - Present / Dhaka, Bangladesh',
+      'designation': 'Junior Software Engineer',
+      'time': 'August 2021 - June 2022 / Dhaka, Bangladesh',
       'description':
           '- Worked on a cross-platform project called Sure Care.\n' +
               '- Worked on an ERP solution from the ground up.\n' +
@@ -61,23 +68,33 @@ class SkillsBody extends StatelessWidget {
   final List devSkillData = [
     {
       'title': 'Flutter',
-      'value': 0.9,
+      'value': 0.95,
       'color': Color(0xff18EBFC),
     },
     {
-      'title': 'Java',
-      'value': 0.7,
+      'title': 'OOP',
+      'value': 0.8,
       'color': Color(0xff00EDBF),
     },
     {
-      'title': 'C++',
-      'value': 0.6,
+      'title': 'Parse Server',
+      'value': 0.8,
+      'color': Color(0xff3D71D4),
+    },
+    {
+      'title': 'Firebase',
+      'value': 0.8,
       'color': Color(0xffE5DC0A),
     },
     {
-      'title': 'HTML',
-      'value': 0.9,
+      'title': 'JSON',
+      'value': 0.7,
       'color': Color(0xff3D71D4),
+    },
+    {
+      'title': 'REST Api',
+      'value': 0.8,
+      'color': Color(0xffE5DC0A),
     },
     {
       'title': 'CSS',
@@ -87,22 +104,12 @@ class SkillsBody extends StatelessWidget {
     {
       'title': 'JavaScript',
       'value': 0.5,
-      'color': Color(0xffE5DC0A),
+      'color': Color.fromARGB(255, 229, 178, 10),
     },
     {
       'title': 'MySQL',
       'value': 0.6,
       'color': Color(0xffE50AAA),
-    },
-    {
-      'title': 'Parse Server',
-      'value': 0.8,
-      'color': Color(0xff3D71D4),
-    },
-    {
-      'title': 'Firebase',
-      'value': 0.7,
-      'color': Color(0xffE5DC0A),
     },
   ];
 
@@ -126,6 +133,11 @@ class SkillsBody extends StatelessWidget {
       'title': 'Adobe XD',
       'value': 0.9,
       'color': Color(0xff18EBFC),
+    },
+    {
+      'title': 'Figma',
+      'value': 0.7,
+      'color': Color.fromARGB(255, 142, 24, 252),
     },
     {
       'title': 'Adobe Photoshop',
