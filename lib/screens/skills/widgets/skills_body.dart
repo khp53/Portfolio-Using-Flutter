@@ -18,22 +18,22 @@ class SkillsBody extends StatelessWidget {
 
   final List experienceData = [
     {
-      'title': 'Turtle Venture',
-      'designation': 'Lead Software Engineer',
-      'time': 'July 2022 - Present / Dhaka, Bangladesh',
-      'description':
-          '- Designing and editing videos for Learnio ApS\n- Creating Software Engineering and App Development Course\n- Created After Effects and Premiere Pro Course',
-    },
-    {
       'title': 'Learnio ApS',
-      'designation': 'Software Engineering Mentor & Motion Designer',
+      'designation': 'Video Editor & Motion Designer (Part-time)',
       'time': 'Oct 2020 - Present / Copenhagen V., Denmark / Remote',
       'description':
           '- Designing and editing videos for Learnio ApS\n- Creating Software Engineering and App Development Course\n- Created After Effects and Premiere Pro Course',
     },
     {
+      'title': 'Turtle Venture',
+      'designation': 'Mobile Application Developer',
+      'time': 'July 2022 - April 2023 / Dhaka, Bangladesh',
+      'description':
+          '- Designing and editing videos for Learnio ApS\n- Creating Software Engineering and App Development Course\n- Created After Effects and Premiere Pro Course',
+    },
+    {
       'title': 'Robust Research & Development Ltd.',
-      'designation': 'Junior Software Engineer',
+      'designation': 'Jr. Mobile Application Developer',
       'time': 'August 2021 - June 2022 / Dhaka, Bangladesh',
       'description':
           '- Worked on a cross-platform project called Sure Care.\n' +
@@ -41,21 +41,21 @@ class SkillsBody extends StatelessWidget {
               '- Amar Bangabandhu app deployed it to App Store.\n' +
               '- Worked on the architecture of a password manager app.'
     },
-    {
-      'title': 'Department of OSHE, Universiti Teknologi Malaysia',
-      'designation': 'Software Engineer',
-      'time': 'November 2020 - September 2021 / Johor, Malaysia',
-      'description': '- Developed UTM COVID-19 Contact Tracing Application\n' +
-          '  (UTM CCTA), a contact tracing application as part of my\n' +
-          '  final year project.\n' +
-          '- Architected and Completed system documentation\n' +
-          '  including SRS, SDD, STD, UI design.\n' +
-          '- Technologies Used: Flutter, Firestore, FCM, Cloud Functions,\n' +
-          '  BLE, Nearby API, Layered Architecture, RUP Methodology.',
-    },
+    // {
+    //   'title': 'Department of OSHE, Universiti Teknologi Malaysia',
+    //   'designation': 'Software Engineer',
+    //   'time': 'November 2020 - September 2021 / Johor, Malaysia',
+    //   'description': '- Developed UTM COVID-19 Contact Tracing Application\n' +
+    //       '  (UTM CCTA), a contact tracing application as part of my\n' +
+    //       '  final year project.\n' +
+    //       '- Architected and Completed system documentation\n' +
+    //       '  including SRS, SDD, STD, UI design.\n' +
+    //       '- Technologies Used: Flutter, Firestore, FCM, Cloud Functions,\n' +
+    //       '  BLE, Nearby API, Layered Architecture, RUP Methodology.',
+    // },
     {
       'title': 'AIESEC In Malaysia, Johor Bahru',
-      'designation': 'Senior Marketing Executive',
+      'designation': 'Senior Marketing Executive (Volunteer)',
       'time': 'Feb 2020 - Feb 2021 / Johor, Malaysia',
       'description': '- Motion design.\n' +
           '- Poster design.\n' +
@@ -68,42 +68,42 @@ class SkillsBody extends StatelessWidget {
   final List devSkillData = [
     {
       'title': 'Flutter',
-      'value': 0.95,
+      'value': 1,
       'color': Color(0xff18EBFC),
     },
     {
       'title': 'OOP',
-      'value': 0.8,
+      'value': 0.9,
       'color': Color(0xff00EDBF),
     },
     {
       'title': 'Parse Server',
-      'value': 0.8,
+      'value': 0.9,
       'color': Color(0xff3D71D4),
     },
     {
       'title': 'Firebase',
-      'value': 0.8,
+      'value': 0.9,
       'color': Color(0xffE5DC0A),
     },
     {
       'title': 'JSON',
-      'value': 0.7,
+      'value': 0.9,
       'color': Color(0xff3D71D4),
     },
     {
       'title': 'REST Api',
-      'value': 0.8,
+      'value': 0.9,
       'color': Color(0xffE5DC0A),
     },
     {
       'title': 'CSS',
-      'value': 0.7,
+      'value': 1,
       'color': Color(0xff18EBFC),
     },
     {
       'title': 'JavaScript',
-      'value': 0.5,
+      'value': 0.8,
       'color': Color.fromARGB(255, 229, 178, 10),
     },
     {
@@ -115,18 +115,18 @@ class SkillsBody extends StatelessWidget {
 
   final List motionSkillData = [
     {
-      'title': 'Adobe After Effects',
-      'value': 0.7,
-      'color': Color(0xff18EBFC),
-    },
-    {
       'title': 'Adobe Premiere Pro',
-      'value': 0.7,
+      'value': 0.9,
       'color': Color(0xffE5DC0A),
     },
     {
+      'title': 'Adobe After Effects',
+      'value': 0.8,
+      'color': Color(0xff18EBFC),
+    },
+    {
       'title': 'Adobe Illustrator',
-      'value': 0.85,
+      'value': 0.9,
       'color': Color(0xffE50AAA),
     },
     {
@@ -136,12 +136,12 @@ class SkillsBody extends StatelessWidget {
     },
     {
       'title': 'Figma',
-      'value': 0.7,
+      'value': 0.8,
       'color': Color.fromARGB(255, 142, 24, 252),
     },
     {
       'title': 'Adobe Photoshop',
-      'value': 0.9,
+      'value': 0.7,
       'color': Color(0xff3D71D4),
     },
   ];
