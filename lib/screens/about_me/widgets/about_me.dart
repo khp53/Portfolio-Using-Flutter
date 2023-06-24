@@ -62,9 +62,24 @@ class _AboutMeState extends State<AboutMe> with TickerProviderStateMixin {
                   height: 10,
                 ),
                 Text(
-                  "Bachelor of Computer Science (Software Engineering)\nUniversiti Teknologi Malaysia\nJohor, Malaysia",
+                  "Bachelor of Computer Science (Software Engineering)",
                   style: _theme.textTheme.displayMedium!.copyWith(
+                    fontWeight: FontWeight.bold,
                     color: Colors.grey,
+                  ),
+                ),
+                Text(
+                  "Universiti Teknologi Malaysia",
+                  style: _theme.textTheme.displayMedium!.copyWith(
+                    fontWeight: FontWeight.normal,
+                    color: Colors.grey,
+                  ),
+                ),
+                Text(
+                  "Johor, Malaysia",
+                  style: _theme.textTheme.displayMedium!.copyWith(
+                    fontWeight: FontWeight.normal,
+                    color: Colors.grey.withOpacity(0.7),
                   ),
                 ),
                 SizedBox(
@@ -72,9 +87,9 @@ class _AboutMeState extends State<AboutMe> with TickerProviderStateMixin {
                 ),
                 Container(
                   child: Text(
-                    "Experienced instructor and application developer with a demonstrated history of working in the e-learning and software industry. Skilled in PHP, MySql, Mobile application development using Flutter, Java, Motion Design, Video Editing, Analytical Skills, Statistical Data Analysis. Strong arts and design professional with a Bachelor of Computer Science focused in Software Engineering from Universiti Teknologi Malaysia.",
+                    """As a highly skilled Flutter Developer and Software Engineer with 3 years of industry experience, I have a proven track record of delivering high-quality, scalable software solutions to meet the needs of clients across a variety of industries. With a deep knowledge of the Flutter framework, I am able to design and develop mobile applications that are both visually stunning and highly functional. My expertise extends to all aspects of computer science and the software development lifecycle, from requirements gathering, choosing methodologies and architecting to coding, testing, and deployment. I am committed to staying up-to-date with the latest industry trends and technologies, and I am always looking for ways to improve my skills and knowledge. Whether working independently or as part of a team, I am dedicated to delivering exceptional results on time. I am a strong communicator who is able to work closely with clients and stakeholders to ensure that their needs are fully met.""",
                     style: _theme.textTheme.bodyLarge!.copyWith(fontSize: 25),
-                    textAlign: TextAlign.left,
+                    textAlign: TextAlign.justify,
                   ),
                 ),
               ],
@@ -192,9 +207,24 @@ class _AboutMeState extends State<AboutMe> with TickerProviderStateMixin {
                 height: 10,
               ),
               Text(
-                "Bachelor of Computer Science (Software Engineering)\nUniversiti Teknologi Malaysia\nJohor, Malaysia",
+                "Bachelor of Computer Science (Software Engineering)",
                 style: _theme.textTheme.displayMedium!.copyWith(
+                  fontWeight: FontWeight.bold,
                   color: Colors.grey,
+                ),
+              ),
+              Text(
+                "Universiti Teknologi Malaysia",
+                style: _theme.textTheme.displayMedium!.copyWith(
+                  fontWeight: FontWeight.normal,
+                  color: Colors.grey,
+                ),
+              ),
+              Text(
+                "Johor, Malaysia",
+                style: _theme.textTheme.displayMedium!.copyWith(
+                  fontWeight: FontWeight.normal,
+                  color: Colors.grey.withOpacity(0.7),
                 ),
               ),
               SizedBox(
@@ -202,8 +232,9 @@ class _AboutMeState extends State<AboutMe> with TickerProviderStateMixin {
               ),
               Container(
                 child: Text(
-                  "Experienced instructor and application developer with a demonstrated history of working in the e-learning and software industry. Skilled in PHP, MySql, Mobile application development using Flutter, Java, Motion Design, Video Editing, Analytical Skills, Statistical Data Analysis. Strong arts and design professional with a Bachelor of Computer Science focused in Software Engineering from Universiti Teknologi Malaysia.",
+                  """As a highly skilled Flutter Developer and Software Engineer with 3 years of industry experience, I have a proven track record of delivering high-quality, scalable software solutions to meet the needs of clients across a variety of industries. With a deep knowledge of the Flutter framework, I am able to design and develop mobile applications that are both visually stunning and highly functional. My expertise extends to all aspects of computer science and the software development lifecycle, from requirements gathering, choosing methodologies and architecting to coding, testing, and deployment. I am committed to staying up-to-date with the latest industry trends and technologies, and I am always looking for ways to improve my skills and knowledge. Whether working independently or as part of a team, I am dedicated to delivering exceptional results on time. I am a strong communicator who is able to work closely with clients and stakeholders to ensure that their needs are fully met.""",
                   style: _theme.textTheme.bodyLarge!.copyWith(fontSize: 25),
+                  textAlign: TextAlign.justify,
                 ),
               ),
             ],
