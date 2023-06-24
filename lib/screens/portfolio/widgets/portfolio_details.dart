@@ -32,7 +32,7 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
           "https://play.google.com/store/apps/details?id=com.shunboi&hl=en&gl=US",
       'index': 0,
       'details':
-          'ShunBoi is a bengali audiobook app made using flutter! It is the first ever complete bengali audiobook app made in Bangladesh. It has deeplinking, a mini audioplayer to full-sized audioplayer, eye catching animations, proper chapter management, proper background playback management, recently played, payment gateway and much more.',
+          "specifically to Bengali content. With ShunBoi, you can immerse yourself in a world of captivating audiobooks, engaging short stories, insightful book summaries, and enriching podcasts.\n\nExplore a vast library of Bengali literature and literary works, carefully curated to bring you a diverse range of genres and themes. Whether you're a book lover, a language enthusiast, or someone who simply enjoys the pleasure of listening, ShunBoi offers a seamless platform for discovering and enjoying high-quality audio content.\n\nFeatures: It has deeplinking, a mini audioplayer to full-sized audioplayer, eye catching animations, proper chapter management, proper background playback management, recently played, payment gateway and much more.",
       'images': [
         'images/shunboi/s_1.png',
         'images/shunboi/s_2.png',
@@ -64,7 +64,7 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
       'gitLink': "https://github.com/khp53/UTM-COVID19-Contact-Tracing-System",
       'index': 1,
       'details':
-          'A web and mobile application that allows users to track their contacts with COVID-19 patients. The application is built using Flutter, Firebase and Google Nearby API.',
+          "Introducing UTM COVID-19 Contact Tracing System (UTM CCTA): an essential solution in the fight against the novel coronavirus (COVID-19). To prevent the spread of COVID-19 on the Universiti Teknologi Malaysia (UTM) campus, including among students and staff, a comprehensive contact tracing system has been developed by me.\n\nUTM CCTA is a hybrid system comprising a mobile application for UTM students and a web application for UTM Health Authorities and administrators. Through the mobile application, UTM students can automatically scan for nearby contacts, keeping a record of their interactions throughout the day. Simultaneously, UTM Health Authorities and administrators can access the web application to search for users and update their COVID-19 status.\n\nIf a user is tested positive for COVID-19, the system immediately alerts all individuals who have had close contact with them. This efficient notification process ensures that potential exposure is quickly identified and appropriate actions can be taken.\n\nFurthermore, users can contribute to the system by providing their day-to-day commute locations manually, assisting UTM in monitoring potential hotspots. Whenever two users come into contact, the system records the location and time of the interaction, storing this data securely in the database. Only authorized administrators can access this information to analyze trends and identify locational hotspots. Prompt alerts can then be sent to all registered users, keeping them informed and vigilant.\n\nUTM COVID-19 Contact Tracing System (UTM CCTA) is an indispensable tool in safeguarding the UTM campus and its community. By tracking and notifying contacts, this automated system plays a crucial role in curbing the spread of COVID-19 and ensuring the well-being of students, staff, and faculty members. Together, we can combat this virus and create a safer environment for all.\n\nThe application is built using Flutter, Firebase, Node JS, and Google Nearby API.",
       'images': [
         'images/utmccta/1.png',
         'images/utmccta/2.png',
@@ -90,57 +90,12 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
       ],
     },
     {
-      'title': "Shopper, An E-Commerce App",
-      'color1': Color(0xffFE582D),
-      'color2': Color(0xffE50AAA),
-      'webLink': "",
-      'gitLink': "https://github.com/khp53/Shopper-E-Commerce-App",
-      'index': 2,
-      'details':
-          'An E-Commerce app that allows users to buy and sell products. The app is built using Flutter and Firebase.',
-      'images': [
-        'images/shopper/ss10.png',
-        'images/shopper/ss11.png',
-        'images/shopper/ss1.png',
-        'images/shopper/ss2.png',
-        'images/shopper/ss4.png',
-        'images/shopper/ss9.png',
-        'images/shopper/ss3.png',
-        'images/shopper/ss6.png',
-        'images/shopper/ss7.png',
-        'images/shopper/ss8.png',
-        'images/shopper/ss5.png',
-      ],
-    },
-    {
-      'title': "Chatty! A Chat App",
-      'color1': Color(0xff18EBFC),
-      'color2': Color(0xff00EDBF),
-      'webLink': "",
-      'gitLink': "https://github.com/khp53/Chatty-A-chat-App",
-      'index': 3,
-      'details':
-          'A chat app that allows users to chat with each other. The app is built using Flutter and Firebase.',
-      'images': [
-        'images/chatty/1.png',
-        'images/chatty/2.png',
-        'images/chatty/3.png',
-        'images/chatty/4.png',
-        'images/chatty/5.png',
-        'images/chatty/6.png',
-        'images/chatty/7.png',
-        'images/chatty/8.png',
-        'images/chatty/9.png',
-        'images/chatty/10.png',
-      ],
-    },
-    {
       'title': "COVID Detector App",
       'color1': Color(0xffFE582D),
       'color2': Color(0xffE50AAA),
       'webLink': "",
       'gitLink': "https://github.com/khp53/COVID-Detector",
-      'index': 4,
+      'index': 2,
       'details':
           'A COVID-19 detector app that allows different premises to detect mask on face and check tempreture using a temp sensor and arduino. The app is built using Flutter and Firebase.',
       'images': [
@@ -161,9 +116,9 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
       'color2': Color(0xff00EDBF),
       'webLink': "",
       'gitLink': "",
-      'index': 5,
+      'index': 3,
       'details':
-          'A web and mobile application built for middle income people of Bangladesh, to provide telemedical services to the people. The app is built using Flutter, FCM and Parse server.',
+          'SureCare is an innovative responsive medical services platform that provides medical advisory services to its members. The platform is composed of a network of national and international doctors and practitioners as well as medical service providers in Bangladesh. \n\nThe app is built using Flutter, FCM and Parse server.',
       'images': [
         'images/surecare/1.png',
         'images/surecare/2.png',
@@ -179,9 +134,9 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
       'color2': Color(0xffE50AAA),
       'webLink': "",
       'gitLink': "",
-      'index': 6,
+      'index': 4,
       'details':
-          'A web and mobile application built for admins of Sure Care Services, to manage the telemedical services. The app is built using Flutter, FCM and Parse server.',
+          'A web and mobile application built for admins of Sure Care Services, to manage the telemedical services. The app is built using Flutter, FCM and Parse server.\n\nThis is the app for Sure Care Admins.',
       'images2': [
         'images/surecareadmin/1.png',
         'images/surecareadmin/2.png',
@@ -200,9 +155,9 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
       'color2': Color(0xff00EDBF),
       'webLink': "",
       'gitLink': "",
-      'index': 7,
+      'index': 5,
       'details':
-          'A web and mobile application built for reviewers or doctors of Sure Care Services, to review the telemedical requests. The app is built using Flutter, FCM and Parse server.',
+          'A web and mobile application built for reviewers or doctors of Sure Care Services, to review the telemedical requests. The app is built using Flutter, FCM and Parse server.\n\nThis is the app for Sure Care Doctors.',
       'images2': [
         'images/surecarereviewer/1.png',
         'images/surecarereviewer/2.png',
@@ -218,7 +173,7 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
       'color2': Color(0xffE50AAA),
       'webLink': "",
       'gitLink': "",
-      'index': 8,
+      'index': 6,
       'details':
           'A password manager app that allows users to store their passwords securely. The app is built using Flutter, Parse Server and Google Drive API.',
       'images': [
@@ -237,9 +192,9 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
       'color2': Color(0xff00EDBF),
       'webLink': "https://rrad-erp.web.app",
       'gitLink': "",
-      'index': 9,
+      'index': 7,
       'details':
-          'A web application for company admins that allows admins to manage their Employees, resourses, projects, sells, calculates balance sheets and many more. The app is built using Flutter, Parse Server and few other APIs.',
+          'A web application for company admins that allows admins to manage their Employees, resourses, projects, sells, calculates balance sheets, create invoices and many more. The app is built using Flutter, Parse Server and few other APIs.',
       'images2': [
         'images/erp_web/1.png',
         'images/erp_web/2.png',
@@ -282,7 +237,7 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
       'color2': Color(0xffE50AAA),
       'webLink': "https://rrad-erp-mobile.web.app",
       'gitLink': "",
-      'index': 10,
+      'index': 8,
       'details':
           'A mobile application for company employees that allows admins to give attendance, apply for leave and edit their informations. The app is built using Flutter, Parse Server and few other APIs.',
       'images': [
@@ -305,12 +260,30 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
       ],
     },
     {
+      'title': "Fingertips",
+      'color1': Color(0xffFE582D),
+      'color2': Color(0xffE50AAA),
+      'webLink': "",
+      'gitLink': "https://github.com/khp53/fingertips",
+      'index': 9,
+      'details':
+          'A mobile application that allows users to give donations to their prefered organizations. The app is built using Flutter, Firebase Rest',
+      'images': [
+        'images/fingertips/1.png',
+        'images/fingertips/2.png',
+        'images/fingertips/3.png',
+        'images/fingertips/4.png',
+        'images/fingertips/5.png',
+        'images/fingertips/6.png',
+      ],
+    },
+    {
       'title': "Armario, E-Commerce App",
       'color1': Color(0xffFE582D),
       'color2': Color(0xffE50AAA),
       'webLink': "",
       'gitLink': "https://github.com/khp53/armario-e-commerce-app",
-      'index': 11,
+      'index': 10,
       'details':
           'An E-Commerce app that allows users to buy and sell products. The app is built using Flutter for Learnio app development course!',
       'images': [
@@ -327,36 +300,63 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
       ],
     },
     {
-      'title': "Fingertips",
-      'color1': Color(0xffFE582D),
-      'color2': Color(0xffE50AAA),
-      'webLink': "",
-      'gitLink': "https://github.com/khp53/fingertips",
-      'index': 12,
-      'details':
-          'A mobile application that allows users to give donations to their prefered organizations. The app is built using Flutter, Firebase Rest',
-      'images': [
-        'images/fingertips/1.png',
-        'images/fingertips/2.png',
-        'images/fingertips/3.png',
-        'images/fingertips/4.png',
-        'images/fingertips/5.png',
-        'images/fingertips/6.png',
-      ],
-    },
-    {
       'title': "TODOs, A Todo List App",
       'color1': Color(0xffFE582D),
       'color2': Color(0xffE50AAA),
       'webLink': "",
       'gitLink': "https://github.com/khp53/TODOs-A-to-do-list-app",
-      'index': 13,
+      'index': 11,
       'details':
           'A todo list app that allows users to add, edit, delete and mark tasks. The app is built using Flutter.',
       'images': [
         'images/todos/1.png',
         'images/todos/2.png',
         'images/todos/3.png',
+      ],
+    },
+    {
+      'title': "Shopper, An E-Commerce App",
+      'color1': Color(0xffFE582D),
+      'color2': Color(0xffE50AAA),
+      'webLink': "",
+      'gitLink': "https://github.com/khp53/Shopper-E-Commerce-App",
+      'index': 12,
+      'details':
+          'An E-Commerce app that allows users to buy and sell products. The app is built using Flutter and Firebase.',
+      'images': [
+        'images/shopper/ss10.png',
+        'images/shopper/ss11.png',
+        'images/shopper/ss1.png',
+        'images/shopper/ss2.png',
+        'images/shopper/ss4.png',
+        'images/shopper/ss9.png',
+        'images/shopper/ss3.png',
+        'images/shopper/ss6.png',
+        'images/shopper/ss7.png',
+        'images/shopper/ss8.png',
+        'images/shopper/ss5.png',
+      ],
+    },
+    {
+      'title': "Chatty! A Chat App",
+      'color1': Color(0xff18EBFC),
+      'color2': Color(0xff00EDBF),
+      'webLink': "",
+      'gitLink': "https://github.com/khp53/Chatty-A-chat-App",
+      'index': 13,
+      'details':
+          'A chat app that allows users to chat with each other. The app is built using Flutter and Firebase.',
+      'images': [
+        'images/chatty/1.png',
+        'images/chatty/2.png',
+        'images/chatty/3.png',
+        'images/chatty/4.png',
+        'images/chatty/5.png',
+        'images/chatty/6.png',
+        'images/chatty/7.png',
+        'images/chatty/8.png',
+        'images/chatty/9.png',
+        'images/chatty/10.png',
       ],
     },
   ];
@@ -427,10 +427,13 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
             ),
             Text(
               portfolioData[int.parse(index!)]['details'],
-              style: _theme.textTheme.bodyLarge,
+              textAlign: TextAlign.justify,
+              style: _theme.textTheme.bodyLarge!.copyWith(
+                fontWeight: FontWeight.normal,
+              ),
             ),
             SizedBox(
-              height: 45,
+              height: 60,
             ),
             portfolioData[int.parse(index!)]['images'] != null
                 ? CarouselSlider.builder(

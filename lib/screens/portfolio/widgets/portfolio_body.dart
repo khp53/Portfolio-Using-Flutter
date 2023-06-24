@@ -32,7 +32,7 @@ class PortfolioBody extends StatelessWidget {
       'icon2': "",
       'index': 0,
       'details':
-          'ShunBoi is a bengali audiobook app made using flutter! It is the first ever complete bengali audiobook app made in Bangladesh.',
+          'ShunBoi is a bengali audiobook app made using Flutter! It is the first ever complete and feature rich bengali audiobook app made in Bangladesh.',
     },
     {
       'title': "UTM COVID-19 Contact Tracing Application",
@@ -47,30 +47,6 @@ class PortfolioBody extends StatelessWidget {
           'A web and mobile application that allows users to track their contacts with COVID-19 patients. The application is built using Flutter, Firebase and Google Nearby API.',
     },
     {
-      'title': "Shopper, An E-Commerce App",
-      'color1': Color(0xffFE582D),
-      'color2': Color(0xffE50AAA),
-      'webLink': "",
-      'gitLink': "https://github.com/khp53/Shopper-E-Commerce-App",
-      'icon1': "svg/flutter.svg",
-      'icon2': "svg/firebase.svg",
-      'index': 2,
-      'details':
-          'An E-Commerce app that allows users to buy and sell products. The app is built using Flutter and Firebase.',
-    },
-    {
-      'title': "Chatty! A Chat App",
-      'color1': Color(0xff005aa7),
-      'color2': Color(0xfffffde4),
-      'webLink': "",
-      'gitLink': "https://github.com/khp53/Chatty-A-chat-App",
-      'icon1': "svg/flutter.svg",
-      'icon2': "svg/firebase.svg",
-      'index': 3,
-      'details':
-          'A chat app that allows users to chat with each other. The app is built using Flutter and Firebase.',
-    },
-    {
       'title': "COVID Detector App",
       'color1': Color(0xffe94057),
       'color2': Color(0xfff27121),
@@ -78,7 +54,7 @@ class PortfolioBody extends StatelessWidget {
       'gitLink': "https://github.com/khp53/COVID-Detector",
       'icon1': "svg/flutter.svg",
       'icon2': "svg/firebase.svg",
-      'index': 4,
+      'index': 2,
       'details':
           'A COVID-19 detector app that allows different premises to detect mask on face and check tempreture using a temp sensor and arduino. The app is built using Flutter and Firebase.',
     },
@@ -94,9 +70,9 @@ class PortfolioBody extends StatelessWidget {
           "https://play.google.com/store/apps/details?id=bd.com.rrad.service.surecare",
       'icon1': "svg/flutter.svg",
       'icon2': "svg/parse-1.svg",
-      'index': 5,
+      'index': 3,
       'details':
-          'A web and mobile application built for middle income people of Bangladesh, to provide telemedical services to the people. The app is built using Flutter, FCM and Parse server.',
+          'SureCare is an innovative responsive medical services platform that provides medical advisory services to its members.',
     },
     {
       'title': "Sure Care Admin",
@@ -110,7 +86,7 @@ class PortfolioBody extends StatelessWidget {
           "https://play.google.com/store/apps/details?id=bd.com.rrad.surecare.admin",
       'icon1': "svg/flutter.svg",
       'icon2': "svg/parse-1.svg",
-      'index': 6,
+      'index': 4,
       'details':
           'A web and mobile application built for admins of Sure Care Services, to manage the telemedical services. The app is built using Flutter, FCM and Parse server.',
     },
@@ -126,7 +102,7 @@ class PortfolioBody extends StatelessWidget {
           "https://play.google.com/store/apps/details?id=bd.com.rrad.surecare.reviewer",
       'icon1': "svg/flutter.svg",
       'icon2': "svg/parse-1.svg",
-      'index': 7,
+      'index': 5,
       'details':
           'A web and mobile application built for reviewers or doctors of Sure Care Services, to review the telemedical requests. The app is built using Flutter, FCM and Parse server.',
     },
@@ -138,7 +114,7 @@ class PortfolioBody extends StatelessWidget {
       'gitLink': "",
       'icon1': "svg/flutter.svg",
       'icon2': "svg/parse-1.svg",
-      'index': 8,
+      'index': 6,
       'details':
           'A password manager app that allows users to store their passwords securely. The app is built using Flutter, Parse Server and Google Drive API.',
     },
@@ -150,9 +126,9 @@ class PortfolioBody extends StatelessWidget {
       'gitLink': "",
       'icon1': "svg/flutter.svg",
       'icon2': "svg/parse-1.svg",
-      'index': 9,
+      'index': 7,
       'details':
-          'A web application for company admins that allows admins to manage their Employees, resourses, projects, sells, calculates balance sheets and many more. The app is built using Flutter, Parse Server and few other APIs.',
+          'A web application for company admins that allows admins to manage their Employees, resourses, projects, sells, calculates balance sheets, create invoices and many more.',
     },
     {
       'title': "RRAD ERP Mobile App",
@@ -162,21 +138,9 @@ class PortfolioBody extends StatelessWidget {
       'gitLink': "",
       'icon1': "svg/flutter.svg",
       'icon2': "svg/parse-1.svg",
-      'index': 10,
+      'index': 8,
       'details':
-          'A mobile application for company employees that allows admins to give attendance, apply for leave and edit their informations. The app is built using Flutter, Parse Server and few other APIs.',
-    },
-    {
-      'title': "Armario, E-Commerce App",
-      'color1': Color(0xffFE582D),
-      'color2': Color(0xffE50AAA),
-      'webLink': "",
-      'gitLink': "https://github.com/khp53/armario-e-commerce-app",
-      'icon1': "svg/flutter.svg",
-      'icon2': "empty",
-      'index': 11,
-      'details':
-          'An E-Commerce app that allows users to buy and sell products. The app is built using Flutter and Shared Preferences.',
+          'A mobile application for company employees that allows admins to give attendance, apply for leave and edit their informations.',
     },
     {
       'title': "Fingertips",
@@ -186,9 +150,21 @@ class PortfolioBody extends StatelessWidget {
       'gitLink': "https://github.com/khp53/fingertips",
       'icon1': "svg/flutter.svg",
       'icon2': "svg/firebase.svg",
-      'index': 12,
+      'index': 9,
       'details':
           'A mobile application that allows users to give donations to their prefered organizations. The app is built using Flutter, Firebase Rest',
+    },
+    {
+      'title': "Armario, E-Commerce App",
+      'color1': Color(0xffFE582D),
+      'color2': Color(0xffE50AAA),
+      'webLink': "",
+      'gitLink': "https://github.com/khp53/armario-e-commerce-app",
+      'icon1': "svg/flutter.svg",
+      'icon2': "empty",
+      'index': 10,
+      'details':
+          'An E-Commerce app that allows users to buy and sell products. The app is built using Flutter and Shared Preferences.',
     },
     {
       'title': "TODOs, A Todo List App",
@@ -198,9 +174,33 @@ class PortfolioBody extends StatelessWidget {
       'gitLink': "https://github.com/khp53/TODOs-A-to-do-list-app",
       'icon1': "svg/flutter.svg",
       'icon2': "svg/firebase.svg",
-      'index': 13,
+      'index': 11,
       'details':
           'A todo list app that allows users to add, edit, delete and mark tasks. The app is built using Flutter.',
+    },
+    {
+      'title': "Shopper, An E-Commerce App",
+      'color1': Color(0xffFE582D),
+      'color2': Color(0xffE50AAA),
+      'webLink': "",
+      'gitLink': "https://github.com/khp53/Shopper-E-Commerce-App",
+      'icon1': "svg/flutter.svg",
+      'icon2': "svg/firebase.svg",
+      'index': 12,
+      'details':
+          'An E-Commerce app that allows users to buy and sell products. The app is built using Flutter and Firebase.',
+    },
+    {
+      'title': "Chatty! A Chat App",
+      'color1': Color(0xff005aa7),
+      'color2': Color(0xfffffde4),
+      'webLink': "",
+      'gitLink': "https://github.com/khp53/Chatty-A-chat-App",
+      'icon1': "svg/flutter.svg",
+      'icon2': "svg/firebase.svg",
+      'index': 13,
+      'details':
+          'A chat app that allows users to chat with each other. The app is built using Flutter and Firebase.',
     },
   ];
 
@@ -237,6 +237,30 @@ class PortfolioBody extends StatelessWidget {
       'color2': Color(0xfff4791f),
       'webLink':
           "https://www.behance.net/gallery/101250769/Advertisement-For-Podcast-Ion-Thrusters",
+    },
+    {
+      'title': "Shopper, An E-Commerce App",
+      'color1': Color(0xffFE582D),
+      'color2': Color(0xffE50AAA),
+      'webLink': "",
+      'gitLink': "https://github.com/khp53/Shopper-E-Commerce-App",
+      'icon1': "svg/flutter.svg",
+      'icon2': "svg/firebase.svg",
+      'index': 12,
+      'details':
+          'An E-Commerce app that allows users to buy and sell products. The app is built using Flutter and Firebase.',
+    },
+    {
+      'title': "Chatty! A Chat App",
+      'color1': Color(0xff005aa7),
+      'color2': Color(0xfffffde4),
+      'webLink': "",
+      'gitLink': "https://github.com/khp53/Chatty-A-chat-App",
+      'icon1': "svg/flutter.svg",
+      'icon2': "svg/firebase.svg",
+      'index': 13,
+      'details':
+          'A chat app that allows users to chat with each other. The app is built using Flutter and Firebase.',
     },
   ];
 
