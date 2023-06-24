@@ -71,7 +71,7 @@ class ContactBody extends StatelessWidget {
               Text(
                 "Interested in working together? " +
                     "Feel free to contact me.\n\n" +
-                    "House 15, Block B, Road 1,\n" +
+                    "House 19, Block B, Road 3,\n" +
                     "Keraniganj Model Town,\n" +
                     "Dhaka 1310, Bangladesh\n" +
                     "karimulhasan1998@gmail.com",
