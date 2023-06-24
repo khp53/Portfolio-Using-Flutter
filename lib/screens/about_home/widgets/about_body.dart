@@ -1,10 +1,10 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:portfolio/commons/custom_button.dart';
 import 'package:portfolio/commons/is_mobileCall.dart';
 import 'package:portfolio/models/download_resume.dart';
 import 'package:portfolio/screens/about_home/about_viewmodel.dart';
+// ignore: avoid_web_libraries_in_flutter
 import 'dart:html' as html;
 
 import 'package:portfolio/screens/stateful_wrapper.dart';
@@ -28,7 +28,7 @@ class AboutBody extends StatelessWidget {
   }
 
   void _launchURL() async {
-    if (!await launch("mailto:karimulhasan1998@gmail.com"))
+    if (!await launchUrl(Uri.parse("mailto:karimulhasan1998@gmail.com")))
       throw 'Could not launch email';
   }
 
@@ -54,7 +54,7 @@ class AboutBody extends StatelessWidget {
               children: [
                 Text(
                   "import ‘package:flutter/material.dart’;\n\nclass NotificationView extends StatelessWidget {\n\n    @override\n    Widget build(BuildContext context) {\n        return Container(\n            child: CustomAbout(\n                '",
-                  style: _theme.textTheme.subtitle1!,
+                  style: _theme.textTheme.titleMedium!,
                 ),
                 Container(
                   padding: EdgeInsets.only(left: _size.width / 9),
@@ -130,7 +130,7 @@ class AboutBody extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.only(left: _size.width / 12),
                   child: DefaultTextStyle(
-                    style: _theme.textTheme.subtitle1!,
+                    style: _theme.textTheme.titleMedium!,
                     child: Text("'\nhireMe:\n"),
                   ),
                 ),
@@ -187,28 +187,28 @@ class AboutBody extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.only(left: _size.width / 12),
                   child: DefaultTextStyle(
-                    style: _theme.textTheme.subtitle1!,
+                    style: _theme.textTheme.titleMedium!,
                     child: Text("\n),"),
                   ),
                 ),
                 Container(
                   padding: EdgeInsets.only(left: _size.width / 17),
                   child: DefaultTextStyle(
-                    style: _theme.textTheme.subtitle1!,
+                    style: _theme.textTheme.titleMedium!,
                     child: Text("\n\n);"),
                   ),
                 ),
                 Container(
                   padding: EdgeInsets.only(left: _size.width / 28),
                   child: DefaultTextStyle(
-                    style: _theme.textTheme.subtitle1!,
+                    style: _theme.textTheme.titleMedium!,
                     child: Text("\n\n},"),
                   ),
                 ),
                 Container(
                   padding: EdgeInsets.only(left: _size.width / 50),
                   child: DefaultTextStyle(
-                    style: _theme.textTheme.subtitle1!,
+                    style: _theme.textTheme.titleMedium!,
                     child: Text("\n\n}"),
                   ),
                 ),

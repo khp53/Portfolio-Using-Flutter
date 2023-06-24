@@ -1,4 +1,3 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_emoji/flutter_emoji.dart';
@@ -62,11 +61,11 @@ class ContactBody extends StatelessWidget {
             children: [
               Text(
                 parser.emojify("Contact Me :mailbox_with_mail:"),
-                style: _theme.textTheme.headline2,
+                style: _theme.textTheme.displayMedium,
               ),
               Text(
                 "Send a Message",
-                style: _theme.textTheme.headline1,
+                style: _theme.textTheme.displayLarge,
               ),
               SizedBox(height: 10),
               Text(
@@ -76,7 +75,7 @@ class ContactBody extends StatelessWidget {
                     "Keraniganj Model Town,\n" +
                     "Dhaka 1310, Bangladesh\n" +
                     "karimulhasan1998@gmail.com",
-                style: _theme.textTheme.bodyText1!
+                style: _theme.textTheme.bodyLarge!
                     .copyWith(fontSize: 20, height: 1.5),
               ),
               SizedBox(
@@ -221,7 +220,7 @@ class ContactBody extends StatelessWidget {
                         ),
                         Text(
                           "Please wait...",
-                          style: _theme.textTheme.bodyText1,
+                          style: _theme.textTheme.bodyLarge,
                         ),
                       ],
                     ),
@@ -233,7 +232,7 @@ class ContactBody extends StatelessWidget {
           Center(
             child: Text(
               "Note: This whole website was created with only Flutter!",
-              style: _theme.textTheme.bodyText1!.copyWith(fontSize: 15),
+              style: _theme.textTheme.bodyLarge!.copyWith(fontSize: 15),
             ),
           ),
         ],
@@ -253,11 +252,11 @@ class ContactBody extends StatelessWidget {
                 children: [
                   Text(
                     parser.emojify("Contact Me :mailbox_with_mail:"),
-                    style: _theme.textTheme.headline2,
+                    style: _theme.textTheme.displayMedium,
                   ),
                   Text(
                     "Send a Message",
-                    style: _theme.textTheme.headline1,
+                    style: _theme.textTheme.displayLarge,
                   ),
                   SizedBox(height: 10),
                   Text(
@@ -267,7 +266,7 @@ class ContactBody extends StatelessWidget {
                         "Keraniganj Model Town,\n" +
                         "Dhaka 1310, Bangladesh\n" +
                         "karimulhasan1998@gmail.com",
-                    style: _theme.textTheme.bodyText1!
+                    style: _theme.textTheme.bodyLarge!
                         .copyWith(fontSize: 20, height: 1.5),
                   ),
                   SizedBox(
@@ -414,7 +413,7 @@ class ContactBody extends StatelessWidget {
                             ),
                             Text(
                               "Please wait...",
-                              style: _theme.textTheme.bodyText1,
+                              style: _theme.textTheme.bodyLarge,
                             ),
                           ],
                         ),
@@ -429,7 +428,7 @@ class ContactBody extends StatelessWidget {
         Center(
           child: Text(
             "Note: This whole website was created with only Flutter!",
-            style: _theme.textTheme.bodyText1!.copyWith(fontSize: 15),
+            style: _theme.textTheme.bodyLarge!.copyWith(fontSize: 15),
           ),
         ),
       ],
@@ -442,13 +441,13 @@ class ContactBody extends StatelessWidget {
       minLines: lineNo,
       maxLines: lineNo,
       //textInputAction: textIA,
-      style: _theme.textTheme.bodyText1!.copyWith(
+      style: _theme.textTheme.bodyLarge!.copyWith(
         fontSize: 20,
       ),
       onChanged: onChanged,
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: _theme.textTheme.bodyText1!.copyWith(
+        hintStyle: _theme.textTheme.bodyLarge!.copyWith(
           color: Colors.grey,
           fontSize: 20,
         ),

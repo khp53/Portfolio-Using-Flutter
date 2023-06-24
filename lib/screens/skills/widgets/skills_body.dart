@@ -159,11 +159,11 @@ class SkillsBody extends StatelessWidget {
           children: [
             Text(
               parser.emojify("Skills :toolbox:"),
-              style: _theme.textTheme.headline2,
+              style: _theme.textTheme.displayMedium,
             ),
             Text(
               "My Skills & Experience",
-              style: _theme.textTheme.headline1,
+              style: _theme.textTheme.displayLarge,
             ),
             SizedBox(
               height: 35,
@@ -186,7 +186,7 @@ class SkillsBody extends StatelessWidget {
             children: [
               Text(
                 "Experiences",
-                style: _theme.textTheme.headline3,
+                style: _theme.textTheme.displaySmall,
               ),
               SizedBox(
                 height: 10,
@@ -232,7 +232,7 @@ class SkillsBody extends StatelessWidget {
                               ),
                               Text(
                                 experienceData[i]['designation'],
-                                style: _theme.textTheme.subtitle1!.copyWith(
+                                style: _theme.textTheme.titleMedium!.copyWith(
                                   fontSize: 14,
                                   color: Colors.white.withOpacity(0.7),
                                 ),
@@ -242,7 +242,7 @@ class SkillsBody extends StatelessWidget {
                               ),
                               Text(
                                 experienceData[i]['time'],
-                                style: _theme.textTheme.subtitle1,
+                                style: _theme.textTheme.titleMedium,
                               ),
                             ],
                           ),
@@ -267,7 +267,7 @@ class SkillsBody extends StatelessWidget {
             children: [
               Text(
                 "Skills",
-                style: _theme.textTheme.headline3,
+                style: _theme.textTheme.displaySmall,
               ),
               SizedBox(
                 height: 10,
@@ -333,7 +333,7 @@ class SkillsBody extends StatelessWidget {
             children: [
               Text(
                 "Experiences",
-                style: _theme.textTheme.headline3,
+                style: _theme.textTheme.displaySmall,
               ),
               SizedBox(
                 height: 10,
@@ -381,7 +381,7 @@ class SkillsBody extends StatelessWidget {
                               ),
                               Text(
                                 experienceData[i]['designation'],
-                                style: _theme.textTheme.subtitle1!.copyWith(
+                                style: _theme.textTheme.titleMedium!.copyWith(
                                   fontSize: 18,
                                   color: Colors.white.withOpacity(0.9),
                                 ),
@@ -391,7 +391,7 @@ class SkillsBody extends StatelessWidget {
                               ),
                               Text(
                                 experienceData[i]['time'],
-                                style: _theme.textTheme.subtitle1,
+                                style: _theme.textTheme.titleMedium,
                               ),
                             ],
                           ),
@@ -414,7 +414,7 @@ class SkillsBody extends StatelessWidget {
             children: [
               Text(
                 "Skills",
-                style: _theme.textTheme.headline3,
+                style: _theme.textTheme.displaySmall,
               ),
               SizedBox(
                 height: 10,
@@ -497,7 +497,7 @@ class SkillsBody extends StatelessWidget {
           height: 8,
           width: MediaQuery.of(context).size.width,
           child: FAProgressBar(
-            currentValue: (value! * 100).round(),
+            currentValue: (value! * 100),
             animatedDuration: const Duration(milliseconds: 500),
             progressColor: color,
             backgroundColor: Colors.grey.withOpacity(0.3),

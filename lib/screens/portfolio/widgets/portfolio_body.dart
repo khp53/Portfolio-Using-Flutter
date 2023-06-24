@@ -272,18 +272,18 @@ class PortfolioBody extends StatelessWidget {
           children: [
             Text(
               parser.emojify('Portfolio :minidisc:'),
-              style: _theme.textTheme.headline2,
+              style: _theme.textTheme.displayMedium,
             ),
             Text(
               "My Projects",
-              style: _theme.textTheme.headline1,
+              style: _theme.textTheme.displayLarge,
             ),
             SizedBox(
               height: 45,
             ),
             Text(
               "Development Projects",
-              style: _theme.textTheme.headline3,
+              style: _theme.textTheme.displaySmall,
             ),
             Scrollbar(
               controller: _controller,
@@ -323,7 +323,7 @@ class PortfolioBody extends StatelessWidget {
             ),
             Text(
               "Motion Designs",
-              style: _theme.textTheme.headline3,
+              style: _theme.textTheme.displaySmall,
             ),
             Scrollbar(
               controller: _controller1,
@@ -359,7 +359,7 @@ class PortfolioBody extends StatelessWidget {
             ),
             Text(
               "UI Designs",
-              style: _theme.textTheme.headline3,
+              style: _theme.textTheme.displaySmall,
             ),
             Scrollbar(
               controller: _controller2,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:portfolio/screens/about_me/about_me_view.dart';
@@ -52,44 +51,42 @@ class MyApp extends StatelessWidget {
           // for gradient
           onSurface: Color(0xff18EBFC),
           primary: Color(0xff18EBFC),
-          primaryVariant: Color(0xffE5DC0A),
           secondary: Color(0xff00EDBF),
-          secondaryVariant: Color(0xffE50AAA),
           //only drawer
           surface: Color(0xff242424),
         ),
         textTheme: TextTheme(
-          bodyText1: TextStyle(
+          bodyLarge: TextStyle(
             fontSize: 30,
             color: Colors.white,
           ),
-          bodyText2: TextStyle(
+          bodyMedium: TextStyle(
             fontSize: 25,
             color: Color(0xff18EBFC),
           ),
-          headline1: TextStyle(
+          displayLarge: TextStyle(
             fontSize: 65,
             color: Color(0xff18EBFC),
             fontWeight: FontWeight.bold,
           ),
-          headline2: TextStyle(
+          displayMedium: TextStyle(
             fontFamily: 'Courier New',
             fontSize: 20,
             color: Color(0xffE5DC0A),
             fontWeight: FontWeight.bold,
           ),
-          headline3: TextStyle(
+          displaySmall: TextStyle(
             fontFamily: 'Courier New',
             fontSize: 20,
             color: Color(0xff00EDBF),
             fontWeight: FontWeight.bold,
           ),
-          subtitle1: TextStyle(
+          titleMedium: TextStyle(
             fontFamily: 'Courier New',
             fontSize: 15,
             color: Theme.of(context).colorScheme.onBackground.withOpacity(0.5),
           ),
-          subtitle2: TextStyle(
+          titleSmall: TextStyle(
             fontSize: 18,
             color: Theme.of(context).colorScheme.onBackground,
           ),

@@ -1,4 +1,4 @@
-import 'dart:ui';
+// ignore: avoid_web_libraries_in_flutter
 import 'dart:html' as html;
 
 import 'package:flutter/foundation.dart';
@@ -44,20 +44,20 @@ class PortfolioCard extends StatelessWidget {
     viewmodel.index = index;
   }
 
-  void _launchURL() async => await canLaunch(webLink)
-      ? await launch(webLink)
+  void _launchURL() async => await canLaunchUrl(Uri.parse(webLink))
+      ? await launchUrl(Uri.parse(webLink))
       : throw 'Could not launch $webLink';
 
-  void _launchGitURL() async => await canLaunch(webLink)
-      ? await launch(gitLink)
+  void _launchGitURL() async => await canLaunchUrl(Uri.parse(gitLink))
+      ? await launchUrl(Uri.parse(gitLink))
       : throw 'Could not launch $gitLink';
 
-  void _launchAppStoreURL() async => await canLaunch(appStore)
-      ? await launch(appStore)
+  void _launchAppStoreURL() async => await canLaunchUrl(Uri.parse(appStore))
+      ? await launchUrl(Uri.parse(appStore))
       : throw 'Could not launch $appStore';
 
-  void _launchPlayStoreURL() async => await canLaunch(playStore)
-      ? await launch(playStore)
+  void _launchPlayStoreURL() async => await canLaunchUrl(Uri.parse(playStore))
+      ? await launchUrl(Uri.parse(playStore))
       : throw 'Could not launch $playStore';
 
   final nonHoverTransform = Matrix4.identity()..translate(0, 0, 0);

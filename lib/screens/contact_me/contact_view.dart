@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/commons/custom_appbar.dart';
 import 'package:portfolio/commons/custom_drawer.dart';
 import 'package:portfolio/commons/is_mobileCall.dart';
-import 'package:portfolio/screens/about_home/about_viewmodel.dart';
-import 'package:portfolio/screens/about_home/widgets/about_body.dart';
 import 'package:portfolio/screens/contact_me/contact_viewmodel.dart';
 import 'package:portfolio/screens/contact_me/widgets/contact_body.dart';
 import 'package:portfolio/screens/view.dart';

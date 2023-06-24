@@ -1,3 +1,4 @@
+// ignore: avoid_web_libraries_in_flutter
 import 'dart:html' as html;
 
 import 'package:flutter/foundation.dart';
@@ -28,15 +29,16 @@ class _CustomDrawerState extends State<CustomDrawer> {
   String insta = 'https://www.instagram.com/khp53';
   String linkedin = 'https://www.linkedin.com/in/karimulhasan53/';
 
-  void _launchFBURL() async =>
-      await canLaunch(fb) ? await launch(fb) : throw 'Could not launch $fb';
+  void _launchFBURL() async => await canLaunchUrl(Uri.parse(fb))
+      ? await launchUrl(Uri.parse(fb))
+      : throw 'Could not launch $fb';
 
-  void _launchIGURL() async => await canLaunch(insta)
-      ? await launch(insta)
+  void _launchIGURL() async => await canLaunchUrl(Uri.parse(insta))
+      ? await launchUrl(Uri.parse(insta))
       : throw 'Could not launch $insta';
 
-  void _launchLinkedInURL() async => await canLaunch(linkedin)
-      ? await launch(linkedin)
+  void _launchLinkedInURL() async => await canLaunchUrl(Uri.parse(linkedin))
+      ? await launchUrl(Uri.parse(linkedin))
       : throw 'Could not launch $linkedin';
 
   @override

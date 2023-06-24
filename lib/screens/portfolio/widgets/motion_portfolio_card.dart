@@ -1,10 +1,9 @@
-import 'dart:ui';
+// ignore: avoid_web_libraries_in_flutter
 import 'dart:html' as html;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/commons/is_mobileCall.dart';
 import 'package:portfolio/screens/portfolio/portfolio_viewmodel.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -35,8 +34,8 @@ class MotionPortfolioCard extends StatelessWidget {
     viewmodel.motionIndex = index;
   }
 
-  void _launchURL() async => await canLaunch(behanceLink)
-      ? await launch(behanceLink)
+  void _launchURL() async => await canLaunchUrl(behanceLink)
+      ? await launchUrl(behanceLink)
       : throw 'Could not launch $behanceLink';
 
   final nonHoverTransform = Matrix4.identity()..translate(0, 0, 0);

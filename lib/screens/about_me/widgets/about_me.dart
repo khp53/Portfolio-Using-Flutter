@@ -52,18 +52,18 @@ class _AboutMeState extends State<AboutMe> with TickerProviderStateMixin {
               children: [
                 Text(
                   parser.emojify('About Me :technologist:'),
-                  style: _theme.textTheme.headline2,
+                  style: _theme.textTheme.displayMedium,
                 ),
                 Text(
                   "MD Karimul Hasan",
-                  style: _theme.textTheme.headline1,
+                  style: _theme.textTheme.displayLarge,
                 ),
                 SizedBox(
                   height: 10,
                 ),
                 Text(
                   "Bachelor of Computer Science (Software Engineering)\nUniversiti Teknologi Malaysia\nJohor, Malaysia",
-                  style: _theme.textTheme.headline2!.copyWith(
+                  style: _theme.textTheme.displayMedium!.copyWith(
                     color: Colors.grey,
                   ),
                 ),
@@ -73,7 +73,7 @@ class _AboutMeState extends State<AboutMe> with TickerProviderStateMixin {
                 Container(
                   child: Text(
                     "Experienced instructor and application developer with a demonstrated history of working in the e-learning and software industry. Skilled in PHP, MySql, Mobile application development using Flutter, Java, Motion Design, Video Editing, Analytical Skills, Statistical Data Analysis. Strong arts and design professional with a Bachelor of Computer Science focused in Software Engineering from Universiti Teknologi Malaysia.",
-                    style: _theme.textTheme.bodyText1!.copyWith(fontSize: 25),
+                    style: _theme.textTheme.bodyLarge!.copyWith(fontSize: 25),
                     textAlign: TextAlign.left,
                   ),
                 ),
@@ -98,7 +98,7 @@ class _AboutMeState extends State<AboutMe> with TickerProviderStateMixin {
                           ),
                           Text(
                             "Loading animation...",
-                            style: _theme.textTheme.bodyText1!
+                            style: _theme.textTheme.bodyLarge!
                                 .copyWith(fontSize: 20),
                           ),
                         ],
@@ -116,7 +116,7 @@ class _AboutMeState extends State<AboutMe> with TickerProviderStateMixin {
                         ),
                         Text(
                           "Please wait...",
-                          style: _theme.textTheme.bodyText1!
+                          style: _theme.textTheme.bodyLarge!
                               .copyWith(fontSize: 20),
                         ),
                       ],
@@ -148,7 +148,7 @@ class _AboutMeState extends State<AboutMe> with TickerProviderStateMixin {
                         ),
                         Text(
                           "Loading animation...",
-                          style: _theme.textTheme.bodyText1!
+                          style: _theme.textTheme.bodyLarge!
                               .copyWith(fontSize: 20),
                         ),
                       ],
@@ -167,7 +167,7 @@ class _AboutMeState extends State<AboutMe> with TickerProviderStateMixin {
                       Text(
                         "Please wait...",
                         style:
-                            _theme.textTheme.bodyText1!.copyWith(fontSize: 20),
+                            _theme.textTheme.bodyLarge!.copyWith(fontSize: 20),
                       ),
                     ],
                   ),
@@ -182,18 +182,18 @@ class _AboutMeState extends State<AboutMe> with TickerProviderStateMixin {
             children: [
               Text(
                 parser.emojify('About Me :technologist:'),
-                style: _theme.textTheme.headline2,
+                style: _theme.textTheme.displayMedium,
               ),
               Text(
                 "MD Karimul Hasan",
-                style: _theme.textTheme.headline1,
+                style: _theme.textTheme.displayLarge,
               ),
               SizedBox(
                 height: 10,
               ),
               Text(
                 "Bachelor of Computer Science (Software Engineering)\nUniversiti Teknologi Malaysia\nJohor, Malaysia",
-                style: _theme.textTheme.headline2!.copyWith(
+                style: _theme.textTheme.displayMedium!.copyWith(
                   color: Colors.grey,
                 ),
               ),
@@ -203,7 +203,7 @@ class _AboutMeState extends State<AboutMe> with TickerProviderStateMixin {
               Container(
                 child: Text(
                   "Experienced instructor and application developer with a demonstrated history of working in the e-learning and software industry. Skilled in PHP, MySql, Mobile application development using Flutter, Java, Motion Design, Video Editing, Analytical Skills, Statistical Data Analysis. Strong arts and design professional with a Bachelor of Computer Science focused in Software Engineering from Universiti Teknologi Malaysia.",
-                  style: _theme.textTheme.bodyText1!.copyWith(fontSize: 25),
+                  style: _theme.textTheme.bodyLarge!.copyWith(fontSize: 25),
                 ),
               ),
             ],

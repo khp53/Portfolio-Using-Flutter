@@ -420,14 +420,14 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
           children: [
             Text(
               portfolioData[int.parse(index!)]['title'],
-              style: _theme.textTheme.headline1,
+              style: _theme.textTheme.displayLarge,
             ),
             SizedBox(
               height: 25,
             ),
             Text(
               portfolioData[int.parse(index!)]['details'],
-              style: _theme.textTheme.bodyText1,
+              style: _theme.textTheme.bodyLarge,
             ),
             SizedBox(
               height: 45,
