@@ -119,6 +119,7 @@ class PortfolioCard extends StatelessWidget {
                     ? SvgPicture.asset(
                         icon2,
                         height: 20,
+                        // ignore: deprecated_member_use
                         color: Theme.of(context).colorScheme.background,
                       )
                     : Text(

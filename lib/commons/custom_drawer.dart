@@ -175,11 +175,13 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 leading: isCollapsed == true
                     ? SvgPicture.asset(
                         'svg/angle-right.svg',
+                        // ignore: deprecated_member_use
                         color: _theme.colorScheme.primary,
                         height: 70,
                       )
                     : SvgPicture.asset(
                         'svg/angle-left.svg',
+                        // ignore: deprecated_member_use
                         color: _theme.colorScheme.primary,
                         height: 70,
                       ),
@@ -305,6 +307,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
               svgLocation!,
               height: h,
               width: 42,
+              // ignore: deprecated_member_use
               color: isSelected
                   ? theme.colorScheme.primary
                   : theme.colorScheme.onBackground,
@@ -319,6 +322,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 svgLocation!,
                 height: h,
                 width: 42,
+                // ignore: deprecated_member_use
                 color: isSelected!
                     ? theme.colorScheme.primary
                     : theme.colorScheme.onBackground,
