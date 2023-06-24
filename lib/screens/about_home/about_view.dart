@@ -17,7 +17,7 @@ class AboutView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return View(
+    return BaseView(
       viewmodel: AboutViewmodel(),
       builder: (context, aViewmdoel, __) {
         return Scaffold(

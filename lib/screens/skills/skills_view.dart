@@ -17,7 +17,7 @@ class SkillsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return View(
+    return BaseView(
       viewmodel: SkillsViewmodel(),
       builder: (context, sViewmodel, __) {
         return Scaffold(

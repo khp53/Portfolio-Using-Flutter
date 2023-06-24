@@ -13,7 +13,7 @@ class ContactMeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return View(
+    return BaseView(
       viewmodel: ContactMeViewmodel(),
       builder: (context, aViewmdoel, __) {
         return Scaffold(

@@ -20,7 +20,7 @@ class _AboutMeViewState extends State<AboutMeView> {
 
   @override
   Widget build(BuildContext context) {
-    return View(
+    return BaseView(
       viewmodel: AboutMeViewmodel(),
       builder: (context, aViewmdoel, __) {
         return Scaffold(

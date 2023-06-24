@@ -8,14 +8,14 @@ import 'viewmodel.dart';
 // Don't do anything with this file
 //----------------------------------------------------------------------------
 
-class View extends StatelessWidget {
+class BaseView extends StatelessWidget {
   final Widget Function(
       BuildContext context, Viewmodel viewmodel, Widget? child) _builder;
 
   final Viewmodel _viewmodel;
 
   // ignore: use_key_in_widget_constructors
-  const View({@required builder, @required viewmodel})
+  const BaseView({@required builder, @required viewmodel})
       : _builder = builder,
         _viewmodel = viewmodel;
 

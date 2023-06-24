@@ -17,7 +17,7 @@ class PortfolioView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return View(
+    return BaseView(
       viewmodel: PortfolioViewmodel(),
       builder: (context, pViewmdoel, __) {
         return Scaffold(
