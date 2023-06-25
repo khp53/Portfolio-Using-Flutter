@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_emoji/flutter_emoji.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/commons/custom_button.dart';
 import 'package:portfolio/commons/is_mobileCall.dart';
 import 'package:portfolio/models/about.dart';
@@ -60,18 +59,9 @@ class ContactBody extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    'Contact Me',
-                    style: _theme.textTheme.displayMedium,
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  SvgPicture.asset('svg/emojis/contact_me.svg'),
-                ],
+              Text(
+                parser.emojify("Contact Me :mailbox_with_mail:"),
+                style: _theme.textTheme.displayMedium,
               ),
               Text(
                 "Send a Message",
@@ -260,18 +250,9 @@ class ContactBody extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Contact Me',
-                        style: _theme.textTheme.displayMedium,
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      SvgPicture.asset('svg/emojis/contact_me.svg'),
-                    ],
+                  Text(
+                    parser.emojify("Contact Me :mailbox_with_mail:"),
+                    style: _theme.textTheme.displayMedium,
                   ),
                   Text(
                     "Send a Message",
@@ -281,7 +262,7 @@ class ContactBody extends StatelessWidget {
                   Text(
                     "Interested in working together? " +
                         "Feel free to contact me.\n\n" +
-                        "House 15, Block B, Road 1,\n" +
+                        "House 19, Block B, Road 3,\n" +
                         "Keraniganj Model Town,\n" +
                         "Dhaka 1310, Bangladesh\n" +
                         "karimulhasan1998@gmail.com",

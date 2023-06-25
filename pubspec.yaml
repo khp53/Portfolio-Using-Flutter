@@ -1,7 +1,7 @@
 name: portfolio
 description: A personal portfolio of Karimul Hasan made using Flutter!.
 publish_to: 'none'
-version: 2.0.0+1
+version: 2.1.0+5
 environment:
   sdk: ">=2.18.0 <3.0.0"
 dependencies:
@@ -15,7 +15,7 @@ dependencies:
   flutter_dotenv: ^5.0.2
   flutter_emoji: ^2.4.0
   flutter_native_splash: ^2.1.5
-  flutter_svg: ^2.0.7
+  flutter_svg: any
   font_awesome_flutter: ^9.2.0
   get: ^4.3.8
   get_it: ^7.2.0
@@ -140,7 +140,8 @@ flutter:
     - images/shunboi/
     - images/ui/
     - svg/
-    - svg/emojis/
+    - svg/about_me.svg
+    - svg/contact_me.svg
     - .env
   fonts:
     - family: Courier New
