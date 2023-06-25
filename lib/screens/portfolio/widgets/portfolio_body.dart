@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_emoji/flutter_emoji.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/commons/is_mobileCall.dart';
 import 'package:portfolio/screens/portfolio/portfolio_viewmodel.dart';
 import 'package:portfolio/screens/portfolio/widgets/motion_portfolio_card.dart';
@@ -285,7 +285,6 @@ class PortfolioBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var parser = EmojiParser();
     var _theme = Theme.of(context);
     return SingleChildScrollView(
       child: Container(
@@ -294,9 +293,18 @@ class PortfolioBody extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              parser.emojify('Portfolio :minidisc:'),
-              style: _theme.textTheme.displayMedium,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  'PortFolio',
+                  style: _theme.textTheme.displayMedium,
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                SvgPicture.asset('svg/emojis/portfolio.svg'),
+              ],
             ),
             Text(
               "My Projects",

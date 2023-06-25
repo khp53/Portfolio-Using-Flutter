@@ -140,6 +140,7 @@ flutter:
     - images/shunboi/
     - images/ui/
     - svg/
+    - svg/emojis/
     - .env
   fonts:
     - family: Courier New

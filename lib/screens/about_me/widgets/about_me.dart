@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_emoji/flutter_emoji.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:portfolio/commons/is_mobileCall.dart';
 import 'package:portfolio/models/about.dart';
 import 'package:portfolio/screens/about_me/about_me_viewmodel.dart';
@@ -50,9 +51,18 @@ class _AboutMeState extends State<AboutMe> with TickerProviderStateMixin {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  parser.emojify('About Me :technologist:'),
-                  style: _theme.textTheme.displayMedium,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      'About Me',
+                      style: _theme.textTheme.displayMedium,
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    SvgPicture.asset('svg/emojis/about_me.svg'),
+                  ],
                 ),
                 Text(
                   "MD Karimul Hasan",
@@ -195,9 +205,18 @@ class _AboutMeState extends State<AboutMe> with TickerProviderStateMixin {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                parser.emojify('About Me :technologist:'),
-                style: _theme.textTheme.displayMedium,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    'About Me',
+                    style: _theme.textTheme.displayMedium,
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  SvgPicture.asset('svg/emojis/about_me.svg'),
+                ],
               ),
               Text(
                 "MD Karimul Hasan",

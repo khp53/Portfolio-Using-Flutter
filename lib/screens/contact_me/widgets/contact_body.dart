@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_emoji/flutter_emoji.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/commons/custom_button.dart';
 import 'package:portfolio/commons/is_mobileCall.dart';
 import 'package:portfolio/models/about.dart';
@@ -59,9 +60,18 @@ class ContactBody extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                parser.emojify("Contact Me :mailbox_with_mail:"),
-                style: _theme.textTheme.displayMedium,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    'Contact Me',
+                    style: _theme.textTheme.displayMedium,
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  SvgPicture.asset('svg/emojis/contact_me.svg'),
+                ],
               ),
               Text(
                 "Send a Message",
@@ -250,9 +260,18 @@ class ContactBody extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    parser.emojify("Contact Me :mailbox_with_mail:"),
-                    style: _theme.textTheme.displayMedium,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Contact Me',
+                        style: _theme.textTheme.displayMedium,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      SvgPicture.asset('svg/emojis/contact_me.svg'),
+                    ],
                   ),
                   Text(
                     "Send a Message",

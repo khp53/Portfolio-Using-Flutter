@@ -1,7 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
-import 'package:flutter_emoji/flutter_emoji.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/screens/skills/skills_viewmodel.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
@@ -148,7 +148,6 @@ class SkillsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var parser = EmojiParser();
     var _theme = Theme.of(context);
     return SingleChildScrollView(
       child: Container(
@@ -157,9 +156,18 @@ class SkillsBody extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              parser.emojify("Skills :toolbox:"),
-              style: _theme.textTheme.displayMedium,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  'Skills',
+                  style: _theme.textTheme.displayMedium,
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                SvgPicture.asset('svg/emojis/exp.svg'),
+              ],
             ),
             Text(
               "My Skills & Experience",

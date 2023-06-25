@@ -97,7 +97,7 @@ class AboutBody extends StatelessWidget {
                         height: isMobile(context) ? 60 : 100,
                         child: DefaultTextStyle(
                           style: TextStyle(
-                            fontSize: isMobile(context) ? 35 : 75,
+                            fontSize: isMobile(context) ? 28 : 75,
                             color: _theme.colorScheme.secondary,
                             fontWeight: FontWeight.bold,
                           ),
