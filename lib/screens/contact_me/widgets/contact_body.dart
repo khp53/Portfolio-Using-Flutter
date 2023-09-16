@@ -71,9 +71,8 @@ class ContactBody extends StatelessWidget {
               Text(
                 "Interested in working together? " +
                     "Feel free to contact me.\n\n" +
-                    "House 19, Block B, Road 3,\n" +
-                    "Keraniganj Model Town,\n" +
-                    "Dhaka 1310, Bangladesh\n" +
+                    "72 Merrymeeting Rd A1C 2V8,\n" +
+                    "St. John's, NL Canada\n" +
                     "karimulhasan1998@gmail.com",
                 style: _theme.textTheme.bodyLarge!
                     .copyWith(fontSize: 20, height: 1.5),
@@ -262,9 +261,8 @@ class ContactBody extends StatelessWidget {
                   Text(
                     "Interested in working together? " +
                         "Feel free to contact me.\n\n" +
-                        "House 19, Block B, Road 3,\n" +
-                        "Keraniganj Model Town,\n" +
-                        "Dhaka 1310, Bangladesh\n" +
+                        "72 Merrymeeting Rd A1C 2V8,\n" +
+                        "St. John's, NL, Canada\n" +
                         "karimulhasan1998@gmail.com",
                     style: _theme.textTheme.bodyLarge!
                         .copyWith(fontSize: 20, height: 1.5),
