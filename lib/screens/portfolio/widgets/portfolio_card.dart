@@ -212,6 +212,7 @@ class PortfolioCard extends StatelessWidget {
                     parameters: {
                       'id': index.toString(),
                     },
+                    arguments: portfolioDev,
                   ),
                 ),
                 Spacer(),
