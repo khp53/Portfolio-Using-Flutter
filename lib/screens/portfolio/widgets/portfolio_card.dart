@@ -289,7 +289,7 @@ class PortfolioCard extends StatelessWidget {
             child: Align(
               alignment: Alignment.bottomLeft,
               child: Text(
-                portfolioDev.get('description').toString(),
+                portfolioDev.get('shortDescription').toString(),
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 18,

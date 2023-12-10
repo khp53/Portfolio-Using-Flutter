@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_emoji/flutter_emoji.dart';
 import 'package:portfolio/commons/is_mobileCall.dart';
 import 'package:portfolio/screens/portfolio/portfolio_viewmodel.dart';
-import 'package:portfolio/screens/portfolio/widgets/motion_portfolio_card.dart';
 import 'package:portfolio/screens/portfolio/widgets/portfolio_card.dart';
 
 // ignore: must_be_immutable
@@ -327,7 +326,6 @@ class _PortfolioBodyState extends State<PortfolioBody> {
               controller: _controller,
               thumbVisibility: true,
               child: Container(
-                height: 317,
                 margin: EdgeInsets.only(bottom: 20),
                 child: GridView.builder(
                   controller: _controller,
@@ -353,48 +351,48 @@ class _PortfolioBodyState extends State<PortfolioBody> {
                   },
                   gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                     maxCrossAxisExtent: 400,
-                    childAspectRatio: 1.5,
+                    childAspectRatio: 1.2,
                     mainAxisSpacing: 20,
                   ),
                 ),
               ),
             ),
-            SizedBox(
-              height: 35,
-            ),
-            Text(
-              "Motion Designs",
-              style: _theme.textTheme.displaySmall,
-            ),
-            Scrollbar(
-              controller: _controller1,
-              thumbVisibility: true,
-              child: Container(
-                margin: EdgeInsets.only(bottom: 20),
-                height: 317,
-                child: ListView.builder(
-                  controller: _controller1,
-                  scrollDirection: Axis.horizontal,
-                  shrinkWrap: true,
-                  itemCount: motionData.length,
-                  itemBuilder: (BuildContext context, index) {
-                    return Container(
-                      padding: EdgeInsets.only(right: 50, top: 10),
-                      child: MotionPortfolioCard(
-                        title: motionData[index]['title'],
-                        color1: motionData[index]['color1'],
-                        color2: motionData[index]['color2'],
-                        icon1: "svg/adobeaftereffects.svg",
-                        icon2: "svg/adobeillustrator.svg",
-                        index: index,
-                        viewmodel: widget.viewmodel,
-                        behanceLink: motionData[index]['webLink'],
-                      ),
-                    );
-                  },
-                ),
-              ),
-            ),
+            // SizedBox(
+            //   height: 35,
+            // ),
+            // Text(
+            //   "Motion Designs",
+            //   style: _theme.textTheme.displaySmall,
+            // ),
+            // Scrollbar(
+            //   controller: _controller1,
+            //   thumbVisibility: true,
+            //   child: Container(
+            //     margin: EdgeInsets.only(bottom: 20),
+            //     height: 317,
+            //     child: ListView.builder(
+            //       controller: _controller1,
+            //       scrollDirection: Axis.horizontal,
+            //       shrinkWrap: true,
+            //       itemCount: motionData.length,
+            //       itemBuilder: (BuildContext context, index) {
+            //         return Container(
+            //           padding: EdgeInsets.only(right: 50, top: 10),
+            //           child: MotionPortfolioCard(
+            //             title: motionData[index]['title'],
+            //             color1: motionData[index]['color1'],
+            //             color2: motionData[index]['color2'],
+            //             icon1: "svg/adobeaftereffects.svg",
+            //             icon2: "svg/adobeillustrator.svg",
+            //             index: index,
+            //             viewmodel: widget.viewmodel,
+            //             behanceLink: motionData[index]['webLink'],
+            //           ),
+            //         );
+            //       },
+            //     ),
+            //   ),
+            // ),
             SizedBox(
               height: 35,
             ),
