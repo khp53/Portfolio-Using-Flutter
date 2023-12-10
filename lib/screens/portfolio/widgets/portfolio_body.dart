@@ -6,17 +6,31 @@ import 'package:portfolio/screens/portfolio/widgets/motion_portfolio_card.dart';
 import 'package:portfolio/screens/portfolio/widgets/portfolio_card.dart';
 
 // ignore: must_be_immutable
-class PortfolioBody extends StatelessWidget {
+class PortfolioBody extends StatefulWidget {
   final PortfolioViewmodel viewmodel;
   final scaffoldKey;
   PortfolioBody({Key? key, required this.viewmodel, this.scaffoldKey})
       : super(key: key);
 
+  @override
+  State<PortfolioBody> createState() => _PortfolioBodyState();
+}
+
+class _PortfolioBodyState extends State<PortfolioBody> {
+  @override
+  void initState() {
+    super.initState();
+    widget.viewmodel.getPortfolioDev();
+  }
+
   final nonHoverTransform = Matrix4.identity()..translate(0, 0, 0);
+
   final hoverTransform = Matrix4.identity()..translate(0, -5, 0);
 
   ScrollController _controller = ScrollController();
+
   ScrollController _controller1 = ScrollController();
+
   ScrollController _controller2 = ScrollController();
 
   final List portfolioData = [
@@ -315,30 +329,33 @@ class PortfolioBody extends StatelessWidget {
               child: Container(
                 height: 317,
                 margin: EdgeInsets.only(bottom: 20),
-                child: ListView.builder(
+                child: GridView.builder(
                   controller: _controller,
-                  scrollDirection: Axis.horizontal,
+                  scrollDirection: Axis.vertical,
                   shrinkWrap: true,
-                  itemCount: portfolioData.length,
+                  itemCount: widget.viewmodel.portfolioDev.length,
                   itemBuilder: (BuildContext context, index) {
+                    print(widget.viewmodel.portfolioDev[index]
+                        .get('projectName'));
                     return Container(
                       padding: EdgeInsets.only(right: 50, top: 10),
-                      child: PortfolioCard(
-                        title: portfolioData[index]['title'],
-                        color1: portfolioData[index]['color1'],
-                        color2: portfolioData[index]['color2'],
-                        icon1: portfolioData[index]['icon1'],
-                        icon2: portfolioData[index]['icon2'],
-                        index: index,
-                        viewmodel: viewmodel,
-                        webLink: portfolioData[index]['webLink'],
-                        gitLink: portfolioData[index]['gitLink'],
-                        appStore: portfolioData[index]['appStore'],
-                        playStore: portfolioData[index]['playStore'],
-                        details: portfolioData[index]['details'],
-                      ),
+                      child: widget.viewmodel.portfolioDev.isEmpty
+                          ? Center(
+                              child: CircularProgressIndicator(),
+                            )
+                          : PortfolioCard(
+                              portfolioDev:
+                                  widget.viewmodel.portfolioDev[index],
+                              index: index,
+                              viewmodel: widget.viewmodel,
+                            ),
                     );
                   },
+                  gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                    maxCrossAxisExtent: 400,
+                    childAspectRatio: 1.5,
+                    mainAxisSpacing: 20,
+                  ),
                 ),
               ),
             ),
@@ -370,7 +387,7 @@ class PortfolioBody extends StatelessWidget {
                         icon1: "svg/adobeaftereffects.svg",
                         icon2: "svg/adobeillustrator.svg",
                         index: index,
-                        viewmodel: viewmodel,
+                        viewmodel: widget.viewmodel,
                         behanceLink: motionData[index]['webLink'],
                       ),
                     );

@@ -3,40 +3,22 @@ import 'dart:html' as html;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/commons/is_mobileCall.dart';
+import 'package:portfolio/models/portfolio_dev.dart';
 import 'package:portfolio/screens/portfolio/portfolio_viewmodel.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class PortfolioCard extends StatelessWidget {
-  final String title;
-  final Color color1;
-  final Color color2;
-  final icon1;
-  final icon2;
-  final gitLink;
-  final webLink;
-  final appStore;
-  final playStore;
-  final index;
-  final details;
+  final PortfolioDev portfolioDev;
+  final int index;
   final PortfolioViewmodel viewmodel;
   PortfolioCard({
     Key? key,
-    required this.title,
-    required this.color1,
-    required this.color2,
-    this.icon1,
-    this.icon2,
     required this.viewmodel,
-    this.webLink,
-    this.gitLink,
-    this.index,
-    this.details,
-    this.appStore,
-    this.playStore,
+    required this.portfolioDev,
+    required this.index,
   }) : super(key: key);
 
   void _mouseEnter(bool hover) {
@@ -44,23 +26,45 @@ class PortfolioCard extends StatelessWidget {
     viewmodel.index = index;
   }
 
-  void _launchURL() async => await canLaunchUrl(Uri.parse(webLink))
-      ? await launchUrl(Uri.parse(webLink))
-      : throw 'Could not launch $webLink';
+  void _launchURL() async => await canLaunchUrl(
+        Uri.parse(
+          portfolioDev.get('webLink'),
+        ),
+      )
+          ? await launchUrl(Uri.parse(portfolioDev.get('webLink')))
+          : throw 'Could not launch webLink!';
 
-  void _launchGitURL() async => await canLaunchUrl(Uri.parse(gitLink))
-      ? await launchUrl(Uri.parse(gitLink))
-      : throw 'Could not launch $gitLink';
+  void _launchGitURL() async => await canLaunchUrl(
+        Uri.parse(
+          portfolioDev.get('githubLink'),
+        ),
+      )
+          ? await launchUrl(Uri.parse(portfolioDev.get('githubLink')))
+          : throw 'Could not launch githubLink!';
 
-  void _launchAppStoreURL() async => await canLaunchUrl(Uri.parse(appStore))
-      ? await launchUrl(Uri.parse(appStore))
-      : throw 'Could not launch $appStore';
+  void _launchAppStoreURL() async => await canLaunchUrl(
+        Uri.parse(
+          portfolioDev.get('appStoreLink'),
+        ),
+      )
+          ? await launchUrl(
+              Uri.parse(
+                portfolioDev.get('appStoreLink'),
+              ),
+            )
+          : throw 'Could not launch appStoreLink';
 
-  void _launchPlayStoreURL() async => await canLaunchUrl(Uri.parse(playStore))
-      ? await launchUrl(Uri.parse(playStore))
-      : throw 'Could not launch $playStore';
+  void _launchPlayStoreURL() async =>
+      await canLaunchUrl(Uri.parse(portfolioDev.get('playStoreLink')!))
+          ? await launchUrl(
+              Uri.parse(
+                portfolioDev.get('playStoreLink'),
+              ),
+            )
+          : throw 'Could not launch $portfolioDev.playStoreLink!';
 
   final nonHoverTransform = Matrix4.identity()..translate(0, 0, 0);
+
   final hoverTransform = Matrix4.identity()..translate(0, -5, 0);
 
   @override
@@ -103,41 +107,41 @@ class PortfolioCard extends StatelessWidget {
       padding: EdgeInsets.all(25),
       child: Column(
         children: [
-          Expanded(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SvgPicture.asset(
-                  icon1,
-                  height: 20,
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                icon2.isNotEmpty
-                    ? SvgPicture.asset(
-                        icon2,
-                        height: 20,
-                        // ignore: deprecated_member_use
-                        color: Theme.of(context).colorScheme.background,
-                      )
-                    : Text(
-                        "REST",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        ),
-                      ),
-              ],
-            ),
-          ),
+          // Expanded(
+          //   child: Row(
+          //     mainAxisAlignment: MainAxisAlignment.end,
+          //     crossAxisAlignment: CrossAxisAlignment.start,
+          //     children: [
+          //       SvgPicture.asset(
+          //         icon1,
+          //         height: 20,
+          //       ),
+          //       SizedBox(
+          //         width: 10,
+          //       ),
+          //       icon2.isNotEmpty
+          //           ? SvgPicture.asset(
+          //               icon2,
+          //               height: 20,
+          //               // ignore: deprecated_member_use
+          //               color: Theme.of(context).colorScheme.background,
+          //             )
+          //           : Text(
+          //               "REST",
+          //               style: TextStyle(
+          //                 color: Colors.black,
+          //                 fontWeight: FontWeight.bold,
+          //                 fontSize: 18,
+          //               ),
+          //             ),
+          //     ],
+          //   ),
+          // ),
           Expanded(
             child: Align(
               alignment: Alignment.bottomLeft,
               child: Text(
-                title,
+                portfolioDev.get('projectName').toString(),
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 35,
@@ -153,8 +157,20 @@ class PortfolioCard extends StatelessWidget {
           begin: Alignment.topRight,
           end: Alignment.bottomLeft,
           colors: [
-            color1,
-            color2,
+            portfolioDev.get('color1') != null
+                ? Color(
+                    int.parse(
+                      '0xFF${portfolioDev.get('color1')}',
+                    ),
+                  )
+                : Colors.white,
+            portfolioDev.get('color2') != null
+                ? Color(
+                    int.parse(
+                      '0xFF${portfolioDev.get('color2')}',
+                    ),
+                  )
+                : Colors.white,
           ],
         ),
       ),
@@ -199,10 +215,12 @@ class PortfolioCard extends StatelessWidget {
                   ),
                 ),
                 Spacer(),
-                gitLink != null && gitLink != ""
+                portfolioDev.get('githubLink') != null &&
+                        portfolioDev.get('githubLink') != ""
                     ? InkWell(
                         onTap: () => kIsWeb
-                            ? html.window.open(gitLink, "GitHub Link")
+                            ? html.window.open(
+                                portfolioDev.get('githubLink')!, "GitHub Link")
                             : _launchGitURL,
                         child: FaIcon(
                           FontAwesomeIcons.github,
@@ -214,10 +232,12 @@ class PortfolioCard extends StatelessWidget {
                 SizedBox(
                   width: 10,
                 ),
-                webLink != null && webLink != ""
+                portfolioDev.get('webLink') != null &&
+                        portfolioDev.get('webLink') != ""
                     ? InkWell(
                         onTap: () => kIsWeb
-                            ? html.window.open(webLink, "Website Link")
+                            ? html.window.open(
+                                portfolioDev.get('webLink')!, "Website Link")
                             : _launchURL,
                         child: Icon(
                           Icons.launch,
@@ -229,10 +249,13 @@ class PortfolioCard extends StatelessWidget {
                 SizedBox(
                   width: 10,
                 ),
-                appStore != null && appStore != ""
+                portfolioDev.get('appStoreLink') != null &&
+                        portfolioDev.get('appStoreLink') != ""
                     ? InkWell(
                         onTap: () => kIsWeb
-                            ? html.window.open(appStore, "Appstore Link")
+                            ? html.window.open(
+                                portfolioDev.get('appStoreLink')!,
+                                "Appstore Link")
                             : _launchAppStoreURL(),
                         child: FaIcon(
                           FontAwesomeIcons.appStoreIos,
@@ -244,10 +267,13 @@ class PortfolioCard extends StatelessWidget {
                 SizedBox(
                   width: 10,
                 ),
-                playStore != null && playStore != ""
+                portfolioDev.get('playStoreLink') != null &&
+                        portfolioDev.get('playStoreLink') != ""
                     ? InkWell(
                         onTap: () => kIsWeb
-                            ? html.window.open(playStore, "Playstore Link")
+                            ? html.window.open(
+                                portfolioDev.get('playStoreLink')!,
+                                "Playstore Link")
                             : _launchPlayStoreURL(),
                         child: FaIcon(
                           FontAwesomeIcons.googlePlay,
@@ -263,7 +289,7 @@ class PortfolioCard extends StatelessWidget {
             child: Align(
               alignment: Alignment.bottomLeft,
               child: Text(
-                details.toString(),
+                portfolioDev.get('description').toString(),
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 18,

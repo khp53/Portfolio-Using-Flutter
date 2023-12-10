@@ -1,12 +1,20 @@
+import 'package:portfolio/models/portfolio_dev.dart';
 import 'package:portfolio/screens/viewmodel.dart';
+import 'package:portfolio/services/portfolio_services.dart';
 
 class PortfolioViewmodel extends Viewmodel {
+  PortfolioViewmodel() {
+    //getPortfolioDev();
+  }
+  PortfolioServices _portfolioServices = PortfolioServices();
   bool _isLoading = false;
   int _selectedIndex = 2;
   int _index = 0;
   int _motionIndex = 0;
   bool _hovering = false;
   bool _motionHovering = false;
+
+  List<PortfolioDev> portfolioDev = <PortfolioDev>[];
 
   get selectedIndex => _selectedIndex;
   set selectedIndex(value) {
@@ -48,5 +56,13 @@ class PortfolioViewmodel extends Viewmodel {
     turnBusy();
     _motionHovering = value;
     turnIdle();
+  }
+
+  getPortfolioDev() async {
+    turnBusy();
+    var res = await _portfolioServices.getPortfolioDev();
+    portfolioDev = res;
+    turnIdle();
+    return portfolioDev;
   }
 }
