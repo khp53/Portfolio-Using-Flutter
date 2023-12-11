@@ -139,6 +139,7 @@ flutter:
     - images/splash/
     - images/shunboi/
     - images/ui/
+    - images/badges/
     - svg/
     - svg/about_me.svg
     - svg/contact_me.svg

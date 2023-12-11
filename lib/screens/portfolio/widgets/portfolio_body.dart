@@ -350,7 +350,7 @@ class _PortfolioBodyState extends State<PortfolioBody> {
                     );
                   },
                   gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                    maxCrossAxisExtent: 400,
+                    maxCrossAxisExtent: 500,
                     childAspectRatio: 1.2,
                     mainAxisSpacing: 20,
                   ),

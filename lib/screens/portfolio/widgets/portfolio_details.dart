@@ -1,5 +1,10 @@
+// ignore: avoid_web_libraries_in_flutter
+import 'dart:html' as html;
+
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_emoji/flutter_emoji.dart';
 import 'package:get/get.dart';
@@ -9,6 +14,7 @@ import 'package:portfolio/commons/is_mobileCall.dart';
 import 'package:portfolio/models/portfolio_dev.dart';
 import 'package:portfolio/screens/portfolio/portfolio_viewmodel.dart';
 import 'package:portfolio/screens/view.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class PortfolioDetails extends StatefulWidget {
   PortfolioDetails({
@@ -23,6 +29,43 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
 
   String? index = Get.parameters['id'];
   PortfolioDev portfolioDev = Get.arguments;
+
+  void _launchURL() async => await canLaunchUrl(
+        Uri.parse(
+          portfolioDev.get('webLink'),
+        ),
+      )
+          ? await launchUrl(Uri.parse(portfolioDev.get('webLink')))
+          : throw 'Could not launch webLink!';
+
+  void _launchGitURL() async => await canLaunchUrl(
+        Uri.parse(
+          portfolioDev.get('githubLink'),
+        ),
+      )
+          ? await launchUrl(Uri.parse(portfolioDev.get('githubLink')))
+          : throw 'Could not launch githubLink!';
+
+  void _launchAppStoreURL() async => await canLaunchUrl(
+        Uri.parse(
+          portfolioDev.get('appStoreLink'),
+        ),
+      )
+          ? await launchUrl(
+              Uri.parse(
+                portfolioDev.get('appStoreLink'),
+              ),
+            )
+          : throw 'Could not launch appStoreLink';
+
+  void _launchPlayStoreURL() async =>
+      await canLaunchUrl(Uri.parse(portfolioDev.get('playStoreLink')!))
+          ? await launchUrl(
+              Uri.parse(
+                portfolioDev.get('playStoreLink'),
+              ),
+            )
+          : throw 'Could not launch $portfolioDev.playStoreLink!';
 
   @override
   Widget build(BuildContext context) {
@@ -84,11 +127,11 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
             Text(
               portfolioDev.get('projectName'),
               style: _theme.textTheme.displayLarge!.copyWith(
-                fontSize: 32,
+                fontSize: 40,
               ),
             ),
             SizedBox(
-              height: 20,
+              height: 30,
             ),
             Center(
               child: SizedBox(
@@ -113,113 +156,216 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
               ),
             ),
             SizedBox(
-              height: 20,
+              height: 30,
             ),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
-                  child: Text(
-                    portfolioDev.get('description'),
-                    textAlign: TextAlign.justify,
-                    style: _theme.textTheme.bodyLarge!.copyWith(
-                      fontWeight: FontWeight.normal,
-                      fontSize: 25,
-                    ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          portfolioDev.get('appStoreLink') != null &&
+                                  portfolioDev.get('appStoreLink') != ""
+                              ? Expanded(
+                                  child: InkWell(
+                                    onTap: () => kIsWeb
+                                        ? html.window.open(
+                                            portfolioDev.get('appStoreLink')!,
+                                            "App Store Link",
+                                          )
+                                        : _launchAppStoreURL(),
+                                    child: SizedBox(
+                                      height: 65,
+                                      child: Image.asset(
+                                        'images/badges/app_store.png',
+                                        fit: BoxFit.contain,
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              : Container(),
+                          portfolioDev.get('playStoreLink') != null &&
+                                  portfolioDev.get('playStoreLink') != ""
+                              ? Expanded(
+                                  child: InkWell(
+                                    onTap: () => kIsWeb
+                                        ? html.window.open(
+                                            portfolioDev.get('playStoreLink')!,
+                                            "Play Store Link",
+                                          )
+                                        : _launchPlayStoreURL(),
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(left: 10),
+                                      child: SizedBox(
+                                        height: 65,
+                                        child: Image.asset(
+                                          'images/badges/play.png',
+                                          fit: BoxFit.contain,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              : Container(),
+                          portfolioDev.get('webLink') != null &&
+                                  portfolioDev.get('webLink') != ""
+                              ? Expanded(
+                                  child: InkWell(
+                                    onTap: () => kIsWeb
+                                        ? html.window.open(
+                                            portfolioDev.get('webLink')!,
+                                            "Web Link",
+                                          )
+                                        : _launchURL(),
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(left: 10),
+                                      child: SizedBox(
+                                        height: 65,
+                                        child: Image.asset(
+                                          'images/badges/web-app-badge.png',
+                                          fit: BoxFit.contain,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              : Container(),
+                          portfolioDev.get('githubLink') != null &&
+                                  portfolioDev.get('githubLink') != ""
+                              ? Expanded(
+                                  child: InkWell(
+                                    onTap: () => kIsWeb
+                                        ? html.window.open(
+                                            portfolioDev.get('githubLink')!,
+                                            "Github Link",
+                                          )
+                                        : _launchGitURL(),
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(left: 10),
+                                      child: SizedBox(
+                                        height: 65,
+                                        child: Image.asset(
+                                          'images/badges/github.png',
+                                          fit: BoxFit.contain,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              : Container(),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      Text(
+                        portfolioDev.get('description').toString(),
+                        textAlign: TextAlign.justify,
+                        style: _theme.textTheme.bodyLarge!.copyWith(
+                          fontWeight: FontWeight.normal,
+                          fontSize: 25,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 SizedBox(
-                  width: 5,
+                  width: 25,
                 ),
                 Expanded(
                   child: CarouselSlider(
                     items: [
-                      portfolioDev.screen1.url != null
+                      portfolioDev.screen1 != null
                           ? Padding(
                               padding: const EdgeInsets.only(bottom: 20),
-                              child: Image.network(
-                                portfolioDev.screen1.url!,
+                              child: CachedNetworkImage(
+                                imageUrl: portfolioDev.screen1!.url!,
                                 fit: BoxFit.contain,
                               ),
                             )
                           : Container(),
-                      portfolioDev.screen2.url != null
+                      portfolioDev.screen2 != null
                           ? Padding(
                               padding: const EdgeInsets.only(bottom: 20),
-                              child: Image.network(
-                                portfolioDev.screen2.url!,
+                              child: CachedNetworkImage(
+                                imageUrl: portfolioDev.screen2!.url!,
                                 fit: BoxFit.contain,
                               ),
                             )
                           : Container(),
-                      portfolioDev.screen3.url != null
+                      portfolioDev.screen3 != null
                           ? Padding(
                               padding: const EdgeInsets.only(bottom: 20),
-                              child: Image.network(
-                                portfolioDev.screen3.url!,
+                              child: CachedNetworkImage(
+                                imageUrl: portfolioDev.screen3!.url!,
                                 fit: BoxFit.contain,
                               ),
                             )
                           : Container(),
-                      portfolioDev.screen4.url != null
+                      portfolioDev.screen4 != null
                           ? Padding(
                               padding: const EdgeInsets.only(bottom: 20),
-                              child: Image.network(
-                                portfolioDev.screen4.url!,
+                              child: CachedNetworkImage(
+                                imageUrl: portfolioDev.screen4!.url!,
                                 fit: BoxFit.contain,
                               ),
                             )
                           : Container(),
-                      portfolioDev.screen5.url != null
+                      portfolioDev.screen5 != null
                           ? Padding(
                               padding: const EdgeInsets.only(bottom: 20),
-                              child: Image.network(
-                                portfolioDev.screen5.url!,
+                              child: CachedNetworkImage(
+                                imageUrl: portfolioDev.screen5!.url!,
                                 fit: BoxFit.contain,
                               ),
                             )
                           : Container(),
-                      portfolioDev.screen6.url != null
+                      portfolioDev.screen6 != null
                           ? Padding(
                               padding: const EdgeInsets.only(bottom: 20),
-                              child: Image.network(
-                                portfolioDev.screen6.url!,
+                              child: CachedNetworkImage(
+                                imageUrl: portfolioDev.screen6!.url!,
                                 fit: BoxFit.contain,
                               ),
                             )
                           : Container(),
-                      portfolioDev.screen7.url != null
+                      portfolioDev.screen7 != null
                           ? Padding(
                               padding: const EdgeInsets.only(bottom: 20),
-                              child: Image.network(
-                                portfolioDev.screen7.url!,
+                              child: CachedNetworkImage(
+                                imageUrl: portfolioDev.screen7!.url!,
                                 fit: BoxFit.contain,
                               ),
                             )
                           : Container(),
-                      portfolioDev.screen8.url != null
+                      portfolioDev.screen8 != null
                           ? Padding(
                               padding: const EdgeInsets.only(bottom: 20),
-                              child: Image.network(
-                                portfolioDev.screen8.url!,
+                              child: CachedNetworkImage(
+                                imageUrl: portfolioDev.screen8!.url!,
                                 fit: BoxFit.contain,
                               ),
                             )
                           : Container(),
-                      portfolioDev.screen9.url != null
+                      portfolioDev.screen9 != null
                           ? Padding(
                               padding: const EdgeInsets.only(bottom: 20),
-                              child: Image.network(
-                                portfolioDev.screen9.url!,
+                              child: CachedNetworkImage(
+                                imageUrl: portfolioDev.screen9!.url!,
                                 fit: BoxFit.contain,
                               ),
                             )
                           : Container(),
-                      portfolioDev.screen10.url != null
+                      portfolioDev.screen10 != null
                           ? Padding(
                               padding: const EdgeInsets.only(bottom: 20),
-                              child: Image.network(
-                                portfolioDev.screen10.url!,
+                              child: CachedNetworkImage(
+                                imageUrl: portfolioDev.screen10!.url!,
                                 fit: BoxFit.contain,
                               ),
                             )
@@ -236,7 +382,7 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
                       reverse: false,
                       autoPlay: true,
                       autoPlayInterval: Duration(milliseconds: 2000),
-                      autoPlayAnimationDuration: Duration(milliseconds: 800),
+                      autoPlayAnimationDuration: Duration(milliseconds: 100),
                       autoPlayCurve: Curves.fastOutSlowIn,
                       enlargeCenterPage: false,
                       scrollDirection: Axis.vertical,
