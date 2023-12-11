@@ -62,6 +62,30 @@ class _AboutMeState extends State<AboutMe> with TickerProviderStateMixin {
                   height: 10,
                 ),
                 Text(
+                  "Master of Computer Science",
+                  style: _theme.textTheme.displayMedium!.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey,
+                  ),
+                ),
+                Text(
+                  "Memorial University of Newfoundland",
+                  style: _theme.textTheme.displayMedium!.copyWith(
+                    fontWeight: FontWeight.normal,
+                    color: Colors.grey,
+                  ),
+                ),
+                Text(
+                  "St. John's, NL, Canada",
+                  style: _theme.textTheme.displayMedium!.copyWith(
+                    fontWeight: FontWeight.normal,
+                    color: Colors.grey.withOpacity(0.7),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
                   "Bachelor of Computer Science (Software Engineering)",
                   style: _theme.textTheme.displayMedium!.copyWith(
                     fontWeight: FontWeight.bold,
