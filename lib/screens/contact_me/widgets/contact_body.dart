@@ -71,7 +71,6 @@ class ContactBody extends StatelessWidget {
               Text(
                 "Interested in working together? " +
                     "Feel free to contact me.\n\n" +
-                    "72 Merrymeeting Rd A1C 2V8,\n" +
                     "St. John's, NL Canada\n" +
                     "karimulhasan1998@gmail.com",
                 style: _theme.textTheme.bodyLarge!
@@ -261,7 +260,6 @@ class ContactBody extends StatelessWidget {
                   Text(
                     "Interested in working together? " +
                         "Feel free to contact me.\n\n" +
-                        "72 Merrymeeting Rd A1C 2V8,\n" +
                         "St. John's, NL, Canada\n" +
                         "karimulhasan1998@gmail.com",
                     style: _theme.textTheme.bodyLarge!
