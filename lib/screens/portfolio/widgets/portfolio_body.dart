@@ -322,41 +322,46 @@ class _PortfolioBodyState extends State<PortfolioBody> {
               "Development Projects",
               style: _theme.textTheme.displaySmall,
             ),
-            Scrollbar(
-              controller: _controller,
-              thumbVisibility: true,
-              child: Container(
-                margin: EdgeInsets.only(bottom: 20),
-                child: GridView.builder(
-                  controller: _controller,
-                  scrollDirection: Axis.vertical,
-                  shrinkWrap: true,
-                  itemCount: widget.viewmodel.portfolioDev.length,
-                  itemBuilder: (BuildContext context, index) {
-                    print(widget.viewmodel.portfolioDev[index]
-                        .get('projectName'));
-                    return Container(
-                      padding: EdgeInsets.only(right: 50, top: 10),
-                      child: widget.viewmodel.portfolioDev.isEmpty
-                          ? Center(
-                              child: CircularProgressIndicator(),
-                            )
-                          : PortfolioCard(
-                              portfolioDev:
-                                  widget.viewmodel.portfolioDev[index],
-                              index: index,
-                              viewmodel: widget.viewmodel,
-                            ),
-                    );
-                  },
-                  gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                    maxCrossAxisExtent: 500,
-                    childAspectRatio: 1.2,
-                    mainAxisSpacing: 20,
+            widget.viewmodel.portfolioDev.isEmpty
+                ? Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: CircularProgressIndicator(),
+                    ),
+                  )
+                : Scrollbar(
+                    controller: _controller,
+                    thumbVisibility: true,
+                    child: Container(
+                      margin: EdgeInsets.only(bottom: 20),
+                      child: GridView.builder(
+                        controller: _controller,
+                        scrollDirection: Axis.vertical,
+                        shrinkWrap: true,
+                        itemCount: widget.viewmodel.portfolioDev.length,
+                        itemBuilder: (BuildContext context, index) {
+                          return Container(
+                            padding: EdgeInsets.only(right: 50, top: 10),
+                            child: widget.viewmodel.portfolioDev.isEmpty
+                                ? Center(
+                                    child: CircularProgressIndicator(),
+                                  )
+                                : PortfolioCard(
+                                    portfolioDev:
+                                        widget.viewmodel.portfolioDev[index],
+                                    index: index,
+                                    viewmodel: widget.viewmodel,
+                                  ),
+                          );
+                        },
+                        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                          maxCrossAxisExtent: 500,
+                          childAspectRatio: 1.2,
+                          mainAxisSpacing: 20,
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-            ),
             // SizedBox(
             //   height: 35,
             // ),
