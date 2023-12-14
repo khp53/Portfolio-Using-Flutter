@@ -105,7 +105,7 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
                   ],
                 );
               } else {
-                return body(context);
+                return mobileBody(context);
               }
             },
           ),
@@ -162,120 +162,124 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          portfolioDev.get('appStoreLink') != null &&
-                                  portfolioDev.get('appStoreLink') != ""
-                              ? Expanded(
-                                  child: InkWell(
-                                    onTap: () => kIsWeb
-                                        ? html.window.open(
-                                            portfolioDev.get('appStoreLink')!,
-                                            "App Store Link",
-                                          )
-                                        : _launchAppStoreURL(),
-                                    child: SizedBox(
-                                      height: 65,
-                                      child: Image.asset(
-                                        'images/badges/app_store.png',
-                                        fit: BoxFit.contain,
-                                      ),
-                                    ),
-                                  ),
-                                )
-                              : Container(),
-                          portfolioDev.get('playStoreLink') != null &&
-                                  portfolioDev.get('playStoreLink') != ""
-                              ? Expanded(
-                                  child: InkWell(
-                                    onTap: () => kIsWeb
-                                        ? html.window.open(
-                                            portfolioDev.get('playStoreLink')!,
-                                            "Play Store Link",
-                                          )
-                                        : _launchPlayStoreURL(),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(left: 10),
+                  child: Container(
+                    margin: EdgeInsets.only(right: 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            portfolioDev.get('appStoreLink') != null &&
+                                    portfolioDev.get('appStoreLink') != ""
+                                ? Expanded(
+                                    child: InkWell(
+                                      onTap: () => kIsWeb
+                                          ? html.window.open(
+                                              portfolioDev.get('appStoreLink')!,
+                                              "App Store Link",
+                                            )
+                                          : _launchAppStoreURL(),
                                       child: SizedBox(
                                         height: 65,
                                         child: Image.asset(
-                                          'images/badges/play.png',
+                                          'images/badges/app_store.png',
                                           fit: BoxFit.contain,
                                         ),
                                       ),
                                     ),
-                                  ),
-                                )
-                              : Container(),
-                          portfolioDev.get('webLink') != null &&
-                                  portfolioDev.get('webLink') != ""
-                              ? Expanded(
-                                  child: InkWell(
-                                    onTap: () => kIsWeb
-                                        ? html.window.open(
-                                            portfolioDev.get('webLink')!,
-                                            "Web Link",
-                                          )
-                                        : _launchURL(),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(left: 10),
-                                      child: SizedBox(
-                                        height: 65,
-                                        child: Image.asset(
-                                          'images/badges/web-app-badge.png',
-                                          fit: BoxFit.contain,
+                                  )
+                                : Container(),
+                            portfolioDev.get('playStoreLink') != null &&
+                                    portfolioDev.get('playStoreLink') != ""
+                                ? Expanded(
+                                    child: InkWell(
+                                      onTap: () => kIsWeb
+                                          ? html.window.open(
+                                              portfolioDev
+                                                  .get('playStoreLink')!,
+                                              "Play Store Link",
+                                            )
+                                          : _launchPlayStoreURL(),
+                                      child: Padding(
+                                        padding:
+                                            const EdgeInsets.only(left: 10),
+                                        child: SizedBox(
+                                          height: 65,
+                                          child: Image.asset(
+                                            'images/badges/play.png',
+                                            fit: BoxFit.contain,
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                )
-                              : Container(),
-                          portfolioDev.get('githubLink') != null &&
-                                  portfolioDev.get('githubLink') != ""
-                              ? Expanded(
-                                  child: InkWell(
-                                    onTap: () => kIsWeb
-                                        ? html.window.open(
-                                            portfolioDev.get('githubLink')!,
-                                            "Github Link",
-                                          )
-                                        : _launchGitURL(),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(left: 10),
-                                      child: SizedBox(
-                                        height: 65,
-                                        child: Image.asset(
-                                          'images/badges/github.png',
-                                          fit: BoxFit.contain,
+                                  )
+                                : Container(),
+                            portfolioDev.get('webLink') != null &&
+                                    portfolioDev.get('webLink') != ""
+                                ? Expanded(
+                                    child: InkWell(
+                                      onTap: () => kIsWeb
+                                          ? html.window.open(
+                                              portfolioDev.get('webLink')!,
+                                              "Web Link",
+                                            )
+                                          : _launchURL(),
+                                      child: Padding(
+                                        padding:
+                                            const EdgeInsets.only(left: 10),
+                                        child: SizedBox(
+                                          height: 65,
+                                          child: Image.asset(
+                                            'images/badges/web-app-badge.png',
+                                            fit: BoxFit.contain,
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                )
-                              : Container(),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Text(
-                        portfolioDev.get('description').toString(),
-                        textAlign: TextAlign.justify,
-                        style: _theme.textTheme.bodyLarge!.copyWith(
-                          fontWeight: FontWeight.normal,
-                          fontSize: 25,
+                                  )
+                                : Container(),
+                            portfolioDev.get('githubLink') != null &&
+                                    portfolioDev.get('githubLink') != ""
+                                ? Expanded(
+                                    child: InkWell(
+                                      onTap: () => kIsWeb
+                                          ? html.window.open(
+                                              portfolioDev.get('githubLink')!,
+                                              "Github Link",
+                                            )
+                                          : _launchGitURL(),
+                                      child: Padding(
+                                        padding:
+                                            const EdgeInsets.only(left: 10),
+                                        child: SizedBox(
+                                          height: 65,
+                                          child: Image.asset(
+                                            'images/badges/github.png',
+                                            fit: BoxFit.contain,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  )
+                                : Container(),
+                          ],
                         ),
-                      ),
-                    ],
+                        SizedBox(
+                          height: 30,
+                        ),
+                        Text(
+                          portfolioDev.get('description').toString(),
+                          textAlign: TextAlign.justify,
+                          style: _theme.textTheme.bodyLarge!.copyWith(
+                            fontWeight: FontWeight.normal,
+                            fontSize: 25,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                SizedBox(
-                  width: 25,
                 ),
                 Expanded(
                   child: CarouselSlider(
@@ -391,6 +395,279 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
                   ),
                 ),
               ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget mobileBody(BuildContext context) {
+    var parser = EmojiParser();
+    var _theme = Theme.of(context);
+    return SingleChildScrollView(
+      child: Container(
+        margin: !isMobile(context) ? EdgeInsets.all(30) : EdgeInsets.all(10),
+        padding: !isMobile(context) ? EdgeInsets.all(30) : EdgeInsets.all(10),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              portfolioDev.get('projectName'),
+              style: _theme.textTheme.displayLarge!.copyWith(
+                fontSize: 40,
+              ),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Center(
+              child: SizedBox(
+                width: 250.0,
+                height: 25,
+                child: DefaultTextStyle(
+                  style: const TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                  child: AnimatedTextKit(
+                    repeatForever: true,
+                    pause: const Duration(milliseconds: 600),
+                    animatedTexts: [
+                      FadeAnimatedText(
+                        parser.emojify(":point_up_2: Tap & Hold to pause!"),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 25,
+            ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                portfolioDev.get('appStoreLink') != null &&
+                        portfolioDev.get('appStoreLink') != ""
+                    ? Expanded(
+                        child: InkWell(
+                          onTap: () => kIsWeb
+                              ? html.window.open(
+                                  portfolioDev.get('appStoreLink')!,
+                                  "App Store Link",
+                                )
+                              : _launchAppStoreURL(),
+                          child: SizedBox(
+                            height: 65,
+                            child: Image.asset(
+                              'images/badges/app_store.png',
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                        ),
+                      )
+                    : Container(),
+                portfolioDev.get('playStoreLink') != null &&
+                        portfolioDev.get('playStoreLink') != ""
+                    ? Expanded(
+                        child: InkWell(
+                          onTap: () => kIsWeb
+                              ? html.window.open(
+                                  portfolioDev.get('playStoreLink')!,
+                                  "Play Store Link",
+                                )
+                              : _launchPlayStoreURL(),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: SizedBox(
+                              height: 65,
+                              child: Image.asset(
+                                'images/badges/play.png',
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+                          ),
+                        ),
+                      )
+                    : Container(),
+                portfolioDev.get('webLink') != null &&
+                        portfolioDev.get('webLink') != ""
+                    ? Expanded(
+                        child: InkWell(
+                          onTap: () => kIsWeb
+                              ? html.window.open(
+                                  portfolioDev.get('webLink')!,
+                                  "Web Link",
+                                )
+                              : _launchURL(),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: SizedBox(
+                              height: 65,
+                              child: Image.asset(
+                                'images/badges/web-app-badge.png',
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+                          ),
+                        ),
+                      )
+                    : Container(),
+                portfolioDev.get('githubLink') != null &&
+                        portfolioDev.get('githubLink') != ""
+                    ? Expanded(
+                        child: InkWell(
+                          onTap: () => kIsWeb
+                              ? html.window.open(
+                                  portfolioDev.get('githubLink')!,
+                                  "Github Link",
+                                )
+                              : _launchGitURL(),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: SizedBox(
+                              height: 65,
+                              child: Image.asset(
+                                'images/badges/github.png',
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+                          ),
+                        ),
+                      )
+                    : Container(),
+              ],
+            ),
+            SizedBox(
+              height: 25,
+            ),
+            SizedBox(
+              height: 450,
+              child: CarouselSlider(
+                items: [
+                  portfolioDev.screen1 != null
+                      ? Padding(
+                          padding: const EdgeInsets.only(bottom: 20),
+                          child: CachedNetworkImage(
+                            imageUrl: portfolioDev.screen1!.url!,
+                            fit: BoxFit.contain,
+                          ),
+                        )
+                      : Container(),
+                  portfolioDev.screen2 != null
+                      ? Padding(
+                          padding: const EdgeInsets.only(bottom: 20),
+                          child: CachedNetworkImage(
+                            imageUrl: portfolioDev.screen2!.url!,
+                            fit: BoxFit.contain,
+                          ),
+                        )
+                      : Container(),
+                  portfolioDev.screen3 != null
+                      ? Padding(
+                          padding: const EdgeInsets.only(bottom: 20),
+                          child: CachedNetworkImage(
+                            imageUrl: portfolioDev.screen3!.url!,
+                            fit: BoxFit.contain,
+                          ),
+                        )
+                      : Container(),
+                  portfolioDev.screen4 != null
+                      ? Padding(
+                          padding: const EdgeInsets.only(bottom: 20),
+                          child: CachedNetworkImage(
+                            imageUrl: portfolioDev.screen4!.url!,
+                            fit: BoxFit.contain,
+                          ),
+                        )
+                      : Container(),
+                  portfolioDev.screen5 != null
+                      ? Padding(
+                          padding: const EdgeInsets.only(bottom: 20),
+                          child: CachedNetworkImage(
+                            imageUrl: portfolioDev.screen5!.url!,
+                            fit: BoxFit.contain,
+                          ),
+                        )
+                      : Container(),
+                  portfolioDev.screen6 != null
+                      ? Padding(
+                          padding: const EdgeInsets.only(bottom: 20),
+                          child: CachedNetworkImage(
+                            imageUrl: portfolioDev.screen6!.url!,
+                            fit: BoxFit.contain,
+                          ),
+                        )
+                      : Container(),
+                  portfolioDev.screen7 != null
+                      ? Padding(
+                          padding: const EdgeInsets.only(bottom: 20),
+                          child: CachedNetworkImage(
+                            imageUrl: portfolioDev.screen7!.url!,
+                            fit: BoxFit.contain,
+                          ),
+                        )
+                      : Container(),
+                  portfolioDev.screen8 != null
+                      ? Padding(
+                          padding: const EdgeInsets.only(bottom: 20),
+                          child: CachedNetworkImage(
+                            imageUrl: portfolioDev.screen8!.url!,
+                            fit: BoxFit.contain,
+                          ),
+                        )
+                      : Container(),
+                  portfolioDev.screen9 != null
+                      ? Padding(
+                          padding: const EdgeInsets.only(bottom: 20),
+                          child: CachedNetworkImage(
+                            imageUrl: portfolioDev.screen9!.url!,
+                            fit: BoxFit.contain,
+                          ),
+                        )
+                      : Container(),
+                  portfolioDev.screen10 != null
+                      ? Padding(
+                          padding: const EdgeInsets.only(bottom: 20),
+                          child: CachedNetworkImage(
+                            imageUrl: portfolioDev.screen10!.url!,
+                            fit: BoxFit.contain,
+                          ),
+                        )
+                      : Container(),
+                ],
+                options: CarouselOptions(
+                  height: isMobile(context)
+                      ? MediaQuery.of(context).size.height / 1.4
+                      : MediaQuery.of(context).size.height / 1.2,
+                  aspectRatio: 1,
+                  viewportFraction: isMobile(context) ? 0.5 : 0.7,
+                  initialPage: 2,
+                  enableInfiniteScroll: true,
+                  reverse: false,
+                  autoPlay: true,
+                  autoPlayInterval: Duration(milliseconds: 2000),
+                  autoPlayAnimationDuration: Duration(milliseconds: 100),
+                  autoPlayCurve: Curves.fastOutSlowIn,
+                  enlargeCenterPage: false,
+                  scrollDirection: Axis.horizontal,
+                  pageSnapping: false,
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              portfolioDev.get('description').toString(),
+              textAlign: TextAlign.justify,
+              style: _theme.textTheme.bodyLarge!.copyWith(
+                fontWeight: FontWeight.normal,
+                fontSize: 25,
+              ),
             ),
           ],
         ),
