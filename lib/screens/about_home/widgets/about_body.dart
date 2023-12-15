@@ -53,7 +53,7 @@ class AboutBody extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "import ‘package:flutter/material.dart’;\n\nclass NotificationView extends StatelessWidget {\n\n    @override\n    Widget build(BuildContext context) {\n        return Container(\n            child: CustomAbout(\n                '",
+                  "import ‘package:flutter/material.dart’;\n\nclass PortfolioView extends StatelessWidget {\n\n    @override\n    Widget build(BuildContext context) {\n        return Container(\n            child: CustomAbout(\n                '",
                   style: _theme.textTheme.titleMedium!,
                 ),
                 Container(
@@ -108,17 +108,17 @@ class AboutBody extends StatelessWidget {
                               RotateAnimatedText(
                                 "Software Engineer",
                                 alignment: Alignment.centerLeft,
-                                duration: const Duration(milliseconds: 1000),
+                                duration: const Duration(milliseconds: 1500),
                               ),
                               RotateAnimatedText(
                                 "Flutter Developer",
                                 alignment: Alignment.centerLeft,
-                                duration: const Duration(milliseconds: 1000),
+                                duration: const Duration(milliseconds: 1500),
                               ),
                               RotateAnimatedText(
                                 "Motion Designer",
                                 alignment: Alignment.centerLeft,
-                                duration: const Duration(milliseconds: 1000),
+                                duration: const Duration(milliseconds: 1500),
                               ),
                             ],
                           ),
