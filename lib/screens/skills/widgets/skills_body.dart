@@ -18,15 +18,22 @@ class SkillsBody extends StatelessWidget {
 
   final List experienceData = [
     {
+      'title': 'Amharc Tech',
+      'designation': 'Lead Mobile Application Developer',
+      'time': 'Oct 2020 - Present / Dublin, Ireland / Remote',
+      'description':
+          '- Designing and editing videos for Learnio ApS\n- Creating Software Engineering and App Development Course\n- Created After Effects and Premiere Pro Course',
+    },
+    {
       'title': 'Learnio ApS',
-      'designation': 'Video Editor & Motion Designer (Part-time)',
+      'designation': 'Software Dev. Mentor & Video Editor',
       'time': 'Oct 2020 - Present / Copenhagen V., Denmark / Remote',
       'description':
           '- Designing and editing videos for Learnio ApS\n- Creating Software Engineering and App Development Course\n- Created After Effects and Premiere Pro Course',
     },
     {
-      'title': 'Turtle Venture',
-      'designation': 'Mobile Application Developer',
+      'title': 'Turtle Venture Studios',
+      'designation': 'Lead Mobile Application Developer',
       'time': 'July 2022 - April 2023 / Dhaka, Bangladesh',
       'description':
           '- Designing and editing videos for Learnio ApS\n- Creating Software Engineering and App Development Course\n- Created After Effects and Premiere Pro Course',
