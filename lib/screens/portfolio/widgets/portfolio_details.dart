@@ -269,7 +269,7 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
                         SizedBox(
                           height: 30,
                         ),
-                        Text(
+                        SelectableText(
                           portfolioDev.get('description').toString(),
                           textAlign: TextAlign.justify,
                           style: _theme.textTheme.bodyLarge!.copyWith(
