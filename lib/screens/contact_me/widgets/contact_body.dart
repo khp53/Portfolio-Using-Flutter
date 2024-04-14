@@ -419,12 +419,24 @@ class ContactBody extends StatelessWidget {
           ],
         ),
         SizedBox(
-          height: 50,
+          height: 80,
         ),
         Center(
           child: Text(
-            "Note: This whole website was created with only Flutter!",
-            style: _theme.textTheme.bodyLarge!.copyWith(fontSize: 15),
+            "Note: This whole website was created with Flutter Web and Parse Server!",
+            style: _theme.textTheme.bodyLarge!.copyWith(
+              fontSize: 15,
+              color: Colors.yellow,
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 40,
+        ),
+        Center(
+          child: Text(
+            "© 2024 MD Karimul Hasan. All rights reserved.",
+            style: _theme.textTheme.bodyLarge!.copyWith(fontSize: 12),
           ),
         ),
       ],
