@@ -16,143 +16,6 @@ class SkillsBody extends StatelessWidget {
   static bool isMobile(BuildContext context) =>
       MediaQuery.of(context).size.width <= 1000;
 
-  final List experienceData = [
-    {
-      'title': 'Amharc Tech',
-      'designation': 'Lead Mobile Application Developer',
-      'time': 'Oct 2020 - Present / Dublin, Ireland / Remote',
-      'description':
-          '- Designing and editing videos for Learnio ApS\n- Creating Software Engineering and App Development Course\n- Created After Effects and Premiere Pro Course',
-    },
-    {
-      'title': 'Learnio ApS',
-      'designation': 'Software Dev. Mentor & Video Editor',
-      'time': 'Oct 2020 - Present / Copenhagen V., Denmark / Remote',
-      'description':
-          '- Designing and editing videos for Learnio ApS\n- Creating Software Engineering and App Development Course\n- Created After Effects and Premiere Pro Course',
-    },
-    {
-      'title': 'Turtle Venture Studios',
-      'designation': 'Lead Mobile Application Developer',
-      'time': 'July 2022 - April 2023 / Dhaka, Bangladesh',
-      'description':
-          '- Designing and editing videos for Learnio ApS\n- Creating Software Engineering and App Development Course\n- Created After Effects and Premiere Pro Course',
-    },
-    {
-      'title': 'Robust Research & Development Ltd.',
-      'designation': 'Jr. Mobile Application Developer',
-      'time': 'August 2021 - June 2022 / Dhaka, Bangladesh',
-      'description':
-          '- Worked on a cross-platform project called Sure Care.\n' +
-              '- Worked on an ERP solution from the ground up.\n' +
-              '- Amar Bangabandhu app deployed it to App Store.\n' +
-              '- Worked on the architecture of a password manager app.'
-    },
-    // {
-    //   'title': 'Department of OSHE, Universiti Teknologi Malaysia',
-    //   'designation': 'Software Engineer',
-    //   'time': 'November 2020 - September 2021 / Johor, Malaysia',
-    //   'description': '- Developed UTM COVID-19 Contact Tracing Application\n' +
-    //       '  (UTM CCTA), a contact tracing application as part of my\n' +
-    //       '  final year project.\n' +
-    //       '- Architected and Completed system documentation\n' +
-    //       '  including SRS, SDD, STD, UI design.\n' +
-    //       '- Technologies Used: Flutter, Firestore, FCM, Cloud Functions,\n' +
-    //       '  BLE, Nearby API, Layered Architecture, RUP Methodology.',
-    // },
-    {
-      'title': 'AIESEC In Malaysia, Johor Bahru',
-      'designation': 'Senior Marketing Executive (Volunteer)',
-      'time': 'Feb 2020 - Feb 2021 / Johor, Malaysia',
-      'description': '- Motion design.\n' +
-          '- Poster design.\n' +
-          '- Cinemagraph.\n' +
-          '- Content creation.\n' +
-          '- Event management.',
-    },
-  ];
-
-  final List devSkillData = [
-    {
-      'title': 'Flutter',
-      'value': 1,
-      'color': Color(0xff18EBFC),
-    },
-    {
-      'title': 'OOP',
-      'value': 0.9,
-      'color': Color(0xff00EDBF),
-    },
-    {
-      'title': 'Parse Server',
-      'value': 0.9,
-      'color': Color(0xff3D71D4),
-    },
-    {
-      'title': 'Firebase',
-      'value': 0.9,
-      'color': Color(0xffE5DC0A),
-    },
-    {
-      'title': 'JSON',
-      'value': 0.9,
-      'color': Color(0xff3D71D4),
-    },
-    {
-      'title': 'REST Api',
-      'value': 0.9,
-      'color': Color(0xffE5DC0A),
-    },
-    {
-      'title': 'CSS',
-      'value': 1,
-      'color': Color(0xff18EBFC),
-    },
-    {
-      'title': 'JavaScript',
-      'value': 0.8,
-      'color': Color.fromARGB(255, 229, 178, 10),
-    },
-    {
-      'title': 'MySQL',
-      'value': 0.6,
-      'color': Color(0xffE50AAA),
-    },
-  ];
-
-  final List motionSkillData = [
-    {
-      'title': 'Adobe Premiere Pro',
-      'value': 0.9,
-      'color': Color(0xffE5DC0A),
-    },
-    {
-      'title': 'Adobe After Effects',
-      'value': 0.8,
-      'color': Color(0xff18EBFC),
-    },
-    {
-      'title': 'Adobe Illustrator',
-      'value': 0.9,
-      'color': Color(0xffE50AAA),
-    },
-    {
-      'title': 'Adobe XD',
-      'value': 0.9,
-      'color': Color(0xff18EBFC),
-    },
-    {
-      'title': 'Figma',
-      'value': 0.8,
-      'color': Color.fromARGB(255, 142, 24, 252),
-    },
-    {
-      'title': 'Adobe Photoshop',
-      'value': 0.7,
-      'color': Color(0xff3D71D4),
-    },
-  ];
-
   @override
   Widget build(BuildContext context) {
     var parser = EmojiParser();
@@ -203,7 +66,7 @@ class SkillsBody extends StatelessWidget {
                 width: MediaQuery.of(context).size.width,
                 child: ListView.builder(
                   shrinkWrap: true,
-                  itemCount: experienceData.length,
+                  itemCount: viewmodel.experienceData.length,
                   itemBuilder: (context, i) {
                     return TimelineTile(
                       indicatorStyle:
@@ -226,7 +89,7 @@ class SkillsBody extends StatelessWidget {
                               isRepeatingAnimation: false,
                               animatedTexts: [
                                 TyperAnimatedText(
-                                  experienceData[i]['title'],
+                                  viewmodel.experienceData[i]['title'],
                                 )
                               ],
                             ),
@@ -238,7 +101,7 @@ class SkillsBody extends StatelessWidget {
                                 height: 5,
                               ),
                               Text(
-                                experienceData[i]['designation'],
+                                viewmodel.experienceData[i]['designation'],
                                 style: _theme.textTheme.titleMedium!.copyWith(
                                   fontSize: 14,
                                   color: Colors.white.withOpacity(0.7),
@@ -248,7 +111,7 @@ class SkillsBody extends StatelessWidget {
                                 height: 5,
                               ),
                               Text(
-                                experienceData[i]['time'],
+                                viewmodel.experienceData[i]['time'],
                                 style: _theme.textTheme.titleMedium,
                               ),
                             ],
@@ -284,16 +147,16 @@ class SkillsBody extends StatelessWidget {
                 padding: EdgeInsets.all(20),
                 child: ListView.builder(
                   shrinkWrap: true,
-                  itemCount: devSkillData.length,
+                  itemCount: viewmodel.devSkillData.length,
                   itemBuilder: (context, i) {
                     return Container(
                       padding: EdgeInsets.only(bottom: 15),
                       child: _skillBar(
                         _theme,
                         context,
-                        title: devSkillData[i]['title'],
-                        value: devSkillData[i]['value'],
-                        color: devSkillData[i]['color'],
+                        title: viewmodel.devSkillData[i]['title'],
+                        value: viewmodel.devSkillData[i]['value'],
+                        color: viewmodel.devSkillData[i]['color'],
                       ),
                     );
                   },
@@ -307,16 +170,16 @@ class SkillsBody extends StatelessWidget {
                 padding: EdgeInsets.all(20),
                 child: ListView.builder(
                   shrinkWrap: true,
-                  itemCount: motionSkillData.length,
+                  itemCount: viewmodel.motionSkillData.length,
                   itemBuilder: (context, i) {
                     return Container(
                       padding: EdgeInsets.only(bottom: 15),
                       child: _skillBar(
                         _theme,
                         context,
-                        title: motionSkillData[i]['title'],
-                        value: motionSkillData[i]['value'],
-                        color: motionSkillData[i]['color'],
+                        title: viewmodel.motionSkillData[i]['title'],
+                        value: viewmodel.motionSkillData[i]['value'],
+                        color: viewmodel.motionSkillData[i]['color'],
                       ),
                     );
                   },
@@ -350,7 +213,7 @@ class SkillsBody extends StatelessWidget {
                 width: MediaQuery.of(context).size.width,
                 child: ListView.builder(
                   shrinkWrap: true,
-                  itemCount: experienceData.length,
+                  itemCount: viewmodel.experienceData.length,
                   itemBuilder: (context, i) {
                     return TimelineTile(
                       indicatorStyle:
@@ -373,7 +236,7 @@ class SkillsBody extends StatelessWidget {
                               isRepeatingAnimation: false,
                               animatedTexts: [
                                 TyperAnimatedText(
-                                  experienceData[i]['title'],
+                                  viewmodel.experienceData[i]['title'],
                                   curve: Curves.easeInCubic,
                                   speed: Duration(milliseconds: 40),
                                 ),
@@ -387,7 +250,7 @@ class SkillsBody extends StatelessWidget {
                                 height: 5,
                               ),
                               Text(
-                                experienceData[i]['designation'],
+                                viewmodel.experienceData[i]['designation'],
                                 style: _theme.textTheme.titleMedium!.copyWith(
                                   fontSize: 18,
                                   color: Colors.white.withOpacity(0.9),
@@ -397,7 +260,7 @@ class SkillsBody extends StatelessWidget {
                                 height: 5,
                               ),
                               Text(
-                                experienceData[i]['time'],
+                                viewmodel.experienceData[i]['time'],
                                 style: _theme.textTheme.titleMedium,
                               ),
                             ],
@@ -433,16 +296,16 @@ class SkillsBody extends StatelessWidget {
                 padding: EdgeInsets.all(20),
                 child: ListView.builder(
                   shrinkWrap: true,
-                  itemCount: devSkillData.length,
+                  itemCount: viewmodel.devSkillData.length,
                   itemBuilder: (context, i) {
                     return Container(
                       padding: EdgeInsets.only(bottom: 15),
                       child: _skillBar(
                         _theme,
                         context,
-                        title: devSkillData[i]['title'],
-                        value: devSkillData[i]['value'],
-                        color: devSkillData[i]['color'],
+                        title: viewmodel.devSkillData[i]['title'],
+                        value: viewmodel.devSkillData[i]['value'],
+                        color: viewmodel.devSkillData[i]['color'],
                       ),
                     );
                   },
@@ -458,16 +321,16 @@ class SkillsBody extends StatelessWidget {
                 padding: EdgeInsets.all(20),
                 child: ListView.builder(
                   shrinkWrap: true,
-                  itemCount: motionSkillData.length,
+                  itemCount: viewmodel.motionSkillData.length,
                   itemBuilder: (context, i) {
                     return Container(
                       padding: EdgeInsets.only(bottom: 15),
                       child: _skillBar(
                         _theme,
                         context,
-                        title: motionSkillData[i]['title'],
-                        value: motionSkillData[i]['value'],
-                        color: motionSkillData[i]['color'],
+                        title: viewmodel.motionSkillData[i]['title'],
+                        value: viewmodel.motionSkillData[i]['value'],
+                        color: viewmodel.motionSkillData[i]['color'],
                       ),
                     );
                   },
