@@ -84,11 +84,11 @@ class MyApp extends StatelessWidget {
           titleMedium: TextStyle(
             fontFamily: 'Courier New',
             fontSize: 15,
-            color: Theme.of(context).colorScheme.onBackground.withOpacity(0.5),
+            color: Color(0xffACACAC).withOpacity(0.5),
           ),
           titleSmall: TextStyle(
             fontSize: 18,
-            color: Theme.of(context).colorScheme.onBackground,
+            color: Color(0xffACACAC),
           ),
         ),
       ),
