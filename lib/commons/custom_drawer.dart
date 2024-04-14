@@ -64,8 +64,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                             child: CircleAvatar(
                               radius: 25,
                               backgroundColor: Colors.white,
-                              backgroundImage:
-                                  AssetImage('images/IMG_1959.jpg'),
+                              backgroundImage: AssetImage('images/avatar.JPG'),
                             ),
                           ),
                           Expanded(
@@ -92,7 +91,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                           CircleAvatar(
                             radius: 40,
                             backgroundColor: Colors.white,
-                            backgroundImage: AssetImage('images/IMG_1959.jpg'),
+                            backgroundImage: AssetImage('images/avatar.JPG'),
                           ),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -104,7 +103,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                                     fontSize: 25, fontWeight: FontWeight.bold),
                               ),
                               Text(
-                                "Software Engineering",
+                                "Software Engineer",
                                 style: TextStyle(
                                     color: _theme.colorScheme.onBackground,
                                     fontSize: 12,

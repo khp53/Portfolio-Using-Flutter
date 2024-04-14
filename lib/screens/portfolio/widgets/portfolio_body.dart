@@ -28,7 +28,7 @@ class _PortfolioBodyState extends State<PortfolioBody> {
 
   ScrollController _controller = ScrollController();
 
-  ScrollController _controller1 = ScrollController();
+  //ScrollController _controller1 = ScrollController();
 
   ScrollController _controller2 = ScrollController();
 
