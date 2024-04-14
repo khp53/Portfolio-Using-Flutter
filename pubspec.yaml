@@ -16,13 +16,13 @@ dependencies:
   flutter_emoji: ^2.4.0
   flutter_native_splash: ^2.1.5
   flutter_svg: any
-  font_awesome_flutter: ^9.2.0
+  font_awesome_flutter: ^10.7.0
   get: ^4.3.8
   get_it: ^7.2.0
-  lottie: ^1.2.2
-  parse_server_sdk_flutter: ^5.1.0
+  lottie: ^3.0.0
+  parse_server_sdk_flutter: ^7.0.1
   provider: ^6.0.1
-  rive: ^0.8.4
+  rive: ^0.13.1
   timeline_tile: ^2.0.0
   url_launcher: ^6.0.20
   url_strategy: ^0.2.0

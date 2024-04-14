@@ -31,6 +31,9 @@
 .pub/
 /build/
 .env
+.fvm/
+.firebase/
+.vscode/
 
 # Web related
 
