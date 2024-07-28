@@ -13,6 +13,7 @@ import 'package:portfolio/commons/custom_drawer.dart';
 import 'package:portfolio/commons/is_mobileCall.dart';
 import 'package:portfolio/models/portfolio_dev.dart';
 import 'package:portfolio/screens/portfolio/portfolio_viewmodel.dart';
+import 'package:portfolio/screens/portfolio/widgets/portfolio_image_viewer.dart';
 import 'package:portfolio/screens/view.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -421,6 +422,27 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
           },
           icon: Icon(
             viewmodel.stopAutoPlay == true ? Icons.pause : Icons.play_arrow,
+          ),
+          style: ButtonStyle(
+            backgroundColor: WidgetStateProperty.all(
+              Colors.white,
+            ),
+          ),
+        ),
+        const SizedBox(
+          width: 10,
+        ),
+        IconButton(
+          onPressed: () {
+            showDialog(
+              context: context,
+              builder: (context) => PortfolioImageViewer(
+                portfolioDev: portfolioDev,
+              ),
+            );
+          },
+          icon: Icon(
+            Icons.fullscreen,
           ),
           style: ButtonStyle(
             backgroundColor: WidgetStateProperty.all(
