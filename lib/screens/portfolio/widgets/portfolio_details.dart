@@ -260,49 +260,7 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
                 Expanded(
                   child: Column(
                     children: [
-                      Row(
-                        children: [
-                          SizedBox(
-                            width: 250.0,
-                            height: 25,
-                            child: DefaultTextStyle(
-                              style: const TextStyle(
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                              child: AnimatedTextKit(
-                                repeatForever: true,
-                                pause: const Duration(milliseconds: 600),
-                                animatedTexts: [
-                                  FadeAnimatedText(
-                                    parser.emojify(
-                                        ":point_up_2: Tap on the pause button to stop!"),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          IconButton(
-                            onPressed: () {
-                              viewmodel.stopAutoPlay = !viewmodel.stopAutoPlay;
-                            },
-                            icon: Icon(
-                              viewmodel.stopAutoPlay == true
-                                  ? Icons.pause
-                                  : Icons.play_arrow,
-                            ),
-                            style: ButtonStyle(
-                              backgroundColor: WidgetStateProperty.all(
-                                Colors.white,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                      _buildPause(parser, viewmodel),
                       SizedBox(
                         height: 15,
                       ),
@@ -429,6 +387,51 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
     );
   }
 
+  Row _buildPause(EmojiParser parser, PortfolioViewmodel viewmodel) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        SizedBox(
+          width: 250.0,
+          height: 25,
+          child: DefaultTextStyle(
+            style: const TextStyle(
+              fontSize: 20.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+            child: AnimatedTextKit(
+              repeatForever: true,
+              pause: const Duration(milliseconds: 600),
+              animatedTexts: [
+                FadeAnimatedText(
+                  parser
+                      .emojify(":point_up_2: Tap on the pause button to stop!"),
+                ),
+              ],
+            ),
+          ),
+        ),
+        const SizedBox(
+          width: 10,
+        ),
+        IconButton(
+          onPressed: () {
+            viewmodel.stopAutoPlay = !viewmodel.stopAutoPlay;
+          },
+          icon: Icon(
+            viewmodel.stopAutoPlay == true ? Icons.pause : Icons.play_arrow,
+          ),
+          style: ButtonStyle(
+            backgroundColor: WidgetStateProperty.all(
+              Colors.white,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
   Widget mobileBody(BuildContext context, PortfolioViewmodel viewmodel) {
     var parser = EmojiParser();
     var _theme = Theme.of(context);
@@ -448,28 +451,7 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
             SizedBox(
               height: 30,
             ),
-            Center(
-              child: SizedBox(
-                width: 250.0,
-                height: 25,
-                child: DefaultTextStyle(
-                  style: const TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                  child: AnimatedTextKit(
-                    repeatForever: true,
-                    pause: const Duration(milliseconds: 600),
-                    animatedTexts: [
-                      FadeAnimatedText(
-                        parser.emojify(":point_up_2: Tap & Hold to pause!"),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+            _buildPause(parser, viewmodel),
             SizedBox(
               height: 25,
             ),
