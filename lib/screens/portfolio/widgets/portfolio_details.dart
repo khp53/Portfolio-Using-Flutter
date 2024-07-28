@@ -20,6 +20,7 @@ class PortfolioDetails extends StatefulWidget {
   PortfolioDetails({
     Key? key,
   }) : super(key: key);
+
   @override
   State<PortfolioDetails> createState() => _PortfolioDetailsState();
 }
@@ -71,7 +72,7 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
   Widget build(BuildContext context) {
     return BaseView(
       viewmodel: PortfolioViewmodel(),
-      builder: (context, pViewmdoel, __) {
+      builder: (context, pViewModel, __) {
         return Scaffold(
           key: _scaffoldKey,
           appBar: isMobile(context)
@@ -87,7 +88,7 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
                   ),
                 )
               : null,
-          drawer: CustomDrawer(context: context, viewmodel: pViewmdoel),
+          drawer: CustomDrawer(context: context, viewmodel: pViewModel),
           body: LayoutBuilder(
             builder: (context, constrains) {
               if (constrains.maxWidth > 1000) {
@@ -96,16 +97,16 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
                   children: [
                     CustomDrawer(
                       context: context,
-                      viewmodel: pViewmdoel,
+                      viewmodel: pViewModel,
                     ),
                     Expanded(
                       flex: 5,
-                      child: body(context),
+                      child: body(context, pViewModel),
                     ),
                   ],
                 );
               } else {
-                return mobileBody(context);
+                return mobileBody(context, pViewModel);
               }
             },
           ),
@@ -114,7 +115,7 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
     );
   }
 
-  Widget body(BuildContext context) {
+  Widget body(BuildContext context, PortfolioViewmodel viewmodel) {
     var parser = EmojiParser();
     var _theme = Theme.of(context);
     return SingleChildScrollView(
@@ -128,31 +129,6 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
               portfolioDev.get('projectName'),
               style: _theme.textTheme.displayLarge!.copyWith(
                 fontSize: 40,
-              ),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            Center(
-              child: SizedBox(
-                width: 250.0,
-                height: 25,
-                child: DefaultTextStyle(
-                  style: const TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                  child: AnimatedTextKit(
-                    repeatForever: true,
-                    pause: const Duration(milliseconds: 600),
-                    animatedTexts: [
-                      FadeAnimatedText(
-                        parser.emojify(":point_up_2: Tap & Hold to pause!"),
-                      ),
-                    ],
-                  ),
-                ),
               ),
             ),
             SizedBox(
@@ -282,116 +258,167 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
                   ),
                 ),
                 Expanded(
-                  child: CarouselSlider(
-                    items: [
-                      portfolioDev.screen1 != null
-                          ? Padding(
-                              padding: const EdgeInsets.only(bottom: 20),
-                              child: CachedNetworkImage(
-                                imageUrl: portfolioDev.screen1!.url!,
-                                fit: BoxFit.contain,
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          SizedBox(
+                            width: 250.0,
+                            height: 25,
+                            child: DefaultTextStyle(
+                              style: const TextStyle(
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
                               ),
-                            )
-                          : Container(),
-                      portfolioDev.screen2 != null
-                          ? Padding(
-                              padding: const EdgeInsets.only(bottom: 20),
-                              child: CachedNetworkImage(
-                                imageUrl: portfolioDev.screen2!.url!,
-                                fit: BoxFit.contain,
+                              child: AnimatedTextKit(
+                                repeatForever: true,
+                                pause: const Duration(milliseconds: 600),
+                                animatedTexts: [
+                                  FadeAnimatedText(
+                                    parser.emojify(
+                                        ":point_up_2: Tap on the pause button to stop!"),
+                                  ),
+                                ],
                               ),
-                            )
-                          : Container(),
-                      portfolioDev.screen3 != null
-                          ? Padding(
-                              padding: const EdgeInsets.only(bottom: 20),
-                              child: CachedNetworkImage(
-                                imageUrl: portfolioDev.screen3!.url!,
-                                fit: BoxFit.contain,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          IconButton(
+                            onPressed: () {
+                              viewmodel.stopAutoPlay = !viewmodel.stopAutoPlay;
+                            },
+                            icon: Icon(
+                              viewmodel.stopAutoPlay == true
+                                  ? Icons.pause
+                                  : Icons.play_arrow,
+                            ),
+                            style: ButtonStyle(
+                              backgroundColor: WidgetStateProperty.all(
+                                Colors.white,
                               ),
-                            )
-                          : Container(),
-                      portfolioDev.screen4 != null
-                          ? Padding(
-                              padding: const EdgeInsets.only(bottom: 20),
-                              child: CachedNetworkImage(
-                                imageUrl: portfolioDev.screen4!.url!,
-                                fit: BoxFit.contain,
-                              ),
-                            )
-                          : Container(),
-                      portfolioDev.screen5 != null
-                          ? Padding(
-                              padding: const EdgeInsets.only(bottom: 20),
-                              child: CachedNetworkImage(
-                                imageUrl: portfolioDev.screen5!.url!,
-                                fit: BoxFit.contain,
-                              ),
-                            )
-                          : Container(),
-                      portfolioDev.screen6 != null
-                          ? Padding(
-                              padding: const EdgeInsets.only(bottom: 20),
-                              child: CachedNetworkImage(
-                                imageUrl: portfolioDev.screen6!.url!,
-                                fit: BoxFit.contain,
-                              ),
-                            )
-                          : Container(),
-                      portfolioDev.screen7 != null
-                          ? Padding(
-                              padding: const EdgeInsets.only(bottom: 20),
-                              child: CachedNetworkImage(
-                                imageUrl: portfolioDev.screen7!.url!,
-                                fit: BoxFit.contain,
-                              ),
-                            )
-                          : Container(),
-                      portfolioDev.screen8 != null
-                          ? Padding(
-                              padding: const EdgeInsets.only(bottom: 20),
-                              child: CachedNetworkImage(
-                                imageUrl: portfolioDev.screen8!.url!,
-                                fit: BoxFit.contain,
-                              ),
-                            )
-                          : Container(),
-                      portfolioDev.screen9 != null
-                          ? Padding(
-                              padding: const EdgeInsets.only(bottom: 20),
-                              child: CachedNetworkImage(
-                                imageUrl: portfolioDev.screen9!.url!,
-                                fit: BoxFit.contain,
-                              ),
-                            )
-                          : Container(),
-                      portfolioDev.screen10 != null
-                          ? Padding(
-                              padding: const EdgeInsets.only(bottom: 20),
-                              child: CachedNetworkImage(
-                                imageUrl: portfolioDev.screen10!.url!,
-                                fit: BoxFit.contain,
-                              ),
-                            )
-                          : Container(),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      CarouselSlider(
+                        items: [
+                          portfolioDev.screen1 != null
+                              ? Padding(
+                                  padding: const EdgeInsets.only(bottom: 20),
+                                  child: CachedNetworkImage(
+                                    imageUrl: portfolioDev.screen1!.url!,
+                                    fit: BoxFit.contain,
+                                  ),
+                                )
+                              : Container(),
+                          portfolioDev.screen2 != null
+                              ? Padding(
+                                  padding: const EdgeInsets.only(bottom: 20),
+                                  child: CachedNetworkImage(
+                                    imageUrl: portfolioDev.screen2!.url!,
+                                    fit: BoxFit.contain,
+                                  ),
+                                )
+                              : Container(),
+                          portfolioDev.screen3 != null
+                              ? Padding(
+                                  padding: const EdgeInsets.only(bottom: 20),
+                                  child: CachedNetworkImage(
+                                    imageUrl: portfolioDev.screen3!.url!,
+                                    fit: BoxFit.contain,
+                                  ),
+                                )
+                              : Container(),
+                          portfolioDev.screen4 != null
+                              ? Padding(
+                                  padding: const EdgeInsets.only(bottom: 20),
+                                  child: CachedNetworkImage(
+                                    imageUrl: portfolioDev.screen4!.url!,
+                                    fit: BoxFit.contain,
+                                  ),
+                                )
+                              : Container(),
+                          portfolioDev.screen5 != null
+                              ? Padding(
+                                  padding: const EdgeInsets.only(bottom: 20),
+                                  child: CachedNetworkImage(
+                                    imageUrl: portfolioDev.screen5!.url!,
+                                    fit: BoxFit.contain,
+                                  ),
+                                )
+                              : Container(),
+                          portfolioDev.screen6 != null
+                              ? Padding(
+                                  padding: const EdgeInsets.only(bottom: 20),
+                                  child: CachedNetworkImage(
+                                    imageUrl: portfolioDev.screen6!.url!,
+                                    fit: BoxFit.contain,
+                                  ),
+                                )
+                              : Container(),
+                          portfolioDev.screen7 != null
+                              ? Padding(
+                                  padding: const EdgeInsets.only(bottom: 20),
+                                  child: CachedNetworkImage(
+                                    imageUrl: portfolioDev.screen7!.url!,
+                                    fit: BoxFit.contain,
+                                  ),
+                                )
+                              : Container(),
+                          portfolioDev.screen8 != null
+                              ? Padding(
+                                  padding: const EdgeInsets.only(bottom: 20),
+                                  child: CachedNetworkImage(
+                                    imageUrl: portfolioDev.screen8!.url!,
+                                    fit: BoxFit.contain,
+                                  ),
+                                )
+                              : Container(),
+                          portfolioDev.screen9 != null
+                              ? Padding(
+                                  padding: const EdgeInsets.only(bottom: 20),
+                                  child: CachedNetworkImage(
+                                    imageUrl: portfolioDev.screen9!.url!,
+                                    fit: BoxFit.contain,
+                                  ),
+                                )
+                              : Container(),
+                          portfolioDev.screen10 != null
+                              ? Padding(
+                                  padding: const EdgeInsets.only(bottom: 20),
+                                  child: CachedNetworkImage(
+                                    imageUrl: portfolioDev.screen10!.url!,
+                                    fit: BoxFit.contain,
+                                  ),
+                                )
+                              : Container(),
+                        ],
+                        options: CarouselOptions(
+                          height: isMobile(context)
+                              ? MediaQuery.of(context).size.height / 1.4
+                              : MediaQuery.of(context).size.height / 1.2,
+                          aspectRatio: 1,
+                          viewportFraction: isMobile(context) ? 0.8 : 0.7,
+                          initialPage: 1,
+                          enableInfiniteScroll: true,
+                          reverse: false,
+                          autoPlay: viewmodel.stopAutoPlay,
+                          autoPlayInterval: Duration(milliseconds: 2000),
+                          autoPlayAnimationDuration:
+                              Duration(milliseconds: 100),
+                          autoPlayCurve: Curves.fastOutSlowIn,
+                          enlargeCenterPage: false,
+                          scrollDirection: Axis.vertical,
+                          pageSnapping: false,
+                        ),
+                      ),
                     ],
-                    options: CarouselOptions(
-                      height: isMobile(context)
-                          ? MediaQuery.of(context).size.height / 1.4
-                          : MediaQuery.of(context).size.height / 1.2,
-                      aspectRatio: 1,
-                      viewportFraction: isMobile(context) ? 0.8 : 0.7,
-                      initialPage: 1,
-                      enableInfiniteScroll: true,
-                      reverse: false,
-                      autoPlay: true,
-                      autoPlayInterval: Duration(milliseconds: 2000),
-                      autoPlayAnimationDuration: Duration(milliseconds: 100),
-                      autoPlayCurve: Curves.fastOutSlowIn,
-                      enlargeCenterPage: false,
-                      scrollDirection: Axis.vertical,
-                      pageSnapping: false,
-                    ),
                   ),
                 ),
               ],
@@ -402,7 +429,7 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
     );
   }
 
-  Widget mobileBody(BuildContext context) {
+  Widget mobileBody(BuildContext context, PortfolioViewmodel viewmodel) {
     var parser = EmojiParser();
     var _theme = Theme.of(context);
     return SingleChildScrollView(
@@ -648,7 +675,7 @@ class _PortfolioDetailsState extends State<PortfolioDetails> {
                   initialPage: 2,
                   enableInfiniteScroll: true,
                   reverse: false,
-                  autoPlay: true,
+                  autoPlay: viewmodel.stopAutoPlay,
                   autoPlayInterval: Duration(milliseconds: 2000),
                   autoPlayAnimationDuration: Duration(milliseconds: 100),
                   autoPlayCurve: Curves.fastOutSlowIn,

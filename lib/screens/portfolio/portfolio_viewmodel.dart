@@ -13,6 +13,7 @@ class PortfolioViewmodel extends Viewmodel {
   int _motionIndex = 0;
   bool _hovering = false;
   bool _motionHovering = false;
+  bool _stopAutoPlay = true;
 
   List<PortfolioDev> portfolioDev = <PortfolioDev>[];
 
@@ -55,6 +56,12 @@ class PortfolioViewmodel extends Viewmodel {
   set motionHovering(value) {
     turnBusy();
     _motionHovering = value;
+    turnIdle();
+  }
+
+  bool get stopAutoPlay => _stopAutoPlay;
+  set stopAutoPlay(bool value) {
+    _stopAutoPlay = value;
     turnIdle();
   }
 
