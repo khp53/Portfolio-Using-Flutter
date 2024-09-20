@@ -79,16 +79,14 @@ class AboutBody extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          DefaultTextStyle(
+                          Text(
+                            'MD Karimul Hasan',
                             style: TextStyle(
                               fontSize: isMobile(context) ? 35 : 75,
                               color: viewmodel.changeColor == false
                                   ? _theme.colorScheme.primary
                                   : _theme.colorScheme.secondary,
                               fontWeight: FontWeight.bold,
-                            ),
-                            child: Text(
-                              'MD Karimul Hasan',
                             ),
                           ),
                         ],
