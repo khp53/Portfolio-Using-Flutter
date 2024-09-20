@@ -92,7 +92,7 @@ class AboutBody extends StatelessWidget {
                         ],
                       ),
                       SizedBox(
-                        height: isMobile(context) ? 60 : 100,
+                        height: isMobile(context) ? 60 : 120,
                         child: DefaultTextStyle(
                           style: TextStyle(
                             fontSize: isMobile(context) ? 28 : 75,
@@ -109,12 +109,12 @@ class AboutBody extends StatelessWidget {
                                 duration: const Duration(milliseconds: 1500),
                               ),
                               RotateAnimatedText(
-                                "Flutter Developer",
+                                "Full Stack Developer",
                                 alignment: Alignment.centerLeft,
                                 duration: const Duration(milliseconds: 1500),
                               ),
                               RotateAnimatedText(
-                                "Motion Designer",
+                                "ML/AI Enthusiast",
                                 alignment: Alignment.centerLeft,
                                 duration: const Duration(milliseconds: 1500),
                               ),
