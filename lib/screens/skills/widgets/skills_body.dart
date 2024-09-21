@@ -48,147 +48,145 @@ class SkillsBody extends StatelessWidget {
   }
 
   Widget _columnLayout(ThemeData _theme, context) {
-    return Container(
-      child: Column(
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Experiences",
-                style: _theme.textTheme.displaySmall,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Container(
-                height: MediaQuery.of(context).size.height / 1.3,
-                width: MediaQuery.of(context).size.width,
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: viewmodel.experienceData.length,
-                  itemBuilder: (context, i) {
-                    return TimelineTile(
-                      indicatorStyle:
-                          IndicatorStyle(color: _theme.colorScheme.secondary),
-                      beforeLineStyle: LineStyle(
-                        color: _theme.colorScheme.secondary.withOpacity(0.3),
-                        thickness: 3,
-                      ),
-                      endChild: Container(
-                        margin: EdgeInsets.only(bottom: 45, top: 35),
-                        child: ListTile(
-                          title: DefaultTextStyle(
-                            style: TextStyle(
-                              fontSize: 25,
-                              fontWeight: FontWeight.w300,
-                              fontFamily: '',
-                              color: Colors.white,
-                            ),
-                            child: AnimatedTextKit(
-                              isRepeatingAnimation: false,
-                              animatedTexts: [
-                                TyperAnimatedText(
-                                  viewmodel.experienceData[i]['title'],
-                                )
-                              ],
-                            ),
+    return Column(
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "Experiences",
+              style: _theme.textTheme.displaySmall,
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              //height: MediaQuery.of(context).size.height / 1.3,
+              width: MediaQuery.of(context).size.width,
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: viewmodel.experienceData.length,
+                itemBuilder: (context, i) {
+                  return TimelineTile(
+                    indicatorStyle:
+                        IndicatorStyle(color: _theme.colorScheme.secondary),
+                    beforeLineStyle: LineStyle(
+                      color: _theme.colorScheme.secondary.withOpacity(0.3),
+                      thickness: 3,
+                    ),
+                    endChild: Container(
+                      margin: EdgeInsets.only(bottom: 45, top: 35),
+                      child: ListTile(
+                        title: DefaultTextStyle(
+                          style: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.w300,
+                            fontFamily: '',
+                            color: Colors.white,
                           ),
-                          subtitle: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                viewmodel.experienceData[i]['designation'],
-                                style: _theme.textTheme.titleMedium!.copyWith(
-                                  fontSize: 14,
-                                  color: Colors.white.withOpacity(0.7),
-                                ),
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                viewmodel.experienceData[i]['time'],
-                                style: _theme.textTheme.titleMedium,
-                              ),
+                          child: AnimatedTextKit(
+                            isRepeatingAnimation: false,
+                            animatedTexts: [
+                              TyperAnimatedText(
+                                viewmodel.experienceData[i]['title'],
+                              )
                             ],
                           ),
                         ),
+                        subtitle: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              viewmodel.experienceData[i]['designation'],
+                              style: _theme.textTheme.titleMedium!.copyWith(
+                                fontSize: 14,
+                                color: Colors.white.withOpacity(0.7),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              viewmodel.experienceData[i]['time'],
+                              style: _theme.textTheme.titleMedium,
+                            ),
+                          ],
+                        ),
                       ),
-                    );
-                  },
-                ),
+                    ),
+                  );
+                },
               ),
-            ],
-          ),
+            ),
+          ],
+        ),
 
-          SizedBox(
-            height: 45,
-          ),
+        SizedBox(
+          height: 45,
+        ),
 
-          //-----
+        //-----
 
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(
-                "Skills",
-                style: _theme.textTheme.displaySmall,
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Text(
+              "Skills",
+              style: _theme.textTheme.displaySmall,
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              color: Colors.black,
+              padding: EdgeInsets.all(20),
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: viewmodel.devSkillData.length,
+                itemBuilder: (context, i) {
+                  return Container(
+                    padding: EdgeInsets.only(bottom: 15),
+                    child: _skillBar(
+                      _theme,
+                      context,
+                      title: viewmodel.devSkillData[i]['title'],
+                      value: viewmodel.devSkillData[i]['value'],
+                      color: viewmodel.devSkillData[i]['color'],
+                    ),
+                  );
+                },
               ),
-              SizedBox(
-                height: 10,
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Container(
+              color: Colors.black,
+              padding: EdgeInsets.all(20),
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: viewmodel.motionSkillData.length,
+                itemBuilder: (context, i) {
+                  return Container(
+                    padding: EdgeInsets.only(bottom: 15),
+                    child: _skillBar(
+                      _theme,
+                      context,
+                      title: viewmodel.motionSkillData[i]['title'],
+                      value: viewmodel.motionSkillData[i]['value'],
+                      color: viewmodel.motionSkillData[i]['color'],
+                    ),
+                  );
+                },
               ),
-              Container(
-                color: Colors.black,
-                padding: EdgeInsets.all(20),
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: viewmodel.devSkillData.length,
-                  itemBuilder: (context, i) {
-                    return Container(
-                      padding: EdgeInsets.only(bottom: 15),
-                      child: _skillBar(
-                        _theme,
-                        context,
-                        title: viewmodel.devSkillData[i]['title'],
-                        value: viewmodel.devSkillData[i]['value'],
-                        color: viewmodel.devSkillData[i]['color'],
-                      ),
-                    );
-                  },
-                ),
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              Container(
-                color: Colors.black,
-                padding: EdgeInsets.all(20),
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: viewmodel.motionSkillData.length,
-                  itemBuilder: (context, i) {
-                    return Container(
-                      padding: EdgeInsets.only(bottom: 15),
-                      child: _skillBar(
-                        _theme,
-                        context,
-                        title: viewmodel.motionSkillData[i]['title'],
-                        value: viewmodel.motionSkillData[i]['value'],
-                        color: viewmodel.motionSkillData[i]['color'],
-                      ),
-                    );
-                  },
-                ),
-              ),
-            ],
-          )
-        ],
-      ),
+            ),
+          ],
+        )
+      ],
     );
   }
 
@@ -296,7 +294,7 @@ class SkillsBody extends StatelessWidget {
                 //height: 500,
                 width: MediaQuery.of(context).size.width,
                 color: Colors.black,
-                padding: EdgeInsets.all(20),
+                padding: EdgeInsets.all(10),
                 child: ListView.builder(
                   shrinkWrap: true,
                   itemCount: viewmodel.devSkillData.length,
@@ -315,13 +313,19 @@ class SkillsBody extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 15,
+                height: 10,
+              ),
+              Divider(
+                color: Theme.of(context).colorScheme.secondary.withOpacity(0.3),
+              ),
+              SizedBox(
+                height: 10,
               ),
               Container(
                 //height: 500,
                 width: MediaQuery.of(context).size.width,
                 color: Colors.black,
-                padding: EdgeInsets.all(20),
+                padding: EdgeInsets.all(10),
                 child: ListView.builder(
                   shrinkWrap: true,
                   itemCount: viewmodel.motionSkillData.length,
@@ -371,7 +375,7 @@ class SkillsBody extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           child: FAProgressBar(
             currentValue: (value! * 100),
-            animatedDuration: const Duration(milliseconds: 500),
+            animatedDuration: const Duration(milliseconds: 700),
             progressColor: color,
             backgroundColor: Colors.grey.withOpacity(0.3),
           ),
