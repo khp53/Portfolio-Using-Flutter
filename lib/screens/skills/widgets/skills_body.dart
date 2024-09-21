@@ -252,6 +252,7 @@ class SkillsBody extends StatelessWidget {
                                 viewmodel.experienceData[i]['designation'],
                                 style: _theme.textTheme.titleMedium!.copyWith(
                                   fontSize: 18,
+                                  fontWeight: FontWeight.w600,
                                   color: Colors.white.withOpacity(0.9),
                                 ),
                               ),
@@ -260,7 +261,10 @@ class SkillsBody extends StatelessWidget {
                               ),
                               Text(
                                 viewmodel.experienceData[i]['time'],
-                                style: _theme.textTheme.titleMedium,
+                                style: _theme.textTheme.titleMedium!.copyWith(
+                                  fontSize: 16,
+                                  color: Colors.white.withOpacity(0.9),
+                                ),
                               ),
                             ],
                           ),

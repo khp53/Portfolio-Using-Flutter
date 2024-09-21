@@ -4,70 +4,72 @@ import 'package:portfolio/screens/viewmodel.dart';
 class SkillsViewmodel extends Viewmodel {
   final List experienceData = [
     {
+      'title': 'NutraForge Technologies Inc.',
+      'designation': 'Full Stack Developer (Volunteer)',
+      'time': 'August 2024 - Present / St. John\'s, NL / Remote',
+    },
+    {
       'title': 'Amharc Tech',
-      'designation': 'Lead Mobile Application Developer',
+      'designation': 'Lead Mobile Application Developer (Part-time)',
       'time': 'May 2023 - Present / Dublin, Ireland / Remote',
-      'description':
-          '- Designing and editing videos for Learnio ApS\n- Creating Software Engineering and App Development Course\n- Created After Effects and Premiere Pro Course',
     },
     {
       'title': 'Learnio ApS',
-      'designation': 'App Dev. Mentor & Formar Video Editor',
-      'time': 'Oct 2020 - Present / Copenhagen V., Denmark / Remote',
-      'description':
-          '- Designing and editing videos for Learnio ApS\n- Creating Software Engineering and App Development Course\n- Created After Effects and Premiere Pro Course',
+      'designation': 'IT Mentor & Video Editor',
+      'time': 'Oct 2020 - Sept 2023 / Copenhagen V., Denmark / Remote',
     },
     {
       'title': 'Turtle Venture Studios',
       'designation': 'Lead Mobile Application Developer',
       'time': 'July 2022 - April 2023 / Dhaka, Bangladesh',
-      'description':
-          '- Designing and editing videos for Learnio ApS\n- Creating Software Engineering and App Development Course\n- Created After Effects and Premiere Pro Course',
     },
     {
       'title': 'Robust Research & Development Ltd.',
-      'designation': 'Jr. Mobile Application Developer',
+      'designation': 'Jr. Software Engineer',
       'time': 'August 2021 - June 2022 / Dhaka, Bangladesh',
-      'description':
-          '- Worked on a cross-platform project called Sure Care.\n' +
-              '- Worked on an ERP solution from the ground up.\n' +
-              '- Amar Bangabandhu app deployed it to App Store.\n' +
-              '- Worked on the architecture of a password manager app.'
     },
     {
       'title': 'Department of OSHE, Universiti Teknologi Malaysia',
       'designation': 'Software Engineer',
       'time': 'November 2020 - September 2021 / Johor, Malaysia',
-      'description': '- Developed UTM COVID-19 Contact Tracing Application\n' +
-          '  (UTM CCTA), a contact tracing application as part of my\n' +
-          '  final year project.\n' +
-          '- Architected and Completed system documentation\n' +
-          '  including SRS, SDD, STD, UI design.\n' +
-          '- Technologies Used: Flutter, Firestore, FCM, Cloud Functions,\n' +
-          '  BLE, Nearby API, Layered Architecture, RUP Methodology.',
     },
     {
       'title': 'AIESEC In Malaysia, Johor Bahru',
-      'designation': 'Senior Marketing Executive (Volunteer)',
+      'designation': 'Senior Marketing Executive',
       'time': 'Feb 2020 - Feb 2021 / Johor, Malaysia',
-      'description': '- Motion design.\n' +
-          '- Poster design.\n' +
-          '- Cinemagraph.\n' +
-          '- Content creation.\n' +
-          '- Event management.',
     },
   ];
 
   final List devSkillData = [
     {
-      'title': 'Flutter',
+      'title': 'Dart (Flutter)',
       'value': 1,
       'color': Color(0xff18EBFC),
     },
     {
-      'title': 'OOP',
-      'value': 0.9,
+      'title': 'Swift (iOS)',
+      'value': 0.7,
+      'color': Color(0xff3D71D4),
+    },
+    {
+      'title': 'Python (ML/AI)',
+      'value': 0.7,
       'color': Color(0xff00EDBF),
+    },
+    {
+      'title': 'Next JS',
+      'value': 0.8,
+      'color': Color.fromARGB(255, 65, 10, 229),
+    },
+    {
+      'title': 'Node JS',
+      'value': 0.8,
+      'color': Color.fromARGB(255, 229, 178, 10),
+    },
+    {
+      'title': 'CSS',
+      'value': 0.8,
+      'color': Color(0xff18EBFC),
     },
     {
       'title': 'Parse Server',
@@ -78,26 +80,6 @@ class SkillsViewmodel extends Viewmodel {
       'title': 'Firebase',
       'value': 0.9,
       'color': Color(0xffE5DC0A),
-    },
-    {
-      'title': 'JSON',
-      'value': 0.9,
-      'color': Color(0xff3D71D4),
-    },
-    {
-      'title': 'REST Api',
-      'value': 1,
-      'color': Color(0xffE5DC0A),
-    },
-    {
-      'title': 'CSS',
-      'value': 1,
-      'color': Color(0xff18EBFC),
-    },
-    {
-      'title': 'JavaScript',
-      'value': 0.8,
-      'color': Color.fromARGB(255, 229, 178, 10),
     },
     {
       'title': 'MySQL',
