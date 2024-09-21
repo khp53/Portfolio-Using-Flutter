@@ -343,6 +343,114 @@ class SkillsBody extends StatelessWidget {
                   },
                 ),
               ),
+              SizedBox(
+                height: 20,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    "Contests and Hackathons",
+                    style: _theme.textTheme.displaySmall,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: viewmodel.contestAndHackathon.length,
+                      itemBuilder: (context, i) {
+                        return Padding(
+                          padding: const EdgeInsets.only(bottom: 20),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.star,
+                                    color: Colors.yellow,
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Text(
+                                    viewmodel.contestAndHackathon[i]['title'],
+                                    style:
+                                        _theme.textTheme.titleMedium!.copyWith(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.white.withOpacity(0.9),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.calendar_today,
+                                    color: Colors.transparent,
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Expanded(
+                                    child: Text(
+                                      viewmodel.contestAndHackathon[i]
+                                          ['organizer'],
+                                      style: _theme.textTheme.titleMedium!
+                                          .copyWith(
+                                        fontSize: 16,
+                                        color: Colors.white.withOpacity(0.9),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              viewmodel.contestAndHackathon[i]['award'] == ''
+                                  ? Container()
+                                  : SizedBox(
+                                      height: 5,
+                                    ),
+                              viewmodel.contestAndHackathon[i]['award'] == ''
+                                  ? Container()
+                                  : Row(
+                                      children: [
+                                        Icon(
+                                          Icons.emoji_events,
+                                          color:
+                                              Color.fromARGB(255, 255, 190, 59),
+                                        ),
+                                        SizedBox(
+                                          width: 10,
+                                        ),
+                                        Text(
+                                          viewmodel.contestAndHackathon[i]
+                                              ['award'],
+                                          style: _theme.textTheme.titleMedium!
+                                              .copyWith(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
+                                            color:
+                                                Colors.white.withOpacity(0.9),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                            ],
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         )

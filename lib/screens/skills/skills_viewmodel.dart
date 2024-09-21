@@ -40,6 +40,29 @@ class SkillsViewmodel extends Viewmodel {
     },
   ];
 
+  final List contestAndHackathon = [
+    {
+      'title': 'Capture The Flag (CTF)',
+      'organizer': 'BSides St. John\'s and AWS',
+      'award': 'Fourth Place',
+    },
+    {
+      'title': 'Amazon Robotics Hackathon',
+      'organizer': 'AR Day at MUN',
+      'award': '',
+    },
+    {
+      'title': 'Do It Hackathon',
+      'organizer': 'Sponsored by Spellbook',
+      'award': 'Reached final round',
+    },
+    {
+      'title': 'BMO Apex Start-up Challenge',
+      'organizer': 'BMO Financial Group and University of New Brunswick',
+      'award': 'Got into top 10 from 40+ teams from Canada',
+    },
+  ];
+
   final List devSkillData = [
     {
       'title': 'Dart (Flutter)',
