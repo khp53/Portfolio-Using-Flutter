@@ -21,22 +21,30 @@ class _CustomButtomState extends State<CustomButtom> {
   Color? colors;
   bool _motionHovering = false;
 
+  void _onHover(bool isHovering) {
+    setState(() {
+      _motionHovering = isHovering;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 70,
-      child: OutlinedButton(
-        onHover: (value) {
-          _motionHovering = !_motionHovering;
-          colors = widget.color;
-          setState(() {});
-        },
-        style: OutlinedButton.styleFrom(
-          fixedSize: Size(300, 80),
-          side: BorderSide(width: 3.5, color: widget.color),
-          backgroundColor: _motionHovering ? colors : Colors.transparent,
+    return MouseRegion(
+      opaque: false,
+      onEnter: (_) => _onHover(true),
+      onExit: (_) => _onHover(false),
+      child: AnimatedContainer(
+        duration: Duration(milliseconds: 600),
+        height: 70,
+        decoration: BoxDecoration(
+          color: _motionHovering ? widget.color : Colors.transparent,
+          borderRadius: BorderRadius.circular(50),
+          border: Border.all(
+            color: widget.color,
+            width: 2,
+          ),
         ),
-        onPressed: widget.onPressed,
+        padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
         child: Text(
           widget.text,
           style: TextStyle(
