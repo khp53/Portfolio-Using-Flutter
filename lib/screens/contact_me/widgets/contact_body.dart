@@ -23,155 +23,131 @@ class ContactBody extends StatelessWidget {
       onInit: () {
         getAboutStuff().then((value) => viewmodel.about = value);
       },
-      child: SingleChildScrollView(
-        child: Container(
-          margin: isMobile(context)
-              ? EdgeInsets.all(15)
-              : EdgeInsets.only(
-                  left: 40,
-                  top: 40,
-                  bottom: 40,
-                ),
-          padding: isMobile(context)
-              ? EdgeInsets.all(15)
-              : EdgeInsets.only(
-                  left: 40,
-                  top: 40,
-                  bottom: 40,
-                ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              isMobile(context)
-                  ? _columnLayout(_theme, context, parser)
-                  : _rowLayout(_theme, context, parser),
-            ],
-          ),
-        ),
+      child: Container(
+        // margin: isMobile(context)
+        //     ? EdgeInsets.all(15)
+        //     : EdgeInsets.only(
+        //         left: 40,
+        //         top: 40,
+        //         bottom: 40,
+        //       ),
+        // padding: isMobile(context)
+        //     ? EdgeInsets.all(15)
+        //     : EdgeInsets.only(
+        //         left: 40,
+        //         top: 40,
+        //         bottom: 40,
+        //       ),
+        child: isMobile(context)
+            ? _columnLayout(_theme, context, parser)
+            : _rowLayout(_theme, context, parser),
       ),
     );
   }
 
   Widget _columnLayout(ThemeData _theme, context, parser) {
-    return Container(
-      child: Column(
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                parser.emojify("Contact Me :mailbox_with_mail:"),
-                style: _theme.textTheme.displayMedium,
-              ),
-              Text(
-                "Send a Message",
-                style: _theme.textTheme.displayLarge,
-              ),
-              SizedBox(height: 10),
-              Text(
-                "Interested in working together? " +
-                    "Feel free to contact me.\n\n" +
-                    "St. John's, NL Canada\n" +
-                    "karimulhasan1998@gmail.com",
-                style: _theme.textTheme.bodyLarge!
-                    .copyWith(fontSize: 20, height: 1.5),
-              ),
-              SizedBox(
-                height: 35,
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                child: customField(
-                  _theme,
-                  "Name",
-                  (value) {
-                    viewmodel.name = value;
-                  },
-                  1,
-                  //TextInputAction.next,
+    return SingleChildScrollView(
+      child: Container(
+        margin: EdgeInsets.all(15),
+        padding: EdgeInsets.all(15),
+        child: Column(
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  parser.emojify("Contact Me :mailbox_with_mail:"),
+                  style: _theme.textTheme.displayMedium,
                 ),
-              ),
-              SizedBox(
-                height: 25,
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                child: customField(
-                  _theme,
-                  "Email",
-                  (value) {
-                    viewmodel.email = value;
-                  },
-                  1,
-                  //TextInputAction.next,
+                Text(
+                  "Send a Message",
+                  style: _theme.textTheme.displayLarge,
                 ),
-              ),
-              SizedBox(
-                height: 25,
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                child: customField(
-                  _theme,
-                  "Subject",
-                  (value) {
-                    viewmodel.subject = value;
-                  },
-                  1,
-                  //TextInputAction.next,
+                SizedBox(height: 10),
+                Text(
+                  "Interested in working together? " +
+                      "Feel free to contact me.\n\n" +
+                      "St. John's, NL Canada\n" +
+                      "karimulhasan1998@gmail.com",
+                  style: _theme.textTheme.bodyLarge!
+                      .copyWith(fontSize: 20, height: 1.5),
                 ),
-              ),
-              SizedBox(
-                height: 25,
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                child: customField(
-                  _theme,
-                  "Message",
-                  (value) {
-                    viewmodel.message = value;
-                  },
-                  5,
-                  //TextInputAction.done,
+                SizedBox(
+                  height: 35,
                 ),
-              ),
-              SizedBox(
-                height: 25,
-              ),
-              viewmodel.isLoading == false
-                  ? CustomButtom(
-                      onPressed: () async {
-                        if (viewmodel.name.isEmpty ||
-                            viewmodel.email.isEmpty ||
-                            viewmodel.subject.isEmpty ||
-                            viewmodel.message.isEmpty) {
-                          viewmodel.isLoading = false;
-                          showDialog(
-                            context: context,
-                            builder: (context) => AlertDialog(
-                              title: Text("Error!"),
-                              content: Text("Please fill all the fields!"),
-                              actions: [
-                                CustomButtom(
-                                  onPressed: () => Navigator.pop(context),
-                                  text: "Ok",
-                                  color: _theme.colorScheme.primary,
-                                  tColor: _theme.colorScheme.primary,
-                                ),
-                              ],
-                            ),
-                          );
-                        } else {
-                          viewmodel.isLoading = true;
-                          var res = await viewmodel.sendMessage();
-                          if (res.success) {
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  child: customField(
+                    _theme,
+                    "Name",
+                    (value) {
+                      viewmodel.name = value;
+                    },
+                    1,
+                    //TextInputAction.next,
+                  ),
+                ),
+                SizedBox(
+                  height: 25,
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  child: customField(
+                    _theme,
+                    "Email",
+                    (value) {
+                      viewmodel.email = value;
+                    },
+                    1,
+                    //TextInputAction.next,
+                  ),
+                ),
+                SizedBox(
+                  height: 25,
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  child: customField(
+                    _theme,
+                    "Subject",
+                    (value) {
+                      viewmodel.subject = value;
+                    },
+                    1,
+                    //TextInputAction.next,
+                  ),
+                ),
+                SizedBox(
+                  height: 25,
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  child: customField(
+                    _theme,
+                    "Message",
+                    (value) {
+                      viewmodel.message = value;
+                    },
+                    5,
+                    //TextInputAction.done,
+                  ),
+                ),
+                SizedBox(
+                  height: 25,
+                ),
+                viewmodel.isLoading == false
+                    ? CustomButtom(
+                        onPressed: () async {
+                          if (viewmodel.name.isEmpty ||
+                              viewmodel.email.isEmpty ||
+                              viewmodel.subject.isEmpty ||
+                              viewmodel.message.isEmpty) {
                             viewmodel.isLoading = false;
                             showDialog(
                               context: context,
                               builder: (context) => AlertDialog(
-                                title: Text("Success!"),
-                                content: Text("Message sent successfully!"),
+                                title: Text("Error!"),
+                                content: Text("Please fill all the fields!"),
                                 actions: [
                                   CustomButtom(
                                     onPressed: () => Navigator.pop(context),
@@ -182,165 +158,16 @@ class ContactBody extends StatelessWidget {
                                 ],
                               ),
                             );
-                          }
-                        }
-                      },
-                      text: "Send Message!",
-                      color: _theme.colorScheme.secondary,
-                      tColor: _theme.colorScheme.secondary,
-                    )
-                  : Center(
-                      child: CircularProgressIndicator(),
-                    ),
-            ],
-          ),
-
-          //-----
-          SizedBox(
-            height: 40,
-          ),
-          Container(
-            //height: 1000,
-            width: double.infinity,
-            child: viewmodel.about != null
-                ? Image(
-                    height: 800,
-                    image: CachedNetworkImageProvider(
-                        viewmodel.about!.location.url!),
-                    fit: BoxFit.cover,
-                  )
-                : Center(
-                    child: Column(
-                      children: [
-                        CircularProgressIndicator(),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          "Please wait...",
-                          style: _theme.textTheme.bodyLarge,
-                        ),
-                      ],
-                    ),
-                  ),
-          ),
-          SizedBox(
-            height: 50,
-          ),
-          Center(
-            child: Text(
-              "Note: This whole website was created with only Flutter!",
-              style: _theme.textTheme.bodyLarge!.copyWith(fontSize: 15),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _rowLayout(ThemeData _theme, BuildContext context, parser) {
-    return Column(
-      children: [
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    parser.emojify("Contact Me :mailbox_with_mail:"),
-                    style: _theme.textTheme.displayMedium,
-                  ),
-                  Text(
-                    "Send a Message",
-                    style: _theme.textTheme.displayLarge,
-                  ),
-                  SizedBox(height: 10),
-                  Text(
-                    "Interested in working together? " +
-                        "Feel free to contact me.\n\n" +
-                        "St. John's, NL, Canada\n" +
-                        "karimulhasan1998@gmail.com",
-                    style: _theme.textTheme.bodyLarge!
-                        .copyWith(fontSize: 20, height: 1.5),
-                  ),
-                  SizedBox(
-                    height: 35,
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    child: customField(
-                      _theme,
-                      "Name",
-                      (value) {
-                        viewmodel.name = value;
-                      },
-                      1,
-                      //TextInputAction.next,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    child: customField(
-                      _theme,
-                      "Email",
-                      (value) {
-                        viewmodel.email = value;
-                      },
-                      1,
-                      //TextInputAction.next,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    child: customField(
-                      _theme,
-                      "Subject",
-                      (value) {
-                        viewmodel.subject = value;
-                      },
-                      1,
-                      //TextInputAction.next,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    child: customField(
-                      _theme,
-                      "Message",
-                      (value) {
-                        viewmodel.message = value;
-                      },
-                      5,
-                      //TextInputAction.done,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  viewmodel.isLoading == false
-                      ? CustomButtom(
-                          onPressed: () async {
-                            if (viewmodel.name.isEmpty ||
-                                viewmodel.email.isEmpty ||
-                                viewmodel.subject.isEmpty ||
-                                viewmodel.message.isEmpty) {
+                          } else {
+                            viewmodel.isLoading = true;
+                            var res = await viewmodel.sendMessage();
+                            if (res.success) {
                               viewmodel.isLoading = false;
                               showDialog(
                                 context: context,
                                 builder: (context) => AlertDialog(
-                                  title: Text("Error!"),
-                                  content: Text("Please fill all the fields!"),
+                                  title: Text("Success!"),
+                                  content: Text("Message sent successfully!"),
                                   actions: [
                                     CustomButtom(
                                       onPressed: () => Navigator.pop(context),
@@ -351,95 +178,303 @@ class ContactBody extends StatelessWidget {
                                   ],
                                 ),
                               );
-                            } else {
-                              viewmodel.isLoading = true;
-                              var res = await viewmodel.sendMessage();
-                              if (res.success) {
-                                viewmodel.isLoading = false;
-                                showDialog(
-                                  context: context,
-                                  builder: (context) => AlertDialog(
-                                    title: Text("Success!"),
-                                    content: Text("Message sent successfully!"),
-                                    actions: [
-                                      CustomButtom(
-                                        onPressed: () => Navigator.pop(context),
-                                        text: "Ok",
-                                        color: _theme.colorScheme.primary,
-                                        tColor: _theme.colorScheme.primary,
-                                      ),
-                                    ],
-                                  ),
-                                );
-                              }
                             }
-                          },
-                          text: "Send Message!",
-                          color: _theme.colorScheme.secondary,
-                          tColor: _theme.colorScheme.secondary,
-                        )
-                      : Center(
-                          child: CircularProgressIndicator(),
-                        ),
-                ],
-              ),
+                          }
+                        },
+                        text: "Send Message!",
+                        color: _theme.colorScheme.secondary,
+                        tColor: _theme.colorScheme.secondary,
+                      )
+                    : Center(
+                        child: CircularProgressIndicator(),
+                      ),
+              ],
             ),
 
             //-----
             SizedBox(
-              width: 30,
+              height: 40,
             ),
-            Expanded(
-              child: Container(
-                //height: 1000,
-                width: double.infinity,
-                child: viewmodel.about != null
-                    ? Image(
-                        height: 800,
-                        image: CachedNetworkImageProvider(
-                            viewmodel.about!.location.url!),
-                        fit: BoxFit.cover,
-                      )
-                    : Center(
-                        child: Column(
-                          children: [
-                            CircularProgressIndicator(),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              "Please wait...",
-                              style: _theme.textTheme.bodyLarge,
-                            ),
-                          ],
-                        ),
+            Container(
+              //height: 1000,
+              width: double.infinity,
+              child: viewmodel.about != null
+                  ? Image(
+                      height: 800,
+                      image: CachedNetworkImageProvider(
+                          viewmodel.about!.location.url!),
+                      fit: BoxFit.cover,
+                    )
+                  : Center(
+                      child: Column(
+                        children: [
+                          CircularProgressIndicator(),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "Please wait...",
+                            style: _theme.textTheme.bodyLarge,
+                          ),
+                        ],
                       ),
+                    ),
+            ),
+            SizedBox(
+              height: 50,
+            ),
+            Center(
+              child: Text(
+                "© 2024 MD Karimul Hasan. All rights reserved.",
+                style: _theme.textTheme.bodyLarge!.copyWith(fontSize: 12),
               ),
             ),
           ],
         ),
-        SizedBox(
-          height: 80,
+      ),
+    );
+  }
+
+  Widget _rowLayout(ThemeData _theme, BuildContext context, parser) {
+    return SingleChildScrollView(
+      child: Container(
+        margin: EdgeInsets.only(
+          left: 40,
+          top: 40,
+          bottom: 10,
         ),
-        Center(
-          child: Text(
-            "Note: This whole website was created with Flutter Web and Parse Server!",
-            style: _theme.textTheme.bodyLarge!.copyWith(
-              fontSize: 15,
-              color: Colors.yellow,
+        padding: EdgeInsets.only(
+          left: 40,
+          top: 40,
+          //bottom: 40,
+        ),
+        child: Column(
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        parser.emojify("Contact Me :mailbox_with_mail:"),
+                        style: _theme.textTheme.displayMedium,
+                      ),
+                      Text(
+                        "Send a Message",
+                        style: _theme.textTheme.displayLarge,
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        "Interested in working together? " +
+                            "Feel free to contact me.\n\n" +
+                            "St. John's, NL, Canada\n" +
+                            "karimulhasan1998@gmail.com",
+                        style: _theme.textTheme.bodyLarge!
+                            .copyWith(fontSize: 20, height: 1.5),
+                      ),
+                      SizedBox(
+                        height: 35,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width,
+                        child: customField(
+                          _theme,
+                          "Name",
+                          (value) {
+                            viewmodel.name = value;
+                          },
+                          1,
+                          //TextInputAction.next,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 25,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width,
+                        child: customField(
+                          _theme,
+                          "Email",
+                          (value) {
+                            viewmodel.email = value;
+                          },
+                          1,
+                          //TextInputAction.next,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 25,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width,
+                        child: customField(
+                          _theme,
+                          "Subject",
+                          (value) {
+                            viewmodel.subject = value;
+                          },
+                          1,
+                          //TextInputAction.next,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 25,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width,
+                        child: customField(
+                          _theme,
+                          "Message",
+                          (value) {
+                            viewmodel.message = value;
+                          },
+                          5,
+                          //TextInputAction.done,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 25,
+                      ),
+                      viewmodel.isLoading == false
+                          ? CustomButtom(
+                              onPressed: () async {
+                                if (viewmodel.name.isEmpty ||
+                                    viewmodel.email.isEmpty ||
+                                    viewmodel.subject.isEmpty ||
+                                    viewmodel.message.isEmpty) {
+                                  viewmodel.isLoading = false;
+                                  showDialog(
+                                    context: context,
+                                    builder: (context) => AlertDialog(
+                                      title: Text(
+                                        "Error!",
+                                        style: _theme.textTheme.bodyMedium!
+                                            .copyWith(
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      content: Text(
+                                        "Please fill all the fields!",
+                                        style: _theme.textTheme.bodyMedium,
+                                      ),
+                                      actions: [
+                                        CustomButtom(
+                                          onPressed: () =>
+                                              Navigator.pop(context),
+                                          text: "Ok",
+                                          color: _theme.colorScheme.primary,
+                                          tColor: _theme.colorScheme.primary,
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                } else {
+                                  viewmodel.isLoading = true;
+                                  var res = await viewmodel.sendMessage();
+                                  if (res.success) {
+                                    viewmodel.isLoading = false;
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) => AlertDialog(
+                                        title: Text(
+                                          "Success!",
+                                          style: _theme.textTheme.bodyMedium!
+                                              .copyWith(
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        content: Text(
+                                          "Message sent successfully!",
+                                          style: _theme.textTheme.bodyMedium,
+                                        ),
+                                        actions: [
+                                          CustomButtom(
+                                            onPressed: () =>
+                                                Navigator.pop(context),
+                                            text: "Ok",
+                                            color: _theme.colorScheme.primary,
+                                            tColor: _theme.colorScheme.primary,
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  }
+                                }
+                              },
+                              text: "Send Message!",
+                              color: _theme.colorScheme.secondary,
+                              tColor: _theme.colorScheme.secondary,
+                            )
+                          : CustomButtom(
+                              onPressed: () {},
+                              text: "",
+                              isLoading: true,
+                              color: _theme.colorScheme.secondary,
+                              tColor: _theme.colorScheme.onSecondary,
+                            )
+                    ],
+                  ),
+                ),
+
+                //-----
+                SizedBox(
+                  width: 30,
+                ),
+                Expanded(
+                  child: Container(
+                    //height: 1000,
+                    width: double.infinity,
+                    child: viewmodel.about != null
+                        ? Image(
+                            height: 800,
+                            image: CachedNetworkImageProvider(
+                                viewmodel.about!.location.url!),
+                            fit: BoxFit.cover,
+                          )
+                        : Center(
+                            child: Column(
+                              children: [
+                                CircularProgressIndicator(),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Text(
+                                  "Please wait...",
+                                  style: _theme.textTheme.bodyLarge,
+                                ),
+                              ],
+                            ),
+                          ),
+                  ),
+                ),
+              ],
             ),
-          ),
+            // SizedBox(
+            //   height: 80,
+            // ),
+            // Center(
+            //   child: Text(
+            //     "Note: This whole website was created with Flutter Web and Parse Server!",
+            //     style: _theme.textTheme.bodyLarge!.copyWith(
+            //       fontSize: 15,
+            //       color: Colors.yellow,
+            //     ),
+            //   ),
+            // ),
+            SizedBox(
+              height: 50,
+            ),
+            Center(
+              child: Text(
+                "© 2024 MD Karimul Hasan. All rights reserved.",
+                style: _theme.textTheme.bodyLarge!.copyWith(fontSize: 12),
+              ),
+            ),
+          ],
         ),
-        SizedBox(
-          height: 40,
-        ),
-        Center(
-          child: Text(
-            "© 2024 MD Karimul Hasan. All rights reserved.",
-            style: _theme.textTheme.bodyLarge!.copyWith(fontSize: 12),
-          ),
-        ),
-      ],
+      ),
     );
   }
 
