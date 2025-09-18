@@ -13,7 +13,7 @@ class PortfolioImageViewer extends StatefulWidget {
 }
 
 class _PortfolioImageViewerState extends State<PortfolioImageViewer> {
-  CarouselController buttonCarouselController = CarouselController();
+  final CarouselSliderController _controller = CarouselSliderController();
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class _PortfolioImageViewerState extends State<PortfolioImageViewer> {
           ),
           Spacer(),
           CarouselSlider(
-            carouselController: buttonCarouselController,
+            carouselController: _controller,
             items: [
               widget.portfolioDev.screen1 != null
                   ? Padding(
@@ -159,7 +159,7 @@ class _PortfolioImageViewerState extends State<PortfolioImageViewer> {
               children: [
                 MaterialButton(
                   color: Theme.of(context).primaryColor,
-                  onPressed: () => buttonCarouselController.nextPage(
+                  onPressed: () => _controller.nextPage(
                     duration: Duration(milliseconds: 300),
                     curve: Curves.linear,
                   ),
@@ -168,7 +168,7 @@ class _PortfolioImageViewerState extends State<PortfolioImageViewer> {
                 const SizedBox(width: 20),
                 MaterialButton(
                   color: Theme.of(context).primaryColor,
-                  onPressed: () => buttonCarouselController.previousPage(
+                  onPressed: () => _controller.previousPage(
                     duration: Duration(milliseconds: 300),
                     curve: Curves.linear,
                   ),
