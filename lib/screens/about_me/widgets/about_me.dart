@@ -92,18 +92,20 @@ class _AboutMeState extends State<AboutMe> with TickerProviderStateMixin {
                   height: 10,
                 ),
                 _buildEducation(
-                    _theme,
-                    "Master of Science in Computer Science",
-                    "Memorial University of Newfoundland",
-                    "St. John's  NL, Canada"),
+                  _theme,
+                  "Master of Science in Computer Science",
+                  "Memorial University of Newfoundland",
+                  "St. John's  NL, Canada",
+                ),
                 SizedBox(
                   height: 10,
                 ),
                 _buildEducation(
-                    _theme,
-                    "Bachelor of Computer Science (Software Engineering)",
-                    "Universiti Teknologi Malaysia",
-                    "Johor, Malaysia"),
+                  _theme,
+                  "Bachelor of Computer Science (Software Engineering)",
+                  "Universiti Teknologi Malaysia",
+                  "Johor, Malaysia",
+                ),
                 SizedBox(
                   height: 35,
                 ),
@@ -111,7 +113,6 @@ class _AboutMeState extends State<AboutMe> with TickerProviderStateMixin {
                   child: Text(
                     widget.viewmodel!.aboutDescription,
                     style: _theme.textTheme.bodyLarge!.copyWith(fontSize: 25),
-                    //textAlign: TextAlign.justify,
                   ),
                 ),
               ],
@@ -167,7 +168,6 @@ class _AboutMeState extends State<AboutMe> with TickerProviderStateMixin {
 
   Column columnLayout(ThemeData _theme, BuildContext context, parser) {
     return Column(
-      //crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
           height: MediaQuery.of(context).size.height / 2,
@@ -226,18 +226,20 @@ class _AboutMeState extends State<AboutMe> with TickerProviderStateMixin {
                 style: _theme.textTheme.displayLarge,
               ),
               _buildEducation(
-                  _theme,
-                  "Master of Science in Computer Science",
-                  "Memorial University of Newfoundland",
-                  "St. John's  NL, Canada"),
+                _theme,
+                "Master of Science in Computer Science",
+                "Memorial University of Newfoundland",
+                "St. John's  NL, Canada",
+              ),
               SizedBox(
                 height: 10,
               ),
               _buildEducation(
-                  _theme,
-                  "Bachelor of Computer Science (Software Engineering)",
-                  "Universiti Teknologi Malaysia",
-                  "Johor, Malaysia"),
+                _theme,
+                "Bachelor of Computer Science (Software Engineering)",
+                "Universiti Teknologi Malaysia",
+                "Johor, Malaysia",
+              ),
               SizedBox(
                 height: 35,
               ),
@@ -245,7 +247,6 @@ class _AboutMeState extends State<AboutMe> with TickerProviderStateMixin {
                 child: Text(
                   widget.viewmodel!.aboutDescription,
                   style: _theme.textTheme.bodyLarge!.copyWith(fontSize: 25),
-                  //textAlign: TextAlign.justify,
                 ),
               ),
             ],

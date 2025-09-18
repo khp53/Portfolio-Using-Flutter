@@ -11,7 +11,7 @@ class AboutMeViewmodel extends Viewmodel {
   About? _about;
 
   String get aboutDescription =>
-      '''🚀 Transforming ideas into impactful digital experiences! As a dedicated Full Stack Developer with nearly four years of industry experience, I specialize in crafting high-performance software solutions that drive business success across multiple industries. Let's connect to explore how we can turn your next project into a success story!
+      '''🚀 Transforming ideas into impactful digital experiences! As a dedicated Full Stack Developer with nearly half a decade of industry experience, I specialize in crafting high-performance software solutions that drive business success across multiple industries. Let's connect to explore how we can turn your next project into a success story!
 
 👨‍💻 My journey in software development includes every stage of the software development lifecycle; from conceptualization and design through coding, testing, and deployment. This comprehensive expertise allows me to deliver applications that meet and exceed client expectations.
 
