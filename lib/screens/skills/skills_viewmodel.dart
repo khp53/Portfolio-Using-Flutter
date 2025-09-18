@@ -5,8 +5,8 @@ class SkillsViewmodel extends Viewmodel {
   final List experienceData = [
     {
       'title': 'NutraForge Technologies Inc.',
-      'designation': 'Full Stack Developer (Volunteer)',
-      'time': 'August 2024 - Present / St. John\'s, NL / Remote',
+      'designation': 'Lead Software Developer',
+      'time': 'January 2025 - Present / St. John\'s, NL, Canada',
     },
     {
       'title': 'Amharc Tech',
@@ -42,6 +42,16 @@ class SkillsViewmodel extends Viewmodel {
 
   final List contestAndHackathon = [
     {
+      'title': 'NL Eats Food Innovation Challenge, 2024',
+      'organizer': 'NL Eats',
+      'award': 'Winner',
+    },
+    {
+      'title': 'IEEEXtreme 18.0',
+      'organizer': 'IEEE',
+      'award': 'Second Place of all teams from Canada',
+    },
+    {
       'title': 'Capture The Flag (CTF)',
       'organizer': 'BSides St. John\'s and AWS',
       'award': 'Fourth Place',
@@ -52,9 +62,9 @@ class SkillsViewmodel extends Viewmodel {
       'award': '',
     },
     {
-      'title': 'Do It Hackathon',
-      'organizer': 'Sponsored by Spellbook',
-      'award': 'Reached final round',
+      'title': 'Do It Hackathon, 2024, 2025',
+      'organizer': 'Bunch of Amazing Devs',
+      'award': 'Reached final round, 3rd Place',
     },
     {
       'title': 'BMO Apex Start-up Challenge',
@@ -75,43 +85,43 @@ class SkillsViewmodel extends Viewmodel {
       'color': Color(0xff3D71D4),
     },
     {
+      'title': 'Kotlin (Android)',
+      'value': 0.4,
+      'color': Color(0xffE5DC0A),
+    },
+    {
+      'title': 'Java (Android)',
+      'value': 0.5,
+      'color': Color(0xffE50AAA),
+    },
+    {
       'title': 'Python (ML/AI)',
       'value': 0.7,
       'color': Color(0xff00EDBF),
     },
     {
-      'title': 'Next JS',
+      'title': 'TypeScript',
       'value': 0.8,
       'color': Color.fromARGB(255, 65, 10, 229),
     },
     {
-      'title': 'Node JS',
-      'value': 0.8,
-      'color': Color.fromARGB(255, 229, 178, 10),
+      'title': 'C++',
+      'value': 0.4,
+      'color': Color.fromARGB(255, 32, 229, 10),
     },
     {
-      'title': 'CSS',
-      'value': 0.8,
-      'color': Color(0xff18EBFC),
-    },
-    {
-      'title': 'Parse Server',
-      'value': 0.9,
-      'color': Color(0xff3D71D4),
-    },
-    {
-      'title': 'Firebase',
-      'value': 0.9,
-      'color': Color(0xffE5DC0A),
-    },
-    {
-      'title': 'MySQL',
+      'title': 'SQL',
       'value': 0.6,
       'color': Color(0xffE50AAA),
     },
   ];
 
   final List motionSkillData = [
+    {
+      'title': 'Figma',
+      'value': 1,
+      'color': Color.fromARGB(255, 142, 24, 252),
+    },
     {
       'title': 'DaVinci Resolve',
       'value': 0.7,
@@ -136,11 +146,6 @@ class SkillsViewmodel extends Viewmodel {
       'title': 'Adobe XD',
       'value': 0.9,
       'color': Color(0xff18EBFC),
-    },
-    {
-      'title': 'Figma',
-      'value': 0.8,
-      'color': Color.fromARGB(255, 142, 24, 252),
     },
     {
       'title': 'Adobe Photoshop',
