@@ -1,7 +1,7 @@
 name: portfolio
 description: A personal portfolio of Karimul Hasan made using Flutter!.
-publish_to: 'none'
-version: 2.2.4+10
+publish_to: "none"
+version: 2.2.5+11
 environment:
   sdk: ">=2.18.0 <3.0.0"
 dependencies:
@@ -30,7 +30,6 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 flutter_native_splash:
-
   # This package generates native code to customize Flutter's default white native splash screen
   # with background color and splash image.
   # Customize the parameters below, and run the following command in the terminal:
